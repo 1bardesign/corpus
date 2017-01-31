@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>corpus: tiny compression for browsers and scripts</title>
+	<script type="text/javascript" src="corpus_compress.js"></script>
+	<script type="text/javascript" src="dict.js"></script>
+	<script type="text/javascript">
+		function comp_to_rep(s)
+		{
+			var out = []
+			for (var i = 0; i < s.length; i++)
+			{
+				var b = s.charCodeAt(i)
+				if (b == 0)
+				{
+					out.push("0")
+				}
+				else if(b == 255)
+				{
+					out.push("b")
+					out.push(s.substr(++i))
+				}
+				else if(b == 254)
+				{
+					out.push("st")
+					var count = s.charCodeAt(++i)
+					while(count-- > 0)
+						out.push(s.substr(++i))
+				}
+				else
+				{
+					out.push("d")
+				}
+			}
+			return out.join(" ");
+		}
+
+		function init()
+		{
+			document.getElementById("input")
+				.addEventListener("submit", function (event)
+			{
+				event.preventDefault();
+
+				var form = document.getElementsByName("send")[0];
+				var con = document.getElementById("output");
+
+				var input = form.value;
+				var compressed = compress(input, compression_dict);
+				var decompressed = decompress(compressed, compression_dict);
+				con.innerHTML = [
+					["length:", input.length, input].join(" "),
+					["length:", compressed.length, comp_to_rep(compressed)].join(" "),
+					["length:", decompressed.length, decompressed].join(" "),
+					input == decompressed].join("\n\n")
+
+				form.value = "";
+			});
+		}
+
+		window.onload = init
+	</script>
+	<style type="text/css">
+		body {
+			font-family: monospace;
+			background: grey;
+		}
+		input {
+			width: 800px;
+		}
+		#container {
+			background: white;
+			width: 860px;
+			padding: 30px;
+			margin: auto;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+<form id="input"><input type="textfield" name="send"/></form>
+<pre id="output"></pre>
+</div>
+</body>
+</html>
