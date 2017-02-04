@@ -46,7 +46,7 @@ For JS in HTML:
 <!-- optionally pull in a dictionary -->
 <script src="lib/corpus/default_dicts.js"></script>
 <script>
-	console.log(compress("check out this neat little compressor", english_dict))
+	console.log(compress("check out this neat little compressor", default_dicts.smaz))
 </script>
 ```
 
