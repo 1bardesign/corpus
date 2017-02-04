@@ -53,11 +53,13 @@
 				var compressed = compress(input, compression_dict);
 				var decompressed = decompress(compressed, compression_dict);
 				con.innerHTML = [
-					["<p>", "length:", input.length, input, "</p>"].join(" "),
+					["<p>", "length:", input.length, JSON.stringify(input), "</p>"].join(" "),
 					["<p>", "length:", compressed.length, comp_to_rep(compressed), "</p>"].join(" "),
 					["<p>", JSON.stringify(compressed), "</p>"].join(" "),
-					["<p>", "length:", decompressed.length, decompressed, "</p>"].join(" "),
-					["<p>", (input == decompressed ? "(success!)" : "(failure!)"), "compressed size: "+ Math.round((compressed.length / decompressed.length) * 100)+"%", "</p>"].join(" ")
+					["<p>", (input == decompressed ?
+						"compressed size: "+ Math.round((compressed.length / decompressed.length) * 100)+"%" :
+						"(failed round-trip: "+JSON.stringify(decompressed)+")"),
+					"</p>"].join(" ")
 					].join("\n\n")
 
 				form.value = "";

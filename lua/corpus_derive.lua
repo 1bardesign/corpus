@@ -24,7 +24,7 @@ local utf8 = require "utf8"
 --but are used as defaults in all other cases
 
 --how many entries to collect (codebook size)
-local entries = 2048
+local entries = 4096
 --how long should the entries be (at maximum)
 local entry_maxlength = 6
 --the gap between each scan level
@@ -43,7 +43,7 @@ local similar_differentlengths = false
 -- this many codepoints; should be big enough to not affect
 -- the statistics much, but small enough that iterating
 -- over a block lots of times isn't crazy expensive
-local block_size = 512
+local block_size = 256
 
 --fill in defaults
 local function fill_in_config(config)
@@ -269,10 +269,14 @@ if standalone then
 	end
 
 	io.write("[")
+	local break_lines = 10
 	for k,v in ipairs(dict) do
 		io.write(json_escape(v))
 		if k < #dict then
 			io.write(",")
+			if k % break_lines == break_lines - 1 then
+				io.write("\n")
+			end
 		end
 	end
 	io.write("]\n")
