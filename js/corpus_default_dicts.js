@@ -1,6 +1,6 @@
 var corpus_dicts = {}
 
-//for simple english (derived then doctored with alnum at start)
+// for simple english (derived then doctored with alnum at start)
 corpus_dicts.english = [
 	// alnum
 	"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
@@ -10,10 +10,10 @@ corpus_dicts.english = [
 	" ", "\t", "\n",
 	"  ", "\t\t", "\n\n",
 	"    ", "\t\t\t\t",
-	//punctuation
+	// punctuation
 	",", ".", ":", "!", "?", "(", ")", ";", "\"", "'", "-", "/",
 	", ", ". ", ": ", "! ", "? ", " (", ") ", "; ", " \"", "\" ", "'s", " - ",
-	//derived
+	// derived
 	"er","ea","ti","th","or","es",
 	"ou","ec","re","ng","la","ta","di","li","pr","co",
 	"ma","pa","fi","st","se","tr","ev","ow","in","de",
@@ -75,14 +75,14 @@ corpus_dicts.english = [
 	"ationa","erform","iscuss","eratio","rofess"
 ]
 
-//for hexadecimal
+// for hexadecimal
 corpus_dicts.hex = [
 	//singles
 	"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f",
 	"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F",
-	//occasional punct/separators
+	// occasional punct/separators
 	" ","-",":",".",
-	//pairs
+	// pairs
 	"00","01","02","03","04","05","06","07","08","09","0a","0b","0c","0d","0e","0f",
 	"00","01","02","03","04","05","06","07","08","09","0A","0B","0C","0D","0E","0F",
 	"10","11","12","13","14","15","16","17","18","19","1a","1b","1c","1d","1e","1f",
@@ -117,7 +117,7 @@ corpus_dicts.hex = [
 	"F0","F1","F2","F3","F4","F5","F6","F7","F8","F9","FA","FB","FC","FD","FE","FF",
 ]
 
-//for json (hand-crafted, good as a base for apis)
+// for json (hand-crafted, good as a base for apis)
 corpus_dicts.json = [
 	// whitespace and indentation
 	" ", "\t", "\n",
@@ -153,7 +153,7 @@ corpus_dicts.json = [
 	"http://", "https://", ".com", ".org", ".net"
 ];
 
-//for javascript source (from pixi and jquery, then hand-crafted)
+// for javascript source (from pixi and jquery, then hand-crafted)
 corpus_dicts.js = [
 	// common letters and short subs (as derived)
 	"e","t","r","a","i","n","s","o","l","u",
