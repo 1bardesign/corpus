@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>corpus: tiny compression for browsers and scripts</title>
 	<script type="text/javascript" src="corpus_compress.js"></script>
-	<script type="text/javascript" src="default_dicts.js"></script>
+	<script type="text/javascript" src="corpus_default_dicts.js"></script>
 	<script type="text/javascript">
 		function comp_to_rep(s)
 		{
@@ -49,6 +49,8 @@
 				var form = document.getElementsByName("send")[0];
 				var con = document.getElementById("output");
 
+				var compression_dict = default_dicts.smaz;
+
 				var input = form.value;
 				var compressed = compress(input, compression_dict);
 				var decompressed = decompress(compressed, compression_dict);
@@ -66,7 +68,7 @@
 			});
 		}
 
-		window.onload = init
+		window.onload = init;
 	</script>
 	<style type="text/css">
 		body {

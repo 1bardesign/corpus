@@ -1,4 +1,4 @@
-
+var default_dicts = {}
 
 //smaz codebook
 /* Copyright (c) 2006-2009, Salvatore Sanfilippo
@@ -27,7 +27,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.*/
 
-var compression_dict = [" ", "the", "e", "t", "a", "of", "o", "and", "i", "n", "s", "e ", "r", " th",
+default_dicts.smaz = [" ", "the", "e", "t", "a", "of", "o", "and", "i", "n", "s", "e ", "r", " th",
 " t", "in", "he", "th", "h", "he ", "to", "\r\n", "l", "s ", "d", " a", "an",
 "er", "c", " o", "d ", "on", " of", "re", "of ", "t ", ", ", "is", "u", "at",
 "   ", "n ", "or", "which", "f", "m", "as", "it", "that", "\n", "was", "en",
