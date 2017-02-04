@@ -2,7 +2,7 @@
 
 Corpus is one part small string compression library, and one part codebook generation script. It is available under the MIT license.
 
-It should not be used for general compression, but with a bit of care can make big wins on small strings.
+It should _not_ be used for general purpose compression, but with a bit of care can make big wins on small strings.
 
 It is currently firmly in the "toy" stage of development, but I'm seeing reasonable ratios for some data, so I'm releasing it for feedback.
 
@@ -13,6 +13,10 @@ I came across [smaz](https://github.com/antirez/smaz/), and wanted to generalise
 I also wanted to make the compressor "text safe" (UTF-8 in, UTF-8 out), which makes working with the results easier and more safe. As a result, many more dictionary entries than smaz can be used.
 
 This is _not_ a rival for [LZString](https://github.com/pieroxy/lz-string), and especially not a rival for `gzip` and friends.
+
+# Demo
+
+You can see a demo (currently using the smaz codebook for simplicity) [here](https://1bardesign.github.io/corpus/)
 
 # Process
 
