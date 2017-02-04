@@ -1,0 +1,806 @@
+
+Lossless compression
+From Wikipedia, the free encyclopedia
+
+Lossless compression is a class of data compression algorithms that allows the original data to be perfectly reconstructed from the compressed data. By contrast, lossy compression permits reconstruction only of an approximation of the original data, though this usually improves compression rates (and therefore reduces file sizes).
+
+Lossless data compression is used in many applications. For example, it is used in the ZIP file format and in the GNU tool gzip. It is also often used as a component within lossy data compression technologies (e.g. lossless mid/side joint stereo preprocessing by the LAME MP3 encoder and other lossy audio encoders).
+
+Lossless compression is used in cases where it is important that the original and the decompressed data be identical, or where deviations from the original data could be deleterious. Typical examples are executable programs, text documents, and source code. Some image file formats, like PNG or GIF, use only lossless compression, while others like TIFF and MNG may use either lossless or lossy methods. Lossless audio formats are most often used for archiving or production purposes, while smaller lossy audio files are typically used on portable players and in other cases where storage space is limited or exact replication of the audio is unnecessary.
+
+Contents
+
+    1 Lossless compression techniques
+        1.1 Multimedia
+        1.2 Historical legal issues
+    2 Lossless compression methods
+        2.1 General purpose
+        2.2 Audio
+        2.3 Graphics
+        2.4 3D Graphics
+        2.5 Video
+        2.6 Cryptography
+        2.7 Genetics
+        2.8 Executables
+    3 Lossless compression benchmarks
+    4 Limitations
+        4.1 Mathematical background
+        4.2 Psychological background
+        4.3 Points of application in real compression theory
+        4.4 The Million Random Number Challenge
+    5 See also
+    6 References
+    7 External links
+
+Lossless compression techniques
+
+Most lossless compression programs do two things in sequence: the first step generates a statistical model for the input data, and the second step uses this model to map input data to bit sequences in such a way that "probable" (e.g. frequently encountered) data will produce shorter output than "improbable" data.
+
+The primary encoding algorithms used to produce bit sequences are Huffman coding (also used by DEFLATE) and arithmetic coding. Arithmetic coding achieves compression rates close to the best possible for a particular statistical model, which is given by the information entropy, whereas Huffman compression is simpler and faster but produces poor results for models that deal with symbol probabilities close to 1.
+
+There are two primary ways of constructing statistical models: in a static model, the data is analyzed and a model is constructed, then this model is stored with the compressed data. This approach is simple and modular, but has the disadvantage that the model itself can be expensive to store, and also that it forces using a single model for all data being compressed, and so performs poorly on files that contain heterogeneous data. Adaptive models dynamically update the model as the data is compressed. Both the encoder and decoder begin with a trivial model, yielding poor compression of initial data, but as they learn more about the data, performance improves. Most popular types of compression used in practice now use adaptive coders.
+
+Lossless compression methods may be categorized according to the type of data they are designed to compress. While, in principle, any general-purpose lossless compression algorithm (general-purpose meaning that they can accept any bitstring) can be used on any type of data, many are unable to achieve significant compression on data that are not of the form for which they were designed to compress. Many of the lossless compression techniques used for text also work reasonably well for indexed images.
+Multimedia
+
+These techniques take advantage of the specific characteristics of images such as the common phenomenon of contiguous 2-D areas of similar tones. Every pixel but the first is replaced by the difference to its left neighbor. This leads to small values having a much higher probability than large values. This is often also applied to sound files, and can compress files that contain mostly low frequencies and low volumes. For images, this step can be repeated by taking the difference to the top pixel, and then in videos, the difference to the pixel in the next frame can be taken.
+
+A hierarchical version of this technique takes neighboring pairs of data points, stores their difference and sum, and on a higher level with lower resolution continues with the sums. This is called discrete wavelet transform. JPEG2000 additionally uses data points from other pairs and multiplication factors to mix them into the difference. These factors must be integers, so that the result is an integer under all circumstances. So the values are increased, increasing file size, but hopefully the distribution of values is more peaked.[citation needed]
+
+The adaptive encoding uses the probabilities from the previous sample in sound encoding, from the left and upper pixel in image encoding, and additionally from the previous frame in video encoding. In the wavelet transformation, the probabilities are also passed through the hierarchy.
+Historical legal issues
+
+Many of these methods are implemented in open-source and proprietary tools, particularly LZW and its variants. Some algorithms are patented in the United States and other countries and their legal usage requires licensing by the patent holder. Because of patents on certain kinds of LZW compression, and in particular licensing practices by patent holder Unisys that many developers considered abusive, some open source proponents encouraged people to avoid using the Graphics Interchange Format (GIF) for compressing still image files in favor of Portable Network Graphics (PNG), which combines the LZ77-based deflate algorithm with a selection of domain-specific prediction filters. However, the patents on LZW expired on June 20, 2003.[1]
+
+Many of the lossless compression techniques used for text also work reasonably well for indexed images, but there are other techniques that do not work for typical text that are useful for some images (particularly simple bitmaps), and other techniques that take advantage of the specific characteristics of images (such as the common phenomenon of contiguous 2-D areas of similar tones, and the fact that color images usually have a preponderance of a limited range of colors out of those representable in the color space).
+
+As mentioned previously, lossless sound compression is a somewhat specialized area. Lossless sound compression algorithms can take advantage of the repeating patterns shown by the wave-like nature of the data – essentially using autoregressive models to predict the "next" value and encoding the (hopefully small) difference between the expected value and the actual data. If the difference between the predicted and the actual data (called the error) tends to be small, then certain difference values (like 0, +1, −1 etc. on sample values) become very frequent, which can be exploited by encoding them in few output bits.
+
+It is sometimes beneficial to compress only the differences between two versions of a file (or, in video compression, of successive images within a sequence). This is called delta encoding (from the Greek letter Δ, which in mathematics, denotes a difference), but the term is typically only used if both versions are meaningful outside compression and decompression. For example, while the process of compressing the error in the above-mentioned lossless audio compression scheme could be described as delta encoding from the approximated sound wave to the original sound wave, the approximated version of the sound wave is not meaningful in any other context.
+Lossless compression methods
+See also: Category:Lossless compression algorithms
+
+By operation of the pigeonhole principle, no lossless compression algorithm can efficiently compress all possible data. For this reason, many different algorithms exist that are designed either with a specific type of input data in mind or with specific assumptions about what kinds of redundancy the uncompressed data are likely to contain.
+
+Some of the most common lossless compression algorithms are listed below.
+General purpose
+
+    Run-length encoding (RLE) – Simple scheme that provides good compression of data containing lots of runs of the same value
+    Huffman coding – Pairs well with other algorithms, used by Unix's pack utility
+    Prediction by partial matching (PPM) – Optimized for compressing plain text
+    bzip2 – Combines Burrows–Wheeler transform with RLE and Huffman coding
+    Lempel-Ziv compression (LZ77 and LZ78) – Dictionary-based algorithm that forms the basis for many other algorithms
+        DEFLATE – Combines Lempel-Ziv compression with Huffman coding, used by ZIP, gzip, and PNG images
+        Lempel–Ziv–Markov chain algorithm (LZMA) – Very high compression ratio, used by 7zip and xz
+        Lempel–Ziv–Oberhumer (LZO) – Designed for compression/decompression speed at the expense of compression ratios
+        Lempel–Ziv–Storer–Szymanski (LZSS) – Used by WinRAR in tandem with Huffman coding
+        Lempel–Ziv–Welch (LZW) – Used by GIF images and Unix's compress utility
+
+Audio
+
+    Apple Lossless (ALAC - Apple Lossless Audio Codec)
+    Adaptive Transform Acoustic Coding (ATRAC)
+    apt-X Lossless
+    Audio Lossless Coding (also known as MPEG-4 ALS)
+    Direct Stream Transfer (DST)
+    Dolby TrueHD
+    DTS-HD Master Audio
+    Free Lossless Audio Codec (FLAC)
+    Meridian Lossless Packing (MLP)
+    Monkey's Audio (Monkey's Audio APE)
+    MPEG-4 SLS (also known as HD-AAC)
+    OptimFROG
+    Original Sound Quality (OSQ)
+    RealPlayer (RealAudio Lossless)
+    Shorten (SHN)
+    TTA (True Audio Lossless)
+    WavPack (WavPack lossless)
+    WMA Lossless (Windows Media Lossless)
+
+Graphics
+
+    PNG – Portable Network Graphics
+    TIFF – Tagged Image File Format
+    WebP – (high-density lossless or lossy compression of RGB and RGBA images)
+    BPG – Better Portable Graphics (lossless/lossy compression based on HEVC)
+    FLIF – Free Lossless Image Format
+    JPEG-LS – (lossless/near-lossless compression standard)
+    TGA - Truevision TGA
+    PCX - PiCture eXchange
+    JPEG 2000 – (includes lossless compression method, as proven by Sunil Kumar, Prof San Diego State University)
+    JPEG XR – formerly WMPhoto and HD Photo, includes a lossless compression method
+    ILBM – (lossless RLE compression of Amiga IFF images)
+    JBIG2 – (lossless or lossy compression of B&W images)
+    PGF – Progressive Graphics File (lossless or lossy compression)
+
+3D Graphics
+
+    OpenCTM – Lossless compression of 3D triangle meshes
+
+Video
+
+See this list of lossless video codecs.
+Cryptography
+
+Cryptosystems often compress data (the "plaintext") before encryption for added security. When properly implemented, compression greatly increases the unicity distance by removing patterns that might facilitate cryptanalysis. However, many ordinary lossless compression algorithms produce headers, wrappers, tables, or other predictable output that might instead make cryptanalysis easier. Thus, cryptosystems must utilize compression algorithms whose output does not contain these predictable patterns.
+Genetics
+
+Genetics compression algorithms (not to be confused with genetic algorithms) are the latest generation of lossless algorithms that compress data (typically sequences of nucleotides) using both conventional compression algorithms and specific algorithms adapted to genetic data. In 2012, a team of scientists from Johns Hopkins University published the first genetic compression algorithm that does not rely on external genetic databases for compression. HAPZIPPER was tailored for HapMap data and achieves over 20-fold compression (95% reduction in file size), providing 2- to 4-fold better compression and in much faster time than the leading general-purpose compression utilities.[2]
+Executables
+Main article: Executable compression
+
+Self-extracting executables contain a compressed application and a decompressor. When executed, the decompressor transparently decompresses and runs the original application. This is especially often used in demo coding, where competitions are held for demos with strict size limits, as small as 1k. This type of compression is not strictly limited to binary executables, but can also be applied to scripts, such as JavaScript.
+Lossless compression benchmarks
+
+Lossless compression algorithms and their implementations are routinely tested in head-to-head benchmarks. There are a number of better-known compression benchmarks. Some benchmarks cover only the data compression ratio, so winners in these benchmarks may be unsuitable for everyday use due to the slow speed of the top performers. Another drawback of some benchmarks is that their data files are known, so some program writers may optimize their programs for best performance on a particular data set. The winners on these benchmarks often come from the class of context-mixing compression software.
+
+The benchmarks listed in the 5th edition of the Handbook of Data Compression (Springer, 2009) are:[3]
+
+    The Maximum Compression benchmark, started in 2003 and updated until November 2011, includes over 150 programs. Maintained by Werner Bergmans, it tests on a variety of data sets, including text, images, and executable code. Two types of results are reported: single file compression (SFC) and multiple file compression (MFC). Not surprisingly, context mixing programs often win here; programs from the PAQ series and WinRK often are in the top. The site also has a list of pointers to other benchmarks.[4]
+    UCLC (the ultimate command-line compressors) benchmark by Johan de Bock is another actively maintained benchmark including over 100 programs. The winners in most tests usually are PAQ programs and WinRK, with the exception of lossless audio encoding and grayscale image compression where some specialized algorithms shine.
+    Squeeze Chart by Stephan Busch is another frequently updated site.
+    The EmilCont benchmarks by Berto Destasio are somewhat outdated having been most recently updated in 2004. A distinctive feature is that the data set is not public, to prevent optimizations targeting it specifically. Nevertheless, the best ratio winners are again the PAQ family, SLIM and WinRK.
+    The Archive Comparison Test (ACT) by Jeff Gilchrist included 162 DOS/Windows and 8 Macintosh lossless compression programs, but it was last updated in 2002.
+    The Art Of Lossless Data Compression by Alexander Ratushnyak provides a similar test performed in 2003.
+
+Matt Mahoney, in his February 2010 edition of the free booklet Data Compression Explained, additionally lists the following:[5]
+
+    The Calgary Corpus dating back to 1987 is no longer widely used due to its small size. Matt Mahoney currently maintains the Calgary Compression Challenge [1], created and maintained from May 21, 1996 through May 21, 2016 by Leonid A. Broukhis [2].
+    The Large Text Compression Benchmark and the similar Hutter Prize both use a trimmed Wikipedia XML UTF-8 data set.
+    The Generic Compression Benchmark, maintained by Mahoney himself, test compression on random data.
+    Sami Runsas (author of NanoZip) maintains Compression Ratings, a benchmark similar to Maximum Compression multiple file test, but with minimum speed requirements. It also offers a calculator that allows the user to weight the importance of speed and compression ratio. The top programs here are fairly different due to speed requirement. In January 2010, the top programs were NanoZip followed by FreeArc, CCM, flashzip, and 7-Zip.
+    The Monster of Compression benchmark by N. F. Antonio tests compression on 1Gb of public data with a 40-minute time limit. As of Dec. 20, 2009 the top ranked archiver is NanoZip 0.07a and the top ranked single file compressor is ccmx 1.30c, both context mixing.
+
+Compression Ratings publishes a chart summary of the "frontier" in compression ratio and time.[6]
+
+The Compression Analysis Tool is a Windows application that enables end users to benchmark the performance characteristics of streaming implementations of LZF4, DEFLATE, ZLIB, GZIP, BZIP2 and LZMA using their own data. It produces measurements and charts with which users can compare the compression speed, decompression speed and compression ratio of the different compression methods and to examine how the compression level, buffer size and flushing operations affect the results.
+
+The Squash Compression Benchmark uses the Squash library to compare more than 25 compression libraries in many different configurations using numerous different datasets on several different machines, and provides a web interface to help explore the results. There are currently over 50,000 results to compare.
+Limitations
+
+Lossless data compression algorithms cannot guarantee compression for all input data sets. In other words, for any lossless data compression algorithm, there will be an input data set that does not get smaller when processed by the algorithm, and for any lossless data compression algorithm that makes at least one file smaller, there will be at least one file that it makes larger. This is easily proven with elementary mathematics using a counting argument, as follows:
+
+    Assume that each file is represented as a string of bits of some arbitrary length.
+    Suppose that there is a compression algorithm that transforms every file into an output file that is no longer than the original file, and that at least one file will be compressed into an output file that is shorter than the original file.
+    Let M be the least number such that there is a file F with length M bits that compresses to something shorter. Let N be the length (in bits) of the compressed version of F.
+    Because N<M, every file of length N keeps its size during compression. There are 2N such files. Together with F, this makes 2N+1 files that all compress into one of the 2N files of length N.
+    But 2N is smaller than 2N+1, so by the pigeonhole principle there must be some file of length N that is simultaneously the output of the compression function on two different inputs. That file cannot be decompressed reliably (which of the two originals should that yield?), which contradicts the assumption that the algorithm was lossless.
+    We must therefore conclude that our original hypothesis (that the compression function makes no file longer) is necessarily untrue.
+
+Any lossless compression algorithm that makes some files shorter must necessarily make some files longer, but it is not necessary that those files become very much longer. Most practical compression algorithms provide an "escape" facility that can turn off the normal coding for files that would become longer by being encoded. In theory, only a single additional bit is required to tell the decoder that the normal coding has been turned off for the entire input; however, most encoding algorithms use at least one full byte (and typically more than one) for this purpose. For example, DEFLATE compressed files never need to grow by more than 5 bytes per 65,535 bytes of input.
+
+In fact, if we consider files of length N, if all files were equally probable, then for any lossless compression that reduces the size of some file, the expected length of a compressed file (averaged over all possible files of length N) must necessarily be greater than N.[citation needed] So if we know nothing about the properties of the data we are compressing, we might as well not compress it at all. A lossless compression algorithm is useful only when we are more likely to compress certain types of files than others; then the algorithm could be designed to compress those types of data better.
+
+Thus, the main lesson from the argument is not that one risks big losses, but merely that one cannot always win. To choose an algorithm always means implicitly to select a subset of all files that will become usefully shorter. This is the theoretical reason why we need to have different compression algorithms for different kinds of files: there cannot be any algorithm that is good for all kinds of data.
+
+The "trick" that allows lossless compression algorithms, used on the type of data they were designed for, to consistently compress such files to a shorter form is that the files the algorithms are designed to act on all have some form of easily modeled redundancy that the algorithm is designed to remove, and thus belong to the subset of files that that algorithm can make shorter, whereas other files would not get compressed or even get bigger. Algorithms are generally quite specifically tuned to a particular type of file: for example, lossless audio compression programs do not work well on text files, and vice versa.
+
+In particular, files of random data cannot be consistently compressed by any conceivable lossless data compression algorithm: indeed, this result is used to define the concept of randomness in algorithmic complexity theory.
+
+It's provably impossible to create an algorithm that can losslessly compress any data.[7] While there have been many claims through the years of companies achieving "perfect compression" where an arbitrary number N of random bits can always be compressed to N − 1 bits, these kinds of claims can be safely discarded without even looking at any further details regarding the purported compression scheme. Such an algorithm contradicts fundamental laws of mathematics because, if it existed, it could be applied repeatedly to losslessly reduce any file to length 0. Allegedly "perfect" compression algorithms are often derisively referred to as "magic" compression algorithms for this reason.
+
+On the other hand, it has also been proven[citation needed] that there is no algorithm to determine whether a file is incompressible in the sense of Kolmogorov complexity. Hence it's possible that any particular file, even if it appears random, may be significantly compressed, even including the size of the decompressor. An example is the digits of the mathematical constant pi, which appear random but can be generated by a very small program. However, even though it cannot be determined whether a particular file is incompressible, a simple theorem about incompressible strings shows that over 99% of files of any given length cannot be compressed by more than one byte (including the size of the decompressor).
+Mathematical background
+
+Abstractly, a compression algorithm can be viewed as a function on sequences (normally of octets). Compression is successful if the resulting sequence is shorter than the original sequence (and the instructions for the decompression map). For a compression algorithm to be lossless, the compression map must form an injection from "plain" to "compressed" bit sequences.
+
+The pigeonhole principle prohibits a bijection between the collection of sequences of length N and any subset of the collection of sequences of length N−1. Therefore, it is not possible to produce an algorithm that reduces the size of every possible input sequence.
+Psychological background
+
+Most everyday files are relatively 'sparse' in an information entropy sense, and thus, most lossless algorithms a layperson is likely to apply on regular files compress them relatively well. This may, through misapplication of intuition, lead some individuals to conclude that a well-designed compression algorithm can compress any input, thus, constituting a magic compression algorithm.[citation needed]
+Points of application in real compression theory
+
+Real compression algorithm designers accept that streams of high information entropy cannot be compressed, and accordingly, include facilities for detecting and handling this condition. An obvious way of detection is applying a raw compression algorithm and testing if its output is smaller than its input. Sometimes, detection is made by heuristics; for example, a compression application may consider files whose names end in ".zip", ".arj" or ".lha" uncompressible without any more sophisticated detection. A common way of handling this situation is quoting input, or uncompressible parts of the input in the output, minimising the compression overhead. For example, the zip data format specifies the 'compression method' of 'Stored' for input files that have been copied into the archive verbatim.[8]
+The Million Random Number Challenge
+
+Mark Nelson, in response to claims of magic compression algorithms appearing in comp.compression, has constructed a 415,241 byte binary file of highly entropic content, and issued a public challenge of $100 to anyone to write a program that, together with its input, would be smaller than his provided binary data yet be able to reconstitute it without error.[9]
+
+The FAQ for the comp.compression newsgroup contains a challenge by Mike Goldman offering $5,000 for a program that can compress random data. Patrick Craig took up the challenge, but rather than compressing the data, he split it up into separate files all of which ended in the number 5, which was not stored as part of the file. Omitting this character allowed the resulting files (plus, in accordance with the rules, the size of the program that reassembled them) to be smaller than the original file. However, no actual compression took place, and the information stored in the names of the files was necessary to reassemble them in the correct order in the original file, and this information was not taken into account in the file size comparison. The files themselves are thus not sufficient to reconstitute the original file; the file names are also necessary. Patrick Craig agreed that no meaningful compression had taken place, but argued that the wording of the challenge did not actually require this. A full history of the event, including discussion on whether or not the challenge was technically met, is on Patrick Craig's web site.[10]
+See also
+
+    Comparison of file archivers
+    Data compression
+    David A. Huffman
+    Entropy (information theory)
+    Grammar induction
+    Information theory
+    Kolmogorov complexity
+    List of codecs
+    Lossless Transform Audio Compression (LTAC)
+    Lossy compression
+    Precompressor
+    Universal code (data compression)
+    Normal number
+
+Data compression
+From Wikipedia, the free encyclopedia
+"Source coding" redirects here. For the term in computer programming, see Source code.
+
+In signal processing, data compression, source coding,[1] or bit-rate reduction involves encoding information using fewer bits than the original representation.[2] Compression can be either lossy or lossless. Lossless compression reduces bits by identifying and eliminating statistical redundancy. No information is lost in lossless compression. Lossy compression reduces bits by removing unnecessary or less important information.[3] The process of reducing the size of a data file is referred to as data compression. In the context of data transmission, it is called source coding (encoding done at the source of the data before it is stored or transmitted) in opposition to channel coding.[4]
+
+Compression is useful because it reduces resources required to store and transmit data. Computational resources are consumed in the compression process and, usually, in the reversal of the process (decompression). Data compression is subject to a space–time complexity trade-off. For instance, a compression scheme for video may require expensive hardware for the video to be decompressed fast enough to be viewed as it is being decompressed, and the option to decompress the video in full before watching it may be inconvenient or require additional storage. The design of data compression schemes involves trade-offs among various factors, including the degree of compression, the amount of distortion introduced (when using lossy data compression), and the computational resources required to compress and decompress the data.[5][6]
+
+Contents
+
+    1 Lossless
+    2 Lossy
+    3 Theory
+        3.1 Machine learning
+        3.2 Data differencing
+    4 Uses
+        4.1 Audio
+            4.1.1 Lossy audio compression
+                4.1.1.1 Coding methods
+                4.1.1.2 Speech encoding
+            4.1.2 History
+        4.2 Video
+            4.2.1 Encoding theory
+            4.2.2 Timeline
+        4.3 Genetics
+        4.4 Emulation
+    5 Outlook and currently unused potential
+    6 See also
+    7 References
+    8 External links
+
+Lossless
+
+Lossless data compression algorithms usually exploit statistical redundancy to represent data without losing any information, so that the process is reversible. Lossless compression is possible because most real-world data exhibits statistical redundancy. For example, an image may have areas of color that do not change over several pixels; instead of coding "red pixel, red pixel, ..." the data may be encoded as "279 red pixels". This is a basic example of run-length encoding; there are many schemes to reduce file size by eliminating redundancy.
+
+The Lempel–Ziv (LZ) compression methods are among the most popular algorithms for lossless storage.[7] DEFLATE is a variation on LZ optimized for decompression speed and compression ratio, but compression can be slow. DEFLATE is used in PKZIP, Gzip, and PNG. LZW (Lempel–Ziv–Welch) is used in GIF images. Also noteworthy is the LZR (Lempel-Ziv–Renau) algorithm, which serves as the basis for the Zip method.[citation needed] LZ methods use a table-based compression model where table entries are substituted for repeated strings of data. For most LZ methods, this table is generated dynamically from earlier data in the input. The table itself is often Huffman encoded (e.g. SHRI, LZX). Current LZ-based coding schemes that perform well are Brotli and LZX. LZX is used in Microsoft's CAB format.
+
+The best modern lossless compressors use probabilistic models, such as prediction by partial matching. The Burrows–Wheeler transform can also be viewed as an indirect form of statistical modelling.[8]
+
+The class of grammar-based codes are gaining popularity because they can compress highly repetitive input extremely effectively, for instance, a biological data collection of the same or closely related species, a huge versioned document collection, internet archival, etc. The basic task of grammar-based codes is constructing a context-free grammar deriving a single string. Sequitur and Re-Pair are practical grammar compression algorithms for which software is publicly available.
+
+In a further refinement of the direct use of probabilistic modelling, statistical estimates can be coupled to an algorithm called arithmetic coding. Arithmetic coding is a more modern coding technique that uses the mathematical calculations of a finite-state machine to produce a string of encoded bits from a series of input data symbols. It can achieve superior compression to other techniques such as the better-known Huffman algorithm. It uses an internal memory state to avoid the need to perform a one-to-one mapping of individual input symbols to distinct representations that use an integer number of bits, and it clears out the internal memory only after encoding the entire string of data symbols. Arithmetic coding applies especially well to adaptive data compression tasks where the statistics vary and are context-dependent, as it can be easily coupled with an adaptive model of the probability distribution of the input data. An early example of the use of arithmetic coding was its use as an optional (but not widely used) feature of the JPEG image coding standard. It has since been applied in various other designs including H.264/MPEG-4 AVC and HEVC for video coding.
+Lossy
+
+Lossy data compression is the converse of lossless data compression. In these schemes, some loss of information is acceptable. Dropping nonessential detail from the data source can save storage space. Lossy data compression schemes are designed by research on how people perceive the data in question. For example, the human eye is more sensitive to subtle variations in luminance than it is to the variations in color. JPEG image compression works in part by rounding off nonessential bits of information.[9] There is a corresponding trade-off between preserving information and reducing size. A number of popular compression formats exploit these perceptual differences, including those used in music files, images, and video.
+
+Lossy image compression can be used in digital cameras, to increase storage capacities with minimal degradation of picture quality. Similarly, DVDs use the lossy MPEG-2 video coding format for video compression.
+
+In lossy audio compression, methods of psychoacoustics are used to remove non-audible (or less audible) components of the audio signal. Compression of human speech is often performed with even more specialized techniques; speech coding, or voice coding, is sometimes distinguished as a separate discipline from audio compression. Different audio and speech compression standards are listed under audio coding formats. Voice compression is used in internet telephony, for example, audio compression is used for CD ripping and is decoded by the audio players.[8]
+Theory
+
+The theoretical background of compression is provided by information theory (which is closely related to algorithmic information theory) for lossless compression and rate–distortion theory for lossy compression. These areas of study were essentially forged by Claude Shannon, who published fundamental papers on the topic in the late 1940s and early 1950s. Coding theory is also related to this. The idea of data compression is also deeply connected with statistical inference.[10]
+Machine learning
+See also: Machine learning
+
+There is a close connection between machine learning and compression: a system that predicts the posterior probabilities of a sequence given its entire history can be used for optimal data compression (by using arithmetic coding on the output distribution) while an optimal compressor can be used for prediction (by finding the symbol that compresses best, given the previous history). This equivalence has been used as a justification for using data compression as a benchmark for "general intelligence."[11][12][13]
+Data differencing
+Main article: Data differencing
+
+Data compression can be viewed as a special case of data differencing:[14][15] Data differencing consists of producing a difference given a source and a target, with patching producing a target given a source and a difference, while data compression consists of producing a compressed file given a target, and decompression consists of producing a target given only a compressed file. Thus, one can consider data compression as data differencing with empty source data, the compressed file corresponding to a "difference from nothing." This is the same as considering absolute entropy (corresponding to data compression) as a special case of relative entropy (corresponding to data differencing) with no initial data.
+
+When one wishes to emphasize the connection, one may use the term differential compression to refer to data differencing.
+Uses
+Audio
+See also: Audio codec and Audio coding format
+
+Audio data compression, not to be confused with dynamic range compression, has the potential to reduce the transmission bandwidth and storage requirements of audio data. Audio compression algorithms are implemented in software as audio codecs. Lossy audio compression algorithms provide higher compression at the cost of fidelity and are used in numerous audio applications. These algorithms almost all rely on psychoacoustics to eliminate or reduce fidelity of less audible sounds, thereby reducing the space required to store or transmit them.[2]
+
+In both lossy and lossless compression, information redundancy is reduced, using methods such as coding, pattern recognition, and linear prediction to reduce the amount of information used to represent the uncompressed data.
+
+The acceptable trade-off between loss of audio quality and transmission or storage size depends upon the application. For example, one 640MB compact disc (CD) holds approximately one hour of uncompressed high fidelity music, less than 2 hours of music compressed losslessly, or 7 hours of music compressed in the MP3 format at a medium bit rate. A digital sound recorder can typically store around 200 hours of clearly intelligible speech in 640MB.[16]
+
+Lossless audio compression produces a representation of digital data that decompress to an exact digital duplicate of the original audio stream, unlike playback from lossy compression techniques such as Vorbis and MP3. Compression ratios are around 50–60% of original size,[17] which is similar to those for generic lossless data compression. Lossless compression is unable to attain high compression ratios due to the complexity of waveforms and the rapid changes in sound forms. Codecs like FLAC, Shorten, and TTA use linear prediction to estimate the spectrum of the signal. Many of these algorithms use convolution with the filter [-1 1] to slightly whiten or flatten the spectrum, thereby allowing traditional lossless compression to work more efficiently. The process is reversed upon decompression.
+
+When audio files are to be processed, either by further compression or for editing, it is desirable to work from an unchanged original (uncompressed or losslessly compressed). Processing of a lossily compressed file for some purpose usually produces a final result inferior to the creation of the same compressed file from an uncompressed original. In addition to sound editing or mixing, lossless audio compression is often used for archival storage, or as master copies.
+
+A number of lossless audio compression formats exist. Shorten was an early lossless format. Newer ones include Free Lossless Audio Codec (FLAC), Apple's Apple Lossless (ALAC), MPEG-4 ALS, Microsoft's Windows Media Audio 9 Lossless (WMA Lossless), Monkey's Audio, TTA, and WavPack. See list of lossless codecs for a complete listing.
+
+Some audio formats feature a combination of a lossy format and a lossless correction; this allows stripping the correction to easily obtain a lossy file. Such formats include MPEG-4 SLS (Scalable to Lossless), WavPack, and OptimFROG DualStream.
+
+Other formats are associated with a distinct system, such as:
+
+    Direct Stream Transfer, used in Super Audio CD
+    Meridian Lossless Packing, used in DVD-Audio, Dolby TrueHD, Blu-ray and HD DVD
+
+Lossy audio compression
+Comparison of acoustic spectrograms of a song in an uncompressed format and lossy formats. That the lossy spectrograms are different from the uncompressed one indicates that they are, in fact, lossy, but nothing can be assumed about the effect of the changes on perceived quality.
+
+Lossy audio compression is used in a wide range of applications. In addition to the direct applications (MP3 players or computers), digitally compressed audio streams are used in most video DVDs, digital television, streaming media on the internet, satellite and cable radio, and increasingly in terrestrial radio broadcasts. Lossy compression typically achieves far greater compression than lossless compression (data of 5 percent to 20 percent of the original stream, rather than 50 percent to 60 percent), by discarding less-critical data.[18]
+
+The innovation of lossy audio compression was to use psychoacoustics to recognize that not all data in an audio stream can be perceived by the human auditory system. Most lossy compression reduces perceptual redundancy by first identifying perceptually irrelevant sounds, that is, sounds that are very hard to hear. Typical examples include high frequencies or sounds that occur at the same time as louder sounds. Those sounds are coded with decreased accuracy or not at all.
+
+Due to the nature of lossy algorithms, audio quality suffers when a file is decompressed and recompressed (digital generation loss). This makes lossy compression unsuitable for storing the intermediate results in professional audio engineering applications, such as sound editing and multitrack recording. However, they are very popular with end users (particularly MP3) as a megabyte can store about a minute's worth of music at adequate quality.
+Coding methods
+
+To determine what information in an audio signal is perceptually irrelevant, most lossy compression algorithms use transforms such as the modified discrete cosine transform (MDCT) to convert time domain sampled waveforms into a transform domain. Once transformed, typically into the frequency domain, component frequencies can be allocated bits according to how audible they are. Audibility of spectral components calculated using the absolute threshold of hearing and the principles of simultaneous masking—the phenomenon wherein a signal is masked by another signal separated by frequency—and, in some cases, temporal masking—where a signal is masked by another signal separated by time. Equal-loudness contours may also be used to weight the perceptual importance of components. Models of the human ear-brain combination incorporating such effects are often called psychoacoustic models.[19]
+
+Other types of lossy compressors, such as the linear predictive coding (LPC) used with speech, are source-based coders. These coders use a model of the sound's generator (such as the human vocal tract with LPC) to whiten the audio signal (i.e., flatten its spectrum) before quantization. LPC may be thought of as a basic perceptual coding technique: reconstruction of an audio signal using a linear predictor shapes the coder's quantization noise into the spectrum of the target signal, partially masking it.[18]
+
+Lossy formats are often used for the distribution of streaming audio or interactive applications (such as the coding of speech for digital transmission in cell phone networks). In such applications, the data must be decompressed as the data flows, rather than after the entire data stream has been transmitted. Not all audio codecs can be used for streaming applications, and for such applications a codec designed to stream data effectively will usually be chosen.[18]
+
+Latency results from the methods used to encode and decode the data. Some codecs will analyze a longer segment of the data to optimize efficiency, and then code it in a manner that requires a larger segment of data at one time to decode. (Often codecs create segments called a "frame" to create discrete data segments for encoding and decoding.) The inherent latency of the coding algorithm can be critical; for example, when there is a two-way transmission of data, such as with a telephone conversation, significant delays may seriously degrade the perceived quality.
+
+In contrast to the speed of compression, which is proportional to the number of operations required by the algorithm, here latency refers to the number of samples that must be analysed before a block of audio is processed. In the minimum case, latency is zero samples (e.g., if the coder/decoder simply reduces the number of bits used to quantize the signal). Time domain algorithms such as LPC also often have low latencies, hence their popularity in speech coding for telephony. In algorithms such as MP3, however, a large number of samples have to be analyzed to implement a psychoacoustic model in the frequency domain, and latency is on the order of 23 ms (46 ms for two-way communication)).
+Speech encoding
+
+Speech encoding is an important category of audio data compression. The perceptual models used to estimate what a human ear can hear are generally somewhat different from those used for music. The range of frequencies needed to convey the sounds of a human voice are normally far narrower than that needed for music, and the sound is normally less complex. As a result, speech can be encoded at high quality using a relatively low bit rate.
+
+If the data to be compressed is analog (such as a voltage that varies with time), quantization is employed to digitize it into numbers (normally integers). This is referred to as analog-to-digital (A/D) conversion. If the integers generated by quantization are 8 bits each, then the entire range of the analog signal is divided into 256 intervals and all the signal values within an interval are quantized to the same number. If 16-bit integers are generated, then the range of the analog signal is divided into 65,536 intervals.
+
+This relation illustrates the compromise between high resolution (a large number of analog intervals) and high compression (small integers generated). This application of quantization is used by several speech compression methods. This is accomplished, in general, by some combination of two approaches:
+
+    Only encoding sounds that could be made by a single human voice.
+    Throwing away more of the data in the signal—keeping just enough to reconstruct an "intelligible" voice rather than the full frequency range of human hearing.
+
+Perhaps the earliest algorithms used in speech encoding (and audio data compression in general) were the A-law algorithm and the µ-law algorithm.
+History
+Solidyne 922: The world's first commercial audio bit compression card for PC, 1990
+
+A literature compendium for a large variety of audio coding systems was published in the IEEE Journal on Selected Areas in Communications (JSAC), February 1988. While there were some papers from before that time, this collection documented an entire variety of finished, working audio coders, nearly all of them using perceptual (i.e. masking) techniques and some kind of frequency analysis and back-end noiseless coding.[20] Several of these papers remarked on the difficulty of obtaining good, clean digital audio for research purposes. Most, if not all, of the authors in the JSAC edition were also active in the MPEG-1 Audio committee.
+
+The world's first commercial broadcast automation audio compression system was developed by Oscar Bonello, an engineering professor at the University of Buenos Aires.[21] In 1983, using the psychoacoustic principle of the masking of critical bands first published in 1967,[22] he started developing a practical application based on the recently developed IBM PC computer, and the broadcast automation system was launched in 1987 under the name Audicom. Twenty years later, almost all the radio stations in the world were using similar technology manufactured by a number of companies.
+Video
+See also: Video coding format and Video codec
+
+Video compression uses modern coding techniques to reduce redundancy in video data. Most video compression algorithms and codecs combine spatial image compression and temporal motion compensation. Video compression is a practical implementation of source coding in information theory. In practice, most video codecs also use audio compression techniques in parallel to compress the separate, but combined data streams as one package.[23]
+
+The majority of video compression algorithms use lossy compression. Uncompressed video requires a very high data rate. Although lossless video compression codecs perform at a compression factor of 5-12, a typical MPEG-4 lossy compression video has a compression factor between 20 and 200.[24] As in all lossy compression, there is a trade-off between video quality, cost of processing the compression and decompression, and system requirements. Highly compressed video may present visible or distracting artifacts.
+
+Some video compression schemes typically operate on square-shaped groups of neighboring pixels, often called macroblocks. These pixel groups or blocks of pixels are compared from one frame to the next, and the video compression codec sends only the differences within those blocks. In areas of video with more motion, the compression must encode more data to keep up with the larger number of pixels that are changing. Commonly during explosions, flames, flocks of animals, and in some panning shots, the high-frequency detail leads to quality decreases or to increases in the variable bitrate.
+Encoding theory
+
+Video data may be represented as a series of still image frames. The sequence of frames contains spatial and temporal redundancy that video compression algorithms attempt to eliminate or code in a smaller size. Similarities can be encoded by only storing differences between frames, or by using perceptual features of human vision. For example, small differences in color are more difficult to perceive than are changes in brightness. Compression algorithms can average a color across these similar areas to reduce space, in a manner similar to those used in JPEG image compression.[25] Some of these methods are inherently lossy while others may preserve all relevant information from the original, uncompressed video.
+
+One of the most powerful techniques for compressing video is interframe compression. Interframe compression uses one or more earlier or later frames in a sequence to compress the current frame, while intraframe compression uses only the current frame, effectively being image compression.[26]
+
+The most powerful used method works by comparing each frame in the video with the previous one. If the frame contains areas where nothing has moved, the system simply issues a short command that copies that part of the previous frame, bit-for-bit, into the next one. If sections of the frame move in a simple manner, the compressor emits a (slightly longer) command that tells the decompressor to shift, rotate, lighten, or darken the copy. This longer command still remains much shorter than intraframe compression. Interframe compression works well for programs that will simply be played back by the viewer, but can cause problems if the video sequence needs to be edited.[27]
+
+Because interframe compression copies data from one frame to another, if the original frame is simply cut out (or lost in transmission), the following frames cannot be reconstructed properly. Some video formats, such as DV, compress each frame independently using intraframe compression. Making 'cuts' in intraframe-compressed video is almost as easy as editing uncompressed video: one finds the beginning and ending of each frame, and simply copies bit-for-bit each frame that one wants to keep, and discards the frames one doesn't want. Another difference between intraframe and interframe compression is that, with intraframe systems, each frame uses a similar amount of data. In most interframe systems, certain frames (such as "I frames" in MPEG-2) aren't allowed to copy data from other frames, so they require much more data than other frames nearby.[18]
+
+It is possible to build a computer-based video editor that spots problems caused when I frames are edited out while other frames need them. This has allowed newer formats like HDV to be used for editing. However, this process demands a lot more computing power than editing intraframe compressed video with the same picture quality.
+
+Today, nearly all commonly used video compression methods (e.g., those in standards approved by the ITU-T or ISO) apply a discrete cosine transform (DCT) for spatial redundancy reduction. The DCT that is widely used in this regard was introduced by N. Ahmed, T. Natarajan and K. R. Rao in 1974.[28] Other methods, such as fractal compression, matching pursuit and the use of a discrete wavelet transform (DWT) have been the subject of some research, but are typically not used in practical products (except for the use of wavelet coding as still-image coders without motion compensation). Interest in fractal compression seems to be waning, due to recent theoretical analysis showing a comparative lack of effectiveness of such methods.[26]
+Timeline
+
+The following table is a partial history of international video compression standards.
+History of video compression standards Year     Standard    Publisher   Popular implementations
+1984    H.120   ITU-T
+1988    H.261   ITU-T   Videoconferencing, videotelephony
+1993    MPEG-1 Part 2   ISO, IEC    Video-CD
+1995    H.262/MPEG-2 Part 2     ISO, IEC, ITU-T     DVD Video, Blu-ray, Digital Video Broadcasting, SVCD
+1996    H.263   ITU-T   Videoconferencing, videotelephony, video on mobile phones (3GP)
+1999    MPEG-4 Part 2   ISO, IEC    Video on Internet (DivX, Xvid ...)
+2003    H.264/MPEG-4 AVC    Sony, Panasonic, Samsung, ISO, IEC, ITU-T   Blu-ray, HD DVD, Digital Video Broadcasting, iPod Video, Apple TV, videoconferencing
+2009    VC-2 (Dirac)    SMPTE   Video on Internet, HDTV broadcast, UHDTV
+2013    H.265   ISO, IEC, ITU-T
+Genetics
+See also: Compression of Genomic Re-Sequencing Data
+
+Genetics compression algorithms are the latest generation of lossless algorithms that compress data (typically sequences of nucleotides) using both conventional compression algorithms and genetic algorithms adapted to the specific datatype. In 2012, a team of scientists from Johns Hopkins University published a genetic compression algorithm that does not use a reference genome for compression. HAPZIPPER was tailored for HapMap data and achieves over 20-fold compression (95% reduction in file size), providing 2- to 4-fold better compression and in much faster time than the leading general-purpose compression utilities. For this, Chanda, Elhaik, and Bader introduced MAF based encoding (MAFE), which reduces the heterogeneity of the dataset by sorting SNPs by their minor allele frequency, thus homogenizing the dataset.[29] Other algorithms in 2009 and 2013 (DNAZip and GenomeZip) have compression ratios of up to 1200-fold—allowing 6 billion basepair diploid human genomes to be stored in 2.5 megabytes (relative to a reference genome or averaged over many genomes).[30][31]
+Emulation
+
+In order to emulate CD-based consoles such as the PlayStation 2, data compression is desirable to reduce huge amounts of disk space used by ISOs. For example, Final Fantasy XII (USA) is normally 2.9 gigabytes. With proper compression, it is reduced to around 90% of that size.[32]
+Outlook and currently unused potential
+
+It is estimated that the total amount of data that is stored on the world's storage devices could be further compressed with existing compression algorithms by a remaining average factor of 4.5:1. It is estimated that the combined technological capacity of the world to store information provides 1,300 exabytes of hardware digits in 2007[citation needed], but when the corresponding content is optimally compressed, this only represents 295 exabytes of Shannon information.[33]
+See also
+
+    Auditory masking
+    HTTP compression
+    Kolmogorov complexity
+    Magic compression algorithm
+    Minimum description length
+    Modulo-N code
+    Range encoding
+    Sub-band coding
+    Universal code (data compression)
+    Vector quantization
+
+
+
+Avestan geography
+From Wikipedia, the free encyclopedia
+
+Avestan geography, is the geographical references in the Avesta, which are limited to the regions on the eastern Iranian plateau up to Indo-Iranian border.[1] It was common among the Indo-Iranians to identify concepts or features of traditional cosmography—mountains, lakes, rivers, etc.—with their concrete historical and geographical situation as they migrated and settled in various places.
+
+Contents
+
+    1 Vendidad references
+    2 Yasht references
+    3 Conclusion
+    4 See also
+    5 Notes
+    6 References
+
+Vendidad references
+
+The main Avestan text of geographical interest is the first chapter of the Vidēvdād. This consists of a list of sixteen districts (asah- and šōiθra-) created by Ahura Mazdā and threatened by a corresponding number of counter-creations that Angra Mainyu set up against them (paityāra-).
+
+The list is as follows:
+
+    Airyana Vaēǰah = the homeland of Zoroaster and Zoroastrianism, near the provinces of Sogdiana, Margiana, Bactria, etc., listed immediately after it.[2] The historical location of Airyanem Vaejah is still uncertain, but according to the Harvard University scholar Michael Witzel, Airyanem Vaejah lies at the center of the sixteen lands, in the central Afghan highlands.[3] Historians such as Walter Bruno Henning, Henrik Samuel Nyberg, Walther Hinz, and Mary Boyce believe this location is Chorasmia or northeast Iran around Aral sea and Oxus river. The fact that Airyana Vaēǰah is situated in a mountainous region explains its severe climate (Vd. 1.2.3) better than does its supposed location in Chorasmia[4][5][6] Although the Pahlavi and Sassanid book introduced Airyanem Vaejah in around Azerbaijan and Some historians also believe the location of Airyanem Vaejah is Azerbaijan, in around Caucasus such as : James Darmesteter, Ernst Herzfeld, Ebrahim Pourdavoud, Johannes Hertel[7] According to Skjærvø,[8] and Gnoli[9] it was situated between the Helmand River and the Hindu Kush Mountains;
+    Gava = Sogdiana;
+    Mōuru = Margiana;
+    Bāxδī = Pākhtī Bactria;
+    Nisāya = a district between Margiana and Bactria,most historians believe this location is Nisa modern day south of Turkmenistan.[10] some believe Neyshabur. perhaps Maimana;[11]
+    Harōiva = Aria, Herat
+    Vaēkərəta = Gandhāra, the area of Peshawar;[12]
+    Urvā = the exact location of Urva is unknown, some claim Ghazni;[13] and darmesteter believe this is Urgench in modern day Uzbekistan also Edward Granville Browne is Tus in khorasan province of Iran.(Vandid, darmesteter Page 68)
+    Xnənta = location unknown; a region defined as vəhrkānō.šayana- "the dwelling place of the Vəhrkāna," where Marquart placed the Barkánioi of Ctesias,[14] an ethnicon analogous with that of Old Persian Varkāna, previously thought to be Hyrcania (the present Gorgān) although more likely the Khuzdar region of Balochistan;[15]
+    Haraxᵛaitī = Arachosia; centred on Arghandab valley in modern-day southern Afghanistan, and extended east to as far as the Indus River in modern-day Pakistan; Sarasvati in Vedic Geography.
+    Haētumant = the region of Helmand River roughly corresponding to the Achaemenian Drangiana (Zranka);[16]
+    Raγa = or Raga, previously thought to be Rey[17] from Median Ragā but more than likely comes from Raγa zaraθuštri- of Yashts 19.18 and is the Buner district and Bara River, which flows into the Indus River. ;[18]
+    Čaxra =locations is still uncertain, but darmesteter, dehkhoda, Hassan Pirnia bilieve location is Shahrud[19] Čarx between Ghaznī and Kabul, in the valley of Lōgar,[20] not Māzandarān, as Christensen thought;
+    Varəna = is the district of Bannu.[21] the Varṇu of the Mahāmāyūrī, the ʿAornos of Alexander the Great, the homeland of FerΘraētaona/Frēdōn/Afrīḏūn;[22]
+    Hapta Həndu = Sanskrit Sapta Sindhu, the area of Punjab.
+    Raŋhā = Rasā in Vedic geography, at times mentioned together with Kubhā (Kabul) and Krumu (Kurram),[23] a river situated in a mountainous area, probably connected with the Indus River, not with the Jaxartes or with the Volga.[24]
+
+One of the old, thorny problems in studies on Avestan geography is represented by Airyana Vaēǰah (Pahlavi: Ērānwēz), "the area of the Aryans" and first of the sixteen districts in Vd. 1, the original name of which was airyanəm vaēǰō vaŋhuyā dāityayā, "the Aryan extension of Vaŋuhī Dāityā", where Vaŋuhī Dāityā "the good Dāityā" is the name of a river connected with the religious "law" (dāta-). The concept of Airyana Vaēǰah is not equivalent to that of airyō.šayana- in Yt. 10.13, or to the group of airyā daiŋ́hāvā "the Aryan lands" which is recurrent in the yashts; this, in fact, refers to just one of the Aryan lands, as the first chapter of the Vidēvdād clearly shows. It does not designate "the traditional homeland" or "the ancient homeland" of the Iranians. These definitions perpetuate old interpretations of the Airyana Vaēǰah as "Urheimat des Awestavolkes", "Urland" of the Indo-Iranians (F. Spiegel, Die arische Periode und ihre Zustände, Leipzig, 1887, p. 123), "Wiege aller iranischen Arier" (J. von Prášek, Geschichte der Meder und Perser bis zur makedonischen Eroberung I, Gotha, 1906, p. 29), drawing from the texts more than the contents really warrant. Airyana Vaēǰah is only the homeland of Zoroaster and of Zoroastrianism. According to Zoroastrian tradition Ērānwēz is situated at the center of the world; on the shores of its river, Weh Dāitī (Av. Vaŋuhī Dāityā), there were created the gāw ī ēw-dād (Av. gav aēvō.dāta) "uniquely created bull" and Gayōmard (Av. Gayō.marətan) "mortal life," the first man; there rises the Chagād ī Dāidīg, the "lawful Summit," the Peak of Harā, in Avestan also called hukairya "of good activity"; the Chinvat Bridge is there, and there too, Yima and Zoroaster became famous. Taken all together, these data show that Zoroastrianism superimposed the concept of Airyana Vaēǰah onto the traditional one of a center of the world where the Peak of Harā rises. The fact that Airyana Vaēǰah is situated in a mountainous region explains its severe climate (Vd. 1.2.3) better than does its supposed location in Chorasmia (Markwart, Ērānshahr, p. 155). This is not surprising if we consider the analogy between the Iranian concept of the peak of Harā with the Indian one of Mount Meru or Sumeru. The Manicheans identified Aryān-waižan with the region at the foot of Mount Sumeru that Wishtāsp reigned over, and the Khotanese texts record the identification of Mount Sumeru in Buddhist mythology with the Peak of Harā (ttaira haraysä) in the Avestan tradition. All this leads us to suppose that the concept of Airyana Vaēǰah was an invention of Zoroastrianism which gave a new guise to a traditional idea of Indo-Iranian cosmography.
+Yasht references
+
+There is further geographical interest to be found in another passage from the Avesta Yasht 10.13-14, where the whole region inhabited by the Aryans (airyō.šayana-) is described. The description begins with Mount Harā, the peak of which is reached by Mithra as he precedes the immortal sun and looked at the Aryan homeland.
+
+Like the Mihr Yasht, the Farvardīn Yasht also contains some passages of use in the reconstruction of Avestan geography, in particular Yt. 13.125 and Yt. 13.127, where some characters are mentioned because of their venerable fravashi.it should be born in mind that the character related to the land of Apaxshīrā, Parshaṱ.gav, may be connected with a Sīstāni tradition and that the passage in Yt. 13.125 is dedicated to the fravashi of members of the family of Saēna, the son of Ahūm.stūṱ, who also had connections with Sīstān.
+
+The Zamyād Yasht, dedicated to Xᵛarənah, is of very great importance for Avestan geography as it provides a surprisingly well-detailed description of the hydrography of the Helmand region, in particular of Hāmūn-e Helmand. In Yt. 19.66-77 nine rivers an[clarification needed] mentioned: Xᵛāstrā, Hvaspā, Fradaθā, Xᵛarənahvaitī, Uštavaitī, Urvaδā, Ǝrəzī, Zurənumaitī, and Haētumant; six of these are known from the Tārīkh-e Sīstān. Other features of Sīstāni geography recur in the same yasht, like the Kąsaoya lake (Pahlavi Kayānsih) or Mount Uši.’ām (Kūh-e Khᵛāǰa), both closely bound up with Zoroastrian eschatology, so that with the help of comparisons with Pahlavi and classical sources, mainly Pliny and Ptolemy, we can conclude that the Zamyād Yasht describes Sīstān with great care and attention. In Avestan geography no other region has received such treatment. There is an echo of Sīstān’s importance in Avestan geography in the brief Pahlavi treatise Abdīh ud sahīgīh ī Sagastān.
+
+Yet another reference to Sīstān is to be found it another passage of the great yashts, Yt. 5.108, in which Kavi Vīštāspa, prince and patron of Zoroaster, is represented in the act of making sacrifice to Arədvī Sūrā Anāhitā near Frazdānu, the Frazdān of Pahlavi literature, that is, one of the wonders of Sīstān; it can probably be identified with Gowd-e Zera.
+Conclusion
+
+If we compare the first chapter of the Vidēvdād with the passages of geographical interest that we come across mainly in the great yashts, we can conclude that the geog raphical area of Avesta was marked by Margiana at the northeast, the western boundary being marked by the districts of Arachosia, Drangiana and Bannu = Varəna. The Indus River and locations along it in its central area, and the Panjab marking its eastern frontier. Sogdiana and, possibly, Chorasmia (which, however, is at the extreme limits) mark the boundary to the north, and Sīstān and Balochistan to the south.
+See also
+
+    Ariana
+    Ancient Iranian peoples
+    Seven Old Iranian climes
+
+Notes
+
+G. Gnoli, "AVESTAN GEOGRAPHY," Encyclopaedia Iranica.
+Encyclopaedia Iranica: ĒRĀN-WĒZ by D. N. MacKenzie: By late Sasanian times Ērān-wēz was taken to be in Western Iran: according to Great Bundahišn (29.12) it was "in the district (kustag) of Ādarbāygān." But from Vendidad 1 it is clear that it has to be sought originally in eastern Iran, near the provinces of Sogdiana, Margiana, Bactria, etc., listed immediately after it.
+M. Witzel, "The Vīdẽvdaδ list obviously was composed or redacted by someone who regarded Afghanistan and the lands surrounding it as the home of all Aryans (airiia), that is of all (eastern) Iranians, with Airiianem Vaẽjah as their center." page 48, "The Home Of The Aryans", Festschrift J. Narten = Münchener Studien zur Sprachwissenschaft, Beihefte NF 19, Dettelbach: J.H. Röll 2000, 283-338. Also published online, at Harvard University (LINK)
+(Markwart, Ērānšahr, p. 155)
+Frahang ī Pahlavīg (H.S. Nyberg)
+(Henning, Zoroaster, pp. 41ff)
+(Vandid, darmesteter Page 26)
+Skjærvø, P. O. The Avesta as a source for the early history of the Iranians. In: G. Erdosy (ed.), The Indo-Aryans of Ancient South Asia, (Indian Philology and South Asian Studies, IPSAS) 1, Berlin/New York: de Gruyter 1995, 166.
+Gnoli, G., Zoroaster's Time and Homeland. A Study on the Origins of Mazdeism and Related Problems. Naples 1980, 227.
+(Vandid, darmesteter Page 65)
+W. Geiger, Ostiranische Kultur im Altertum, Erlangen, 1982, p. 31 n. 1
+S. Levi, "Le catalogue géographique des Yakṣa dans la Mahāmāyūrī," JA 5, 1915, pp. 67ff.; W. B. Henning, "Two Manichaean Magical Texts," BSOAS 12, 1947, pp. 52f.
+Gnoli, Zoroaster’s Time and Homeland, pp. 26-39
+Photius, Bibliotheca, Cod. 72, 36b-37a
+Gnoli, Zoroaster’s Time and Homeland
+G. Gnoli, Ricerche storiche sul Sīstān antico, Rome, 1967, p. 78 and n. 3
+I. Gershevitch, "Zoroaster’s Own Contribution," JNES 23, 1964, pp. 36f
+Boyce, Zoroastrianism II, pp. 89 and cf. pp. 40, 42, 66, 254, 279; G. Gnoli, "Ragha la zoroastriana," in Papers in Honour of Professor Mary Boyce, Leiden, 1985, I, pp. 226ff
+Darmesteter, J. The Zend Avesta, Vol, Second Edition, London, 1895, pp. 253-8
+Gnoli, Ricerche storiche sul Sīstān antico, pp. 72-74; idem, Zoroaster’s Time and Homeland, pp. 42-44
+Michael Witzel, "The Home of the Aryans" S. Levi, art. cit., p. 38; Henning, art. cit., pp. 52f
+Gnoli, Zoroaster’s Time and Homeland, pp. 47-50
+Gnoli, Ricerche storiche sul Sīstān antico, pp. 76f.; idem, Zoroaster’s Time and Homeland, pp. 50-53; and cf. also H. Lommel, "Rasā," ZII 4, 1926, pp. 194-206
+
+    with the Volga (J. Markwart, Wehrot und Arang, ed. H. H. Schaeder, Leiden, 1938, pp. 133ff.)
+
+
+The Bell Game
+From Wikipedia, the free encyclopedia
+
+The Bell Game is a yearly football contest between two Pueblo, Colorado high schools: Central High School and Centennial High School. They have been playing each other since 1892 2016 will be the 116th year of the bell game[1] in what is touted as the oldest football rivalry west of the Mississippi River[2] and the largest sports event of its kind in Colorado.[3] The rivalry is sometimes referred to as the "One Hundred Year War".[4] Since the mid-1950s the teams have played to gain ownership of the trophy Bell and get to paint it their respective colors and host in their school for sporting events and school activities.[5]
+Year    Winner  Score   Loser
+2014    Centennial  28-26   Central
+2015    Central     27-24   Centennial
+2016    Centennial  31-7    Central
+
+
+Cold War (song)
+From Wikipedia, the free encyclopedia
+"Cold War"
+Janelle Monáe – Cold War.jpg
+Single by Janelle Monáe
+from the album The ArchAndroid
+Released    February 12, 2010
+Format  Digital download
+Genre
+
+    Rock new wave Afro-funk
+
+Length  3:23
+Label
+
+    Wondaland Arts Society Bad Boy
+
+Writer(s)
+
+    Nathaniel Irvin III Charles Joseph II Janelle Monáe Robinson
+
+Producer(s)
+
+    Nate Wonder Chuck Lightning Janelle Monáe
+
+Janelle Monáe singles chronology
+"Tightrope"
+(2010)  "Cold War"
+(2010)  "We Are Young"
+(2011)
+
+"Cold War" is a song recorded by American singer-songwriter Janelle Monáe for her debut studio album The ArchAndroid (2010). The song was written and produced by Monáe, Nathaniel Irvin III, and Charles Joseph II. It was released on February 12, 2010 on Monáe's website, one day after the release of The ArchAndroid's first single, "Tightrope". "Cold War" was produced as a fast paced rock, new wave and Afro-funk track with a futuristic feel. Its drum pattern has received several comparison to that of OutKast's 2000 single "B.O.B. (Bombs Over Baghdad)". Music critics acclaimed the song as one of the best tracks from The ArchAndroid. The accompanying music video was directed and shot by Wendy Morgan at a sanitarium. It features Monáe emoting throughout the video and has been praised by critics as a unique piece of work.
+
+Contents
+
+    1 Development
+    2 Music and lyrics
+    3 Release and reception
+    4 Music video
+    5 Remix
+    6 Live performances
+    7 Credits and personnel
+    8 Chart history
+    9 References
+
+Development
+
+"Cold War" was co-written and co-produced by Robinson with Nathaniel Irvin III and Charles Joseph II, credited under their production names Janelle Monáe, Nate Wonder, and Chuck Lightning.[1] The song was recorded by Control Z and Roman GianArthur at Wonderland Studios in Atlanta, Georgia; it was mastered by Larry Anthony at CO5 Mastering, also in Atlanta.[1] Irvin and Phil Tan edited "Cold War" at Wonderland Studios and Soapbox Studios, respectively.[1] Robinson enlisted several musicians to create the song's overall sound.[1] Irvin provided most of the instrumentation for the song, including the Mellotron, electric guitar, organs, and percussion.[1] Backing vocals for the song were recorded by Robinson and Irvin.[1] Robinson enlisted the Wonderland Orchestra to play the revolutionary strings. Kellindo Parker performs on guitar, lead guitar, guitar (rhythm), and soloist.[1] Grace Shim performed on the cello while Alexander Page provided the violin and viola; Irvin head the string arrangement. YoungPete Alexander performs on the drums.[1]
+Music and lyrics
+
+"Cold War" is a futuristic sounding rock, new wave and Afro-funk song.[2][3] The song carries an uptempo, anthemic sound that is aided by the frantic, sprinting beats and a stinging guitar solo.[4][5][6] According to Sputnikmusic's Nick Butler, the song's drum track bear a similarity to those used in OutKast's 2000 single "B.O.B. (Bombs Over Baghdad)".[7][8] Monae's vocals on the song have received several comparisons to those of American R&B singer Beyoncé.[9] David D. of The Smoking Section found the lyrics to be about duality, "a cold war of inner strife ... that can be buried under smiles, electric guitars and up-tempo drum patterns."[10]
+Release and reception
+
+Upon its release, the song received general acclaim from critics. "Cold War" was released to Monáe's website on February 12, 2010 and later to other digital retailers on February 23, 2010.[11] Dan Nishimoto of Prefix Magazine offered praise to "Cold War" for "replacing the memory of "Violet Stars Happy Hunting!" with big hooks, bigger smiles ("All the tribes come and the mighty will crumble/ We must brave this night") and a sugar-fueled beat."[12] Matthew Cole of Slant Magazine lauded Monáe's vocals on the track, commenting "that would make Beyoncé jealous."[13] Several music critics, such as PopMatters's Quentin B. Huff, NOW's Jason Keller and Allmusic's Andy Kellman, labelled "Cold War" as the top track on The ArchAndroid.[4][14][15] Joe Rivers of No Ripcord described the song as genuinely thrilling.[8] According to Sputnikmusic's Nick Butler, several songs from The ArchAndroid, including "Cold War" get away with "attempting something that simply should not work, only for her to pull it off."[7] Lorne Thompson of The Digital Fix named "Cold War", along with "Tightrope" and "Sir Greendown", as the album's standout songs.[16]
+Music video
+
+I remember crying during ‘Cold War’ [on the] first take,” she said. “I didn’t know how that happened but it just did. I was very moved by that. It was really a special moment; then everybody else started to cry.” She further elaborated, "[The video] deals with a psychosis—you’re in my mind and you get a chance to understand Metropolis, where it all stemmed [from] and my thoughts. It’s very psychedelic and trippy."
+— Janelle Monáe on the concept of the video.[17]
+
+The music video for "Cold War" was released to Vevo on August 5, 2010. It was directed by Wendy Morgan and shot at the black box auditorium in The Palace of the Dogs sanitarium. The video, which Monáe described as an "emotion picture", features Monáe against a black wall emoting and reacting as the song progresses. During the video, Monáe grimaces, smiles, breaks down, and eventually sheds a tear. Monae described the tears as "spontaneous and triggered a chain reaction."[17] The video received rave reviews by several music critics. Katie Hasty of HitFix called the video "fascinating little artifact of time".[18] Larry Fitzmaurice of Pitchfork Media stated that it was "worth a watch".[19] Robbie Daw of Idolator stated that "Janelle reaffirms the fact that she’s one of the more unique, if not daring, artists out there at the moment."[20]
+Remix
+
+There is one remix of the song titled "Cold War (Wondamix)". Part of this remix can be heard at the beginning of the "Tightrope" music video.
+Live performances
+
+Monae performed a shortened version of the song on February 13, 2011 at the 53rd Grammy Awards, as part of a three-song medley, with B.o.B and Bruno Mars.
+Credits and personnel
+
+Credits adapted from the liner notes of The ArchAndroid, Wondaland Arts Society, in association with Bad Boy Records.[1]
+
+Technical
+
+    Janelle Monáe – lead vocals, writing, production, lyrics, backing vocals
+    Nathaniel Irvin III – writing, production, backing vocals
+    Charles Joseph II – writing, production
+    Damien Lewis – additional editing
+
+Recording, mastering and editing
+
+    Recorded by Control Z and Roman GianArthur at Wonderland Studios in Atlanta, Georgia
+    Mastered by Larry Anthony at CO5 Matering in Atlanta, Georgia
+    Edited by Nate Wonder at Wondaland Studios in Atlanta, Georgia and Phil Tan at Soapbox Studios
+
+
+
+Instruments
+
+    Nate "Rocket" Wonder – String arrangement, Mellotron, electric guitar, organ [Continental Organ], Organ [Hammond B-3], Moog synthesizer, Vibraphone, bass guitar, nuclear drums, percussion [fireworks]
+    YoungPete Alexander – Drums
+    Kellindo Parker – Rhythm Guitar [Atomic], Lead Guitar [Atomic], Soloist, Guitar [Atomic Solo Guitar]
+    The Wonderland ArchOrchestra – Revolutionary strings
+    Grace Shim – Cello
+    Alexander Page – Violin, Viola
+
+Chart history
+Chart (2010)    Peak
+position
+Belgium (Ultratip Wallonia)[21]     36
+
+
+Brampton Hut interchange
+From Wikipedia, the free encyclopedia
+Arable farm land at Brampton Hut
+
+The Brampton Hut interchange links the A1 and A14 road west of Huntingdon. The A1 passes over a grade separated roundabout which provides access to the A14 and a comprehensive service station. East and west traffic on the A14 uses the roundabout to join the A1 southbound and to continue on the A14. Traffic from the A14 East and wishing travel north would have previously used the A14 northern spur to access the A1(M) at Alconbury. There is a large BP Connect filling station and truck park, a Brewers Fayre restaurant and Premier Inn hotel, and a McDonald's drive-thru.
+History
+
+The junction is named after the Brampton Hut hotel, which was so called as it looked like a wooden hut on stilts. Traffic lights were added in 2006[1] to attempt to reduce the traffic jams on the A14 entering the junction from either side.
+Proposed developments
+Main article: A14 road (England)
+
+The proposed A14 Ellington to Fen Ditton scheme would pass close to the west of this junction. If this scheme were to happen the A14 at this point would be downgraded to a local road.[2]
+
+
+German submarine U-D5
+From Wikipedia, the free encyclopedia
+History
+Nazi Germany
+Name:   U-D5
+Builder:    Rotterdamsche Droogdok Maatschappij, Rotterdam
+Laid down:  3 August 1939
+Launched:   26 September 1941
+Commissioned:   30 January 1942
+Decommissioned:     9 May 1945
+Fate:   Returned to the Dutch Navy 1945
+Netherlands
+Name:   O-27
+Commissioned:   13 July 1945
+Decommissioned:     14 November 1959
+Fate:   Broken up 1961
+General characteristics [1]
+Class and type:     O 21-class submarine
+Displacement:
+
+    990 tons surfaced
+    1205 tons submerged
+
+Length:     77.70 m (254 ft 11 in)
+Beam:   6.80 m (22 ft 4 in)
+Draught:    3.95 m (13 ft 0 in)
+Propulsion:
+
+    2 × 2,500 PS (2,466 bhp; 1,839 kW) diesel engines
+    2 × 500 PS (493 bhp; 368 kW) electric motors
+
+Range:
+
+    10,000 nmi (19,000 km; 12,000 mi) at 12 knots (22 km/h; 14 mph) surfaced
+    28 nmi (52 km; 32 mi) at 8.5 knots (15.7 km/h; 9.8 mph) submerged
+
+Complement:     39
+Armament:
+
+    4 × 21 in (533 mm) bow torpedo tubes
+    2 × 21 in stern torpedo tubes
+    2 × 21 in (1×2) external-traversing TT amidships
+
+U-D5 was an O 21-class submarine. The boat was laid down as the Dutch submarine K XXVII and renamed O 27 but was captured during the German invasion of the Netherlands in World War II and commissioned in the Kriegsmarine. The ship survived the war and was returned to the Netherlands where she served under her old name until 1959.
+Ship history
+
+The submarine was ordered on 8 July 1938 and laid down on 3 August 1939 as K XXVII at the Rotterdamsche Droogdok Maatschappij, Rotterdam. During construction she was renamed O 27. Following the German invasion of 10 May 1940, the not yet launched O 27 was captured at the yard by the invading forces.[2]
+
+The Germans decided to complete her. The launch took place on 26 September 1941. She served in the Kriegsmarine as U-D5 and was commissioned on 30 January 1942.[2][3]
+
+From November 1941 to August 1942 U-D5 served as training boat in Kiel when attached to the 5th Flotilla. From August 1942 until January 1943 the boat was stationed at Lorient in occupied France and attached to the 10th Flotilla.[2]
+
+When patrolling west of Freetown U-D5 spotted and sank the 7,628 GRT British freighter Primrose Hill on 29 October 1942.[2]
+
+In January 1943 the boat was transferred to Bergen in occupied Norway and attached to the U-boot Abwehr Schule to be used as school boat until May 1945. U-D5 surrendered on 9 May 1945. U-D5 was planned to be scuttled as part of Operation Deadlight but was recognized as a former Dutch boat and was returned to the Royal Netherlands Navy. On 13 July 1945 she was commissioned in the Dutch Navy as O 27.[2]
+
+She served in the Dutch navy until she was stricken on 14 November 1959. She was stationed in Den Helder where she served as torpedo trial boat, piggy boat, and training vessel. In 1961 she was broken up.[2]
+
+Japanese invasion of Legaspi
+From Wikipedia, the free encyclopedia
+Japanese invasion of Legaspi
+Part of Philippines Campaign (1941–42), Pacific War
+A map of Luzon Island showing Japanese landings and advances from 8 December 1941 to 8 January 1942.
+Date    12 December 1941
+Location    Legaspi, Philippines
+Result  Japanese victory
+Belligerents
+ Empire of Japan     Commonwealth of the Philippines
+[hide]
+
+    v t e
+
+Philippines Campaign (1941–42)
+
+    Batan Island (Camiguin Island) Vigan (Bactonan) Aparri (Gonzaga) Legaspi (Naga, Sipocot) Davao (Jolo Island) Lingayen Gulf Lamon Bay Barrio Piis Bataan Death march Corregidor Luzon Visayas Mindanao
+
+The Japanese Invasion of Legaspi on 12 December 1941 was one in a series of advance landings made by Imperial Japanese forces as first step in their invasion of the Philippines. The purpose was to obtain control of local air strips, which could be used as forward bases by fighter aircraft for operations in central Luzon. Control of Legaspi was an important point in the Japanese strategy, as it would also give them control of San Bernardino Strait, between the islands Luzon and Samar, which would prevent the Americans from bringing in reinforcements from the south. The first invasion was at Batan Island on 8 December 1941. This was followed by Vigan, Aparri, Legaspi, Davao, and Jolo Island over the next few days[1]
+
+Contents
+
+    1 Disposition of forces
+    2 Landing and aftermath
+    3 Consequences
+    4 References
+
+Disposition of forces
+
+Legazpi, Albay is the capital of Albay Province, in far southern Luzon at the southern end of the Bicol Peninsula, and the administrative center of the Bicol Region. The city was an important seaport, and the southern terminus of the Manila Railway.
+
+The area of Legaspi was in theory defended by General Wainwright's South Luzon Force with two infantry divisions, the 41st Division to the west and the 51st Division to the east. With these two divisions, Parker was expected to cover a very large geographic area with five large bays suitable for amphibious operations, and over 400 kilometres (250 miles) of coastline suitable for landings. Moreover, both divisions were undermanned, poorly trained, and suffered from a serious shortage of equipment. In addition, the situation was complicated further in that the enlisted troops spoke only the local Bicol languages, whereas the officers spoke only Tagalog and English.[1]
+
+On the Japanese side, General Homma had organized a detachment of 2500 men from the IJA 16th Division, led by Major General Naoki Kimura, with the Infantry Group HQ, 33rd Infantry Regiment and a battery from the 22nr Field Artillery Regiment. He also had a detachment of 575 men from the Kure 1st SNLF.[2]
+
+The invasion force was supported by a large fleet from the Imperial Japanese Navy led by Rear Admiral Kyuji Kubo, consisting of the light cruiser Nagara, the destroyers Yamakaze, Suzukaze, Kawakaze, Umikaze, Yukikaze, Tokitsukaze, the seaplane tenders Mizuho and Chitose, two minesweepers, two patrol vessels and seven transports.[3]
+
+Distant cover was provided by Vice Admiral Ibō Takahashi with the aircraft carrier Ryūjō, heavy cruisers Haguro, Myōkō and Nachi and the destroyer Shiokaze. In addition, the covering fleet was accompanied by Destroyer Squadron 2 with the light cruiser Jintsu and destroyers Amatsukaze, Hayashio, Kuroshio, Hatsukaze, Natsushio, and Oyashio, which was tasked with minelaying operations in San Bernardino Straits.[3]
+Landing and aftermath
+
+The Kimura Detachment landed at Legaspi on the morning of 12 December without opposition, as the nearest American forces were over 240 km (150 mi) away. By 09:00 they were in control of both the airfield and the railroad. The following day, the Japanese naval covering force withdrew to Palau.[1]
+
+The Philippine 51st Division sent an engineering battalion south into the Bicol Peninsula to destroy bridges and to prevent railroad equipment from falling into the hands of the Japanese. The first American counterattack was a strafing attack on 12 December by two fighter aircraft of the Far East Air Force on the newly captured airstrip at Legaspi, killing three Japanese. This was followed by an attack by three Boeing B-17 Flying Fortress bombers, which destroyed nine Japanese aircraft on the Legaspi runway. However, only one of the B-17s made it back to its base at Del Monte Airfield.
+
+Once the city of Legaspi was secure, Kimura sent his forces north on Highway 1 to capture the city of Naga, the capital of Camarines Sur Province on 18 December.[1] Continuing north from Naga and repairing bridges as they advanced, the Japanese reached the town of Sipocot on 19 December and Daet, capital of Camarines Norte Province on 21 December. General Parker ordered two companies of the 52nd Infantry to make a stand north of Sipocot, as the Bicol Peninsula is very narrow in that area, enabling a small force to considerably delay the Japanese advance. In the early morning of 22 December, a company from the Kimura Detachment engaged the Americans. However, the 52nd Infantry had a good geographic position, and was able to push the Japanese 10 km (6 mi) south.[1]
+
+However, on 23 December, the Japanese made a landing at Atimonan, the capital of Quezon Province to the north of the American positions. Although thus encircled, a portion of the 52nd Infantry managed to make its way back to American lines.[1]
+Consequences
+
+In retrospect, the advance landings by the Japanese in southern Luzon, including at Legaspi, largely accomplished its strategic objective of encircling the American forces in central Luzon, preventing both escape and reinforcement. Tactically, the air fields seized were small, and with the rapid advance of the Japanese into both central and southern Luzon, were soon unnecessary for further operations.[1]
+
+
+Ellsberg paradox
+From Wikipedia, the free encyclopedia
+
+This article has multiple issues. Please help improve it or discuss these issues on the talk page. (Learn how and when to remove these template messages)
+This article's tone or style may not reflect the encyclopedic tone used on Wikipedia. (December 2010)
+This article includes a list of references, but its sources remain unclear because it has insufficient inline citations. (August 2015)
+
+The Ellsberg paradox is a paradox in decision theory in which people's choices violate the postulates of subjective expected utility.[1] It is generally taken to be evidence for ambiguity aversion. The paradox was popularized by Daniel Ellsberg, although a version of it was noted considerably earlier by John Maynard Keynes.[2]
+
+The basic idea is that people overwhelmingly prefer taking on risk in situations where they know specific odds rather than an alternative risk scenario in which the odds are completely ambiguous—they will always choose a known probability of winning over an unknown probability of winning even if the known probability is low and the unknown probability could be a guarantee of winning. That is, given a choice of risks to take (such as bets), people "prefer the devil they know" rather than assuming a risk where odds are difficult or impossible to calculate.[3]
+
+Ellsberg actually proposed two separate thought experiments, the proposed choices which contradict subjective expected utility. The 2-color problem involves bets on two urns, both of which contain balls of two different colors. The 3-color problem, described below, involves bets on a single urn, which contains balls of three different colors.
+
+Contents
+
+    1 The one-urn paradox
+        1.1 Utility theory interpretation
+        1.2 Numerical demonstration
+        1.3 Generality of the paradox
+        1.4 Possible explanations
+        1.5 Alternative explanations
+    2 See also
+    3 References
+    4 Further reading
+
+The one-urn paradox
+
+Suppose you have an urn containing 30 red balls and 60 other balls that are either black or yellow. You don't know how many black or how many yellow balls there are, but that the total number of black balls plus the total number of yellow equals 60. The balls are well mixed so that each individual ball is as likely to be drawn as any other. You are now given a choice between two gambles:
+
+    Gamble A    Gamble B
+    You receive $100 if you draw a red ball     You receive $100 if you draw a black ball
+
+Also you are given the choice between these two gambles (about a different draw from the same urn):
+
+    Gamble C    Gamble D
+    You receive $100 if you draw a red or yellow ball   You receive $100 if you draw a black or yellow ball
+
+This situation poses both Knightian uncertainty – how many of the non-red balls are yellow and how many are black, which is not quantified – and probability – whether the ball is red or non-red, which is 1/3 vs. 2/3.
+Utility theory interpretation
+
+Utility theory models the choice by assuming that in choosing between these gambles, people assume a probability that the non-red balls are yellow versus black, and then compute the expected utility of the two gambles.
+
+Since the prizes are exactly the same, it follows that you will prefer Gamble A to Gamble B if and only if you believe that drawing a red ball is more likely than drawing a black ball (according to expected utility theory). Also, there would be no clear preference between the choices if you thought that a red ball was as likely as a black ball. Similarly it follows that you will prefer Gamble C to Gamble D if, and only if, you believe that drawing a red or yellow ball is more likely than drawing a black or yellow ball. It might seem intuitive that, if drawing a red ball is more likely than drawing a black ball, then drawing a red or yellow ball is also more likely than drawing a black or yellow ball. So, supposing you prefer Gamble A to Gamble B, it follows that you will also prefer Gamble C to Gamble D. And, supposing instead that you prefer Gamble B to Gamble A, it follows that you will also prefer Gamble D to Gamble C.
+
+When surveyed, however, most people strictly prefer Gamble A to Gamble B and Gamble D to Gamble C. Therefore, some assumptions of the expected utility theory are violated.
+Numerical demonstration
+
+Mathematically, your estimated probabilities of each color ball can be represented as: R, Y, and B. If you strictly prefer Gamble A to Gamble B, by utility theory, it is presumed this preference is reflected by the expected utilities of the two gambles: specifically, it must be the case that
+
+    R ⋅ U ( $ 100 ) + ( 1 − R ) ⋅ U ( $ 0 ) > B ⋅ U ( $ 100 ) + ( 1 − B ) ⋅ U ( $ 0 ) {\displaystyle R\cdot U(\$100)+(1-R)\cdot U(\$0)>B\cdot U(\$100)+(1-B)\cdot U(\$0)} {\displaystyle R\cdot U(\$100)+(1-R)\cdot U(\$0)>B\cdot U(\$100)+(1-B)\cdot U(\$0)}
+
+where U( ) is your utility function. If U($100) > U($0) (you strictly prefer $100 to nothing), this simplifies to:
+
+    R [ U ( $ 100 ) − U ( $ 0 ) ] > B [ U ( $ 100 ) − U ( $ 0 ) ] ⟺ R > B {\displaystyle R[U(\$100)-U(\$0)]>B[U(\$100)-U(\$0)]\Longleftrightarrow R>B\;} {\displaystyle R[U(\$100)-U(\$0)]>B[U(\$100)-U(\$0)]\Longleftrightarrow R>B\;}
+
+If you also strictly prefer Gamble D to Gamble C, the following inequality is similarly obtained:
+
+    B ⋅ U ( $ 100 ) + Y ⋅ U ( $ 100 ) + R ⋅ U ( $ 0 ) > R ⋅ U ( $ 100 ) + Y ⋅ U ( $ 100 ) + B ⋅ U ( $ 0 ) {\displaystyle B\cdot U(\$100)+Y\cdot U(\$100)+R\cdot U(\$0)>R\cdot U(\$100)+Y\cdot U(\$100)+B\cdot U(\$0)} {\displaystyle B\cdot U(\$100)+Y\cdot U(\$100)+R\cdot U(\$0)>R\cdot U(\$100)+Y\cdot U(\$100)+B\cdot U(\$0)}
+
+This simplifies to:
+
+    B [ U ( $ 100 ) − U ( $ 0 ) ] > R [ U ( $ 100 ) − U ( $ 0 ) ] ⟺ B > R {\displaystyle B[U(\$100)-U(\$0)]>R[U(\$100)-U(\$0)]\Longleftrightarrow B>R\;} {\displaystyle B[U(\$100)-U(\$0)]>R[U(\$100)-U(\$0)]\Longleftrightarrow B>R\;}
+
+This contradiction indicates that your preferences are inconsistent with expected-utility theory.
+Generality of the paradox
+
+Note that the result holds regardless of your utility function. Indeed, the amount of the payoff is likewise irrelevant. Whichever gamble you choose, the prize for winning it is the same, and the cost of losing it is the same (no cost), so ultimately, there are only two outcomes: you receive a specific amount of money, or you receive nothing. Therefore, it is sufficient to assume that you prefer receiving some money to receiving nothing (and in fact, this assumption is not necessary—in the mathematical treatment above, it was assumed U($100) > U($0), but a contradiction can still be obtained for U($100) < U($0) and for U($100) = U($0)).
+
+In addition, the result holds regardless of your risk aversion. All the gambles involve risk. By choosing Gamble D, you have a 1 in 3 chance of receiving nothing, and by choosing Gamble A, you have a 2 in 3 chance of receiving nothing. If Gamble A was less risky than Gamble B, it would follow[4] that Gamble C was less risky than Gamble D (and vice versa), so, risk is not averted in this way.
+
+However, because the exact chances of winning are known for Gambles A and D, and not known for Gambles B and C, this can be taken as evidence for some sort of ambiguity aversion which cannot be accounted for in expected utility theory. It has been demonstrated that this phenomenon occurs only when the choice set permits comparison of the ambiguous proposition with a less vague proposition (but not when ambiguous propositions are evaluated in isolation).[5]
+Possible explanations
+
+There have been various attempts to provide decision-theoretic explanations of Ellsberg's observation. Since the probabilistic information available to the decision-maker is incomplete, these attempts sometimes focus on quantifying the non-probabilistic ambiguity which the decision-maker faces – see Knightian uncertainty. That is, these alternative approaches sometimes suppose that the agent formulates a subjective (though not necessarily Bayesian) probability for possible outcomes.
+
+One such attempt is based on info-gap decision theory. The agent is told precise probabilities of some outcomes, though the practical meaning of the probability numbers is not entirely clear. For instance, in the gambles discussed above, the probability of a red ball is 30/90, which is a precise number. Nonetheless, the agent may not distinguish, intuitively, between this and, say, 30/91. No probability information whatsoever is provided regarding other outcomes, so the agent has very unclear subjective impressions of these probabilities.
+
+In light of the ambiguity in the probabilities of the outcomes, the agent is unable to evaluate a precise expected utility. Consequently, a choice based on maximizing the expected utility is also impossible. The info-gap approach supposes that the agent implicitly formulates info-gap models for the subjectively uncertain probabilities. The agent then tries to satisfice the expected utility and to maximize the robustness against uncertainty in the imprecise probabilities. This robust-satisficing approach can be developed explicitly to show that the choices of decision-makers should display precisely the preference reversal which Ellsberg observed.[6]
+
+Another possible explanation is that this type of game triggers a deceit aversion mechanism. Many humans naturally assume in real-world situations that if they are not told the probability of a certain event, it is to deceive them. People make the same decisions in the experiment that they would about related but not identical real-life problems where the experimenter would be likely to be a deceiver acting against the subject's interests. When faced with the choice between a red ball and a black ball, the probability of 30/90 is compared to the lower part of the 0/90–60/90 range (the probability of getting a black ball). The average person expects there to be fewer black balls than yellow balls because in most real-world situations, it would be to the advantage of the experimenter to put fewer black balls in the urn when offering such a gamble. On the other hand, when offered a choice between red and yellow balls and black and yellow balls, people assume that there must be fewer than 30 yellow balls as would be necessary to deceive them. When making the decision, it is quite possible that people simply forget to consider that the experimenter does not have a chance to modify the contents of the urn in between the draws. In real-life situations, even if the urn is not to be modified, people would be afraid of being deceived on that front as well.[7]
+
+A modification of utility theory to incorporate uncertainty as distinct from risk is Choquet expected utility, which also proposes a solution to the paradox.
+Alternative explanations
+
+Other alternative explanations include the competence hypothesis[8] and comparative ignorance hypothesis.[5] These theories attribute the source of the ambiguity aversion to the participant's pre-existing knowledge.
+See also
+
+    Allais paradox
+    Ambiguity aversion
+    Experimental economics
+    Subjective expected utility
+    Utility theory

@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Data compression - Wikipedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Data_compression","wgTitle":"Data compression","wgCurRevisionId":762234761,"wgRevisionId":762234761,"wgArticleId":8013,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 maint: Multiple names: authors list","All articles with unsourced statements","Articles with unsourced statements from October 2015","Articles with unsourced statements from January 2017","Webarchive template wayback links","Computing","Data compression","Digital audio","Digital television","Film and video technology","Video compression","Videotelephony","Utility software types"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Data_compression","wgRelevantArticleId":8013,"wgRequestId":"WIw5fApAIDYAAE8rPaIAAACC","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":true},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikibaseItemId":"Q2493","wgCentralAuthMobileDomain":false,"wgVisualEditorToolbarScrollOffset":0,"wgEditSubmitButtonLabelPublish":false});mw.loader.state({"ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.cite.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1dqfd7l",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.legacy.wikibits","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.gadget.featured-articles-links","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.29.0-wmf.9"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Data_compression"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Data_compression&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Data_compression&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Data_compression"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Data_compression rootpage-Data_compression skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Data compression</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><script>function mfTempOpenSection(id){var block=document.getElementById("mf-section-"+id);block.className+=" open-block";block.previousSibling.className+=" open-block";}</script><div role="note" class="hatnote">"Source coding" redirects here. For the term in computer programming, see <a href="/wiki/Source_code" title="Source code">Source code</a>.</div>
+<p>In <a href="/wiki/Signal_processing" title="Signal processing">signal processing</a>, <b>data compression</b>, <b>source coding</b>,<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> or <b>bit-rate reduction</b> involves encoding information using fewer <a href="/wiki/Bit" title="Bit">bits</a> than the original representation.<sup id="cite_ref-mahdi53_2-0" class="reference"><a href="#cite_note-mahdi53-2">[2]</a></sup> Compression can be either <a href="/wiki/Lossy_compression" title="Lossy compression">lossy</a> or <a href="/wiki/Lossless_compression" title="Lossless compression">lossless</a>. <a href="/wiki/Lossless_compression" title="Lossless compression">Lossless compression</a> reduces bits by identifying and eliminating <a href="/wiki/Redundancy_(information_theory)" title="Redundancy (information theory)">statistical redundancy</a>. No information is lost in lossless compression. Lossy compression reduces bits by removing unnecessary or less important information.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup> The process of reducing the size of a data file is referred to as data compression. In the context of data transmission, it is called source coding (encoding done at the source of the data before it is stored or transmitted) in opposition to channel coding.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></p>
+<p>Compression is useful because it reduces resources required to store and transmit data. Computational resources are consumed in the compression process and, usually, in the reversal of the process (decompression). Data compression is subject to a <a href="/wiki/Time/space_complexity" class="mw-redirect" title="Time/space complexity">space–time complexity</a> trade-off. For instance, a compression scheme for video may require expensive <a href="/wiki/Electronic_hardware" title="Electronic hardware">hardware</a> for the video to be decompressed fast enough to be viewed as it is being decompressed, and the option to decompress the video in full before watching it may be inconvenient or require additional storage. The design of data compression schemes involves trade-offs among various factors, including the degree of compression, the amount of distortion introduced (when using <a href="/wiki/Lossy_data_compression" class="mw-redirect" title="Lossy data compression">lossy data compression</a>), and the computational resources required to compress and decompress the data.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup></p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Lossless"><span class="tocnumber">1</span> <span class="toctext">Lossless</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Lossy"><span class="tocnumber">2</span> <span class="toctext">Lossy</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Theory"><span class="tocnumber">3</span> <span class="toctext">Theory</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Machine_learning"><span class="tocnumber">3.1</span> <span class="toctext">Machine learning</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Data_differencing"><span class="tocnumber">3.2</span> <span class="toctext">Data differencing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Uses"><span class="tocnumber">4</span> <span class="toctext">Uses</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Audio"><span class="tocnumber">4.1</span> <span class="toctext">Audio</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Lossy_audio_compression"><span class="tocnumber">4.1.1</span> <span class="toctext">Lossy audio compression</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="#Coding_methods"><span class="tocnumber">4.1.1.1</span> <span class="toctext">Coding methods</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#Speech_encoding"><span class="tocnumber">4.1.1.2</span> <span class="toctext">Speech encoding</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-11"><a href="#History"><span class="tocnumber">4.1.2</span> <span class="toctext">History</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Video"><span class="tocnumber">4.2</span> <span class="toctext">Video</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#Encoding_theory"><span class="tocnumber">4.2.1</span> <span class="toctext">Encoding theory</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#Timeline"><span class="tocnumber">4.2.2</span> <span class="toctext">Timeline</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="#Genetics"><span class="tocnumber">4.3</span> <span class="toctext">Genetics</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Emulation"><span class="tocnumber">4.4</span> <span class="toctext">Emulation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Outlook_and_currently_unused_potential"><span class="tocnumber">5</span> <span class="toctext">Outlook and currently unused potential</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Lossless">Lossless</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=1" title="Edit section: Lossless">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/Lossless_data_compression" class="mw-redirect" title="Lossless data compression">Lossless data compression</a> <a href="/wiki/Algorithm" title="Algorithm">algorithms</a> usually exploit <a href="/wiki/Redundancy_(information_theory)" title="Redundancy (information theory)">statistical redundancy</a> to represent data without losing any <a href="/wiki/Self-information" title="Self-information">information</a>, so that the process is reversible. Lossless compression is possible because most real-world data exhibits statistical redundancy. For example, an image may have areas of color that do not change over several pixels; instead of coding "red pixel, red pixel, ..." the data may be encoded as "279 red pixels". This is a basic example of <a href="/wiki/Run-length_encoding" title="Run-length encoding">run-length encoding</a>; there are many schemes to reduce file size by eliminating redundancy.</p>
+<p>The <a href="/wiki/Lempel%E2%80%93Ziv" class="mw-redirect" title="Lempel–Ziv">Lempel–Ziv</a> (LZ) compression methods are among the most popular algorithms for lossless storage.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup> <a href="/wiki/DEFLATE_(algorithm)" class="mw-redirect" title="DEFLATE (algorithm)">DEFLATE</a> is a variation on LZ optimized for decompression speed and compression ratio, but compression can be slow. DEFLATE is used in <a href="/wiki/PKZIP" title="PKZIP">PKZIP</a>, <a href="/wiki/Gzip" title="Gzip">Gzip</a>, and <a href="/wiki/Portable_Network_Graphics" title="Portable Network Graphics">PNG</a>. <a href="/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch" title="Lempel–Ziv–Welch">LZW</a> (Lempel–Ziv–Welch) is used in <a href="/wiki/Graphics_Interchange_Format" class="mw-redirect" title="Graphics Interchange Format">GIF</a> images. Also noteworthy is the LZR (Lempel-Ziv–Renau) algorithm, which serves as the basis for the <a href="/wiki/Zip_(file_format)" title="Zip (file format)">Zip</a> method.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="&quot;The">citation needed</span></a></i>]</sup> LZ methods use a table-based compression model where table entries are substituted for repeated strings of data. For most LZ methods, this table is generated dynamically from earlier data in the input. The table itself is often <a href="/wiki/Huffman_coding" title="Huffman coding">Huffman encoded</a> (e.g. SHRI, LZX). Current LZ-based coding schemes that perform well are <a href="/wiki/Brotli" title="Brotli">Brotli</a> and <a href="/wiki/LZX_(algorithm)" title="LZX (algorithm)">LZX</a>. LZX is used in Microsoft's <a href="/wiki/Cabinet_(file_format)" title="Cabinet (file format)">CAB</a> format.</p>
+<p>The best modern lossless compressors use <a href="/wiki/Probabilistic_algorithm" class="mw-redirect" title="Probabilistic algorithm">probabilistic</a> models, such as <a href="/wiki/Prediction_by_partial_matching" title="Prediction by partial matching">prediction by partial matching</a>. The <a href="/wiki/Burrows%E2%80%93Wheeler_transform" title="Burrows–Wheeler transform">Burrows–Wheeler transform</a> can also be viewed as an indirect form of statistical modelling.<sup id="cite_ref-mahmud2_8-0" class="reference"><a href="#cite_note-mahmud2-8">[8]</a></sup></p>
+<p>The class of <a href="/wiki/Grammar-based_codes" class="mw-redirect" title="Grammar-based codes">grammar-based codes</a> are gaining popularity because they can compress <i>highly repetitive</i> input extremely effectively, for instance, a biological data collection of the same or closely related species, a huge versioned document collection, internet archival, etc. The basic task of grammar-based codes is constructing a context-free grammar deriving a single string. <a href="/wiki/Sequitur_algorithm" title="Sequitur algorithm">Sequitur</a> and Re-Pair are practical grammar compression algorithms for which software is publicly available.</p>
+<p>In a further refinement of the direct use of <a href="/wiki/Probabilistic_model" class="mw-redirect" title="Probabilistic model">probabilistic modelling</a>, statistical estimates can be coupled to an algorithm called <a href="/wiki/Arithmetic_coding" title="Arithmetic coding">arithmetic coding</a>. Arithmetic coding is a more modern coding technique that uses the mathematical calculations of a <a href="/wiki/Finite-state_machine" title="Finite-state machine">finite-state machine</a> to produce a string of encoded bits from a series of input data symbols. It can achieve superior compression to other techniques such as the better-known Huffman algorithm. It uses an internal memory state to avoid the need to perform a one-to-one mapping of individual input symbols to distinct representations that use an integer number of bits, and it clears out the internal memory only after encoding the entire string of data symbols. Arithmetic coding applies especially well to adaptive data compression tasks where the statistics vary and are context-dependent, as it can be easily coupled with an adaptive model of the <a href="/wiki/Probability_distribution" title="Probability distribution">probability distribution</a> of the input data. An early example of the use of arithmetic coding was its use as an optional (but not widely used) feature of the <a href="/wiki/JPEG" title="JPEG">JPEG</a> image coding standard. It has since been applied in various other designs including <a href="/wiki/H.264/MPEG-4_AVC" title="H.264/MPEG-4 AVC">H.264/MPEG-4 AVC</a> and <a href="/wiki/HEVC" class="mw-redirect" title="HEVC">HEVC</a> for video coding.</p>
+<h2><span class="mw-headline" id="Lossy">Lossy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=2" title="Edit section: Lossy">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/Lossy_data_compression" class="mw-redirect" title="Lossy data compression">Lossy data compression</a> is the converse of <a href="/wiki/Lossless_data_compression" class="mw-redirect" title="Lossless data compression">lossless data compression</a>. In these schemes, some loss of information is acceptable. Dropping nonessential detail from the data source can save storage space. Lossy data compression schemes are designed by research on how people perceive the data in question. For example, the human eye is more sensitive to subtle variations in <a href="/wiki/Luminance" title="Luminance">luminance</a> than it is to the variations in color. <a href="/wiki/JPEG" title="JPEG">JPEG</a> <a href="/wiki/Image_compression" title="Image compression">image compression</a> works in part by rounding off nonessential bits of information.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup> There is a corresponding <a href="/wiki/Trade-off" title="Trade-off">trade-off</a> between preserving information and reducing size. A number of popular compression formats exploit these perceptual differences, including <a href="/wiki/Psychoacoustics" title="Psychoacoustics">those used in music</a> files, images, and video.</p>
+<p>Lossy <a href="/wiki/Image_compression" title="Image compression">image compression</a> can be used in <a href="/wiki/Digital_camera" title="Digital camera">digital cameras</a>, to increase storage capacities with minimal degradation of picture quality. Similarly, <a href="/wiki/DVD" title="DVD">DVDs</a> use the lossy <a href="/wiki/MPEG-2" title="MPEG-2">MPEG-2</a> <a href="/wiki/Video_coding_format" title="Video coding format">video coding format</a> for <a href="/wiki/Video_compression" class="mw-redirect" title="Video compression">video compression</a>.</p>
+<p>In lossy <a href="/wiki/Audio_compression_(data)" class="mw-redirect" title="Audio compression (data)">audio compression</a>, methods of <a href="/wiki/Psychoacoustics" title="Psychoacoustics">psychoacoustics</a> are used to remove non-audible (or less audible) components of the <a href="/wiki/Audio_signal_processing" title="Audio signal processing">audio signal</a>. Compression of human speech is often performed with even more specialized techniques; <a href="/wiki/Speech_coding" title="Speech coding">speech coding</a>, or voice coding, is sometimes distinguished as a separate discipline from <i>audio compression</i>. Different audio and speech compression standards are listed under <a href="/wiki/Audio_coding_format" title="Audio coding format">audio coding formats</a>. <i>Voice compression</i> is used in <a href="/wiki/Internet_telephony" class="mw-redirect" title="Internet telephony">internet telephony</a>, for example, audio compression is used for CD ripping and is decoded by the audio players.<sup id="cite_ref-mahmud2_8-1" class="reference"><a href="#cite_note-mahmud2-8">[8]</a></sup></p>
+<h2><span class="mw-headline" id="Theory">Theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=3" title="Edit section: Theory">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The theoretical background of compression is provided by <a href="/wiki/Information_theory" title="Information theory">information theory</a> (which is closely related to <a href="/wiki/Algorithmic_information_theory" title="Algorithmic information theory">algorithmic information theory</a>) for lossless compression and <a href="/wiki/Rate%E2%80%93distortion_theory" title="Rate–distortion theory">rate–distortion theory</a> for lossy compression. These areas of study were essentially forged by <a href="/wiki/Claude_Shannon" title="Claude Shannon">Claude Shannon</a>, who published fundamental papers on the topic in the late 1940s and early 1950s. <a href="/wiki/Coding_theory" title="Coding theory">Coding theory</a> is also related to this. The idea of data compression is also deeply connected with <a href="/wiki/Statistical_inference" title="Statistical inference">statistical inference</a>.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></p>
+<h3><span class="mw-headline" id="Machine_learning">Machine learning</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=4" title="Edit section: Machine learning">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote">See also: <a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a></div>
+<p>There is a close connection between <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a> and compression: a system that predicts the <a href="/wiki/Posterior_probabilities" class="mw-redirect" title="Posterior probabilities">posterior probabilities</a> of a sequence given its entire history can be used for optimal data compression (by using <a href="/wiki/Arithmetic_coding" title="Arithmetic coding">arithmetic coding</a> on the output distribution) while an optimal compressor can be used for prediction (by finding the symbol that compresses best, given the previous history). This equivalence has been used as a justification for using data compression as a benchmark for "general intelligence."<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup><sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup><sup id="cite_ref-13" class="reference"><a href="#cite_note-13">[13]</a></sup></p>
+<h3><span class="mw-headline" id="Data_differencing">Data differencing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=5" title="Edit section: Data differencing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote">Main article: <a href="/wiki/Data_differencing" title="Data differencing">Data differencing</a></div>
+<p>Data compression can be viewed as a special case of <a href="/wiki/Data_differencing" title="Data differencing">data differencing</a>:<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">[14]</a></sup><sup id="cite_ref-15" class="reference"><a href="#cite_note-15">[15]</a></sup> Data differencing consists of producing a <i>difference</i> given a <i>source</i> and a <i>target,</i> with patching producing a <i>target</i> given a <i>source</i> and a <i>difference,</i> while data compression consists of producing a compressed file given a target, and decompression consists of producing a target given only a compressed file. Thus, one can consider data compression as data differencing with empty source data, the compressed file corresponding to a "difference from nothing." This is the same as considering absolute <a href="/wiki/Entropy_(information_theory)" title="Entropy (information theory)">entropy</a> (corresponding to data compression) as a special case of <a href="/wiki/Relative_entropy" class="mw-redirect" title="Relative entropy">relative entropy</a> (corresponding to data differencing) with no initial data.</p>
+<p>When one wishes to emphasize the connection, one may use the term <i>differential compression</i> to refer to data differencing.</p>
+<h2><span class="mw-headline" id="Uses">Uses</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=6" title="Edit section: Uses">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Audio">Audio</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=7" title="Edit section: Audio">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote">See also: <a href="/wiki/Audio_codec" title="Audio codec">Audio codec</a> and <a href="/wiki/Audio_coding_format" title="Audio coding format">Audio coding format</a></div>
+<p>Audio data compression, not to be confused with <a href="/wiki/Dynamic_range_compression" title="Dynamic range compression">dynamic range compression</a>, has the potential to reduce the transmission <a href="/wiki/Bandwidth_(computing)" title="Bandwidth (computing)">bandwidth</a> and storage requirements of audio data. <a href="/wiki/List_of_codecs#Audio" title="List of codecs">Audio compression algorithms</a> are implemented in <a href="/wiki/Software" title="Software">software</a> as audio <a href="/wiki/Codec" title="Codec">codecs</a>. Lossy audio compression algorithms provide higher compression at the cost of fidelity and are used in numerous audio applications. These algorithms almost all rely on <a href="/wiki/Psychoacoustics" title="Psychoacoustics">psychoacoustics</a> to eliminate or reduce fidelity of less audible sounds, thereby reducing the space required to store or transmit them.<sup id="cite_ref-mahdi53_2-1" class="reference"><a href="#cite_note-mahdi53-2">[2]</a></sup></p>
+<p>In both lossy and lossless compression, <a href="/wiki/Redundancy_(information_theory)" title="Redundancy (information theory)">information redundancy</a> is reduced, using methods such as <a href="/wiki/Coding_theory" title="Coding theory">coding</a>, <a href="/wiki/Pattern_recognition" title="Pattern recognition">pattern recognition</a>, and <a href="/wiki/Linear_prediction" title="Linear prediction">linear prediction</a> to reduce the amount of information used to represent the uncompressed data.</p>
+<p>The acceptable trade-off between loss of audio quality and transmission or storage size depends upon the application. For example, one 640MB <a href="/wiki/Compact_disc" title="Compact disc">compact disc</a> (CD) holds approximately one hour of uncompressed <a href="/wiki/High_fidelity" title="High fidelity">high fidelity</a> music, less than 2 hours of music compressed losslessly, or 7 hours of music compressed in the <a href="/wiki/MP3" title="MP3">MP3</a> format at a medium <a href="/wiki/Bit_rate" title="Bit rate">bit rate</a>. A digital sound recorder can typically store around 200 hours of clearly intelligible speech in 640MB.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">[16]</a></sup></p>
+<p>Lossless audio compression produces a representation of digital data that decompress to an exact digital duplicate of the original audio stream, unlike playback from lossy compression techniques such as <a href="/wiki/Vorbis" title="Vorbis">Vorbis</a> and <a href="/wiki/MP3" title="MP3">MP3</a>. Compression ratios are around 50–60% of original size,<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">[17]</a></sup> which is similar to those for generic lossless data compression. Lossless compression is unable to attain high compression ratios due to the complexity of <a href="/wiki/Waveform" title="Waveform">waveforms</a> and the rapid changes in sound forms. Codecs like <a href="/wiki/FLAC" title="FLAC">FLAC</a>, <a href="/wiki/Shorten_(file_format)" title="Shorten (file format)">Shorten</a>, and <a href="/wiki/TTA_(codec)" title="TTA (codec)">TTA</a> use <a href="/wiki/Linear_prediction" title="Linear prediction">linear prediction</a> to estimate the spectrum of the signal. Many of these algorithms use <a href="/wiki/Convolution" title="Convolution">convolution</a> with the filter [-1 1] to slightly <a href="/wiki/White_noise" title="White noise">whiten</a> or <a href="/wiki/Decorrelation" title="Decorrelation">flatten</a> the spectrum, thereby allowing traditional lossless compression to work more efficiently. The process is reversed upon decompression.</p>
+<p>When audio files are to be processed, either by further compression or for <a href="/wiki/Audio_editing" class="mw-redirect" title="Audio editing">editing</a>, it is desirable to work from an unchanged original (uncompressed or losslessly compressed). Processing of a lossily compressed file for some purpose usually produces a final result inferior to the creation of the same compressed file from an uncompressed original. In addition to sound editing or mixing, lossless audio compression is often used for archival storage, or as master copies.</p>
+<p>A number of lossless audio compression formats exist. <a href="/wiki/Shorten_(file_format)" title="Shorten (file format)">Shorten</a> was an early lossless format. Newer ones include <a href="/wiki/Free_Lossless_Audio_Codec" class="mw-redirect" title="Free Lossless Audio Codec">Free Lossless Audio Codec</a> (FLAC), Apple's <a href="/wiki/Apple_Lossless" title="Apple Lossless">Apple Lossless</a> (ALAC), <a href="/wiki/MPEG-4_ALS" class="mw-redirect" title="MPEG-4 ALS">MPEG-4 ALS</a>, Microsoft's <a href="/wiki/Windows_Media_Audio_9_Lossless" class="mw-redirect" title="Windows Media Audio 9 Lossless">Windows Media Audio 9 Lossless</a> (WMA Lossless), <a href="/wiki/Monkey%27s_Audio" title="Monkey's Audio">Monkey's Audio</a>, <a href="/wiki/TTA_(codec)" title="TTA (codec)">TTA</a>, and <a href="/wiki/WavPack" title="WavPack">WavPack</a>. See <a href="/wiki/List_of_codecs#Lossless_data_compression" title="List of codecs">list of lossless codecs</a> for a complete listing.</p>
+<p>Some <a href="/wiki/Audio_file_format" title="Audio file format">audio formats</a> feature a combination of a lossy format and a lossless correction; this allows stripping the correction to easily obtain a lossy file. Such formats include <a href="/wiki/MPEG-4_SLS" title="MPEG-4 SLS">MPEG-4 SLS</a> (Scalable to Lossless), <a href="/wiki/WavPack" title="WavPack">WavPack</a>, and <a href="/wiki/OptimFROG_DualStream" class="mw-redirect" title="OptimFROG DualStream">OptimFROG DualStream</a>.</p>
+<p>Other formats are associated with a distinct system, such as:</p>
+<ul>
+<li><a href="/wiki/Direct_Stream_Transfer" class="mw-redirect" title="Direct Stream Transfer">Direct Stream Transfer</a>, used in <a href="/wiki/Super_Audio_CD" title="Super Audio CD">Super Audio CD</a></li>
+<li><a href="/wiki/Meridian_Lossless_Packing" title="Meridian Lossless Packing">Meridian Lossless Packing</a>, used in <a href="/wiki/DVD-Audio" title="DVD-Audio">DVD-Audio</a>, <a href="/wiki/Dolby_TrueHD" title="Dolby TrueHD">Dolby TrueHD</a>, <a href="/wiki/Blu-ray" title="Blu-ray">Blu-ray</a> and <a href="/wiki/HD_DVD" title="HD DVD">HD DVD</a></li>
+</ul>
+<h4><span class="mw-headline" id="Lossy_audio_compression">Lossy audio compression</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=8" title="Edit section: Lossy audio compression">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright">
+<div class="thumbinner" style="width:222px;"><a href="/wiki/File:AudiodatenkompressionManowarThePowerOfThySword.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/AudiodatenkompressionManowarThePowerOfThySword.jpg/220px-AudiodatenkompressionManowarThePowerOfThySword.jpg" width="220" height="295" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/AudiodatenkompressionManowarThePowerOfThySword.jpg/330px-AudiodatenkompressionManowarThePowerOfThySword.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3a/AudiodatenkompressionManowarThePowerOfThySword.jpg/440px-AudiodatenkompressionManowarThePowerOfThySword.jpg 2x" data-file-width="3366" data-file-height="4517" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:AudiodatenkompressionManowarThePowerOfThySword.jpg" class="internal" title="Enlarge"></a></div>
+Comparison of <a href="/wiki/Musical_acoustics" title="Musical acoustics">acoustic spectrograms</a> of a song in an uncompressed format and lossy formats. That the lossy spectrograms are different from the uncompressed one indicates that they are, in fact, lossy, but nothing can be assumed about the effect of the changes on perceived quality.</div>
+</div>
+</div>
+<p>Lossy audio compression is used in a wide range of applications. In addition to the direct applications (MP3 players or computers), digitally compressed audio streams are used in most video DVDs, digital television, streaming media on the <a href="/wiki/Internet" title="Internet">internet</a>, satellite and cable radio, and increasingly in terrestrial radio broadcasts. Lossy compression typically achieves far greater compression than lossless compression (data of 5 percent to 20 percent of the original stream, rather than 50 percent to 60 percent), by discarding less-critical data.<sup id="cite_ref-Jaiswal_18-0" class="reference"><a href="#cite_note-Jaiswal-18">[18]</a></sup></p>
+<p>The innovation of lossy audio compression was to use <a href="/wiki/Psychoacoustics" title="Psychoacoustics">psychoacoustics</a> to recognize that not all data in an audio stream can be perceived by the human <a href="/wiki/Auditory_system" title="Auditory system">auditory system</a>. Most lossy compression reduces perceptual redundancy by first identifying perceptually irrelevant sounds, that is, sounds that are very hard to hear. Typical examples include high frequencies or sounds that occur at the same time as louder sounds. Those sounds are coded with decreased accuracy or not at all.</p>
+<p>Due to the nature of lossy algorithms, <a href="/wiki/Audio_quality" class="mw-redirect" title="Audio quality">audio quality</a> suffers when a file is decompressed and recompressed (<a href="/wiki/Digital_generation_loss" class="mw-redirect" title="Digital generation loss">digital generation loss</a>). This makes lossy compression unsuitable for storing the intermediate results in professional audio engineering applications, such as sound editing and multitrack recording. However, they are very popular with end users (particularly <a href="/wiki/MP3" title="MP3">MP3</a>) as a megabyte can store about a minute's worth of music at adequate quality.</p>
+<h5><span class="mw-headline" id="Coding_methods">Coding methods</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=9" title="Edit section: Coding methods">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>To determine what information in an audio signal is perceptually irrelevant, most lossy compression algorithms use transforms such as the <a href="/wiki/Modified_discrete_cosine_transform" title="Modified discrete cosine transform">modified discrete cosine transform</a> (MDCT) to convert <a href="/wiki/Time_domain" title="Time domain">time domain</a> sampled waveforms into a transform domain. Once transformed, typically into the <a href="/wiki/Frequency_domain" title="Frequency domain">frequency domain</a>, component frequencies can be allocated bits according to how audible they are. Audibility of spectral components calculated using the <a href="/wiki/Absolute_threshold_of_hearing" title="Absolute threshold of hearing">absolute threshold of hearing</a> and the principles of <a href="/wiki/Simultaneous_masking" class="mw-redirect" title="Simultaneous masking">simultaneous masking</a>—the phenomenon wherein a signal is masked by another signal separated by frequency—and, in some cases, <a href="/wiki/Temporal_masking" class="mw-redirect" title="Temporal masking">temporal masking</a>—where a signal is masked by another signal separated by time. <a href="/wiki/Equal-loudness_contour" title="Equal-loudness contour">Equal-loudness contours</a> may also be used to weight the perceptual importance of components. Models of the human ear-brain combination incorporating such effects are often called <a href="/wiki/Psychoacoustic_model" class="mw-redirect" title="Psychoacoustic model">psychoacoustic models</a>.<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">[19]</a></sup></p>
+<p>Other types of lossy compressors, such as the <a href="/wiki/Linear_predictive_coding" title="Linear predictive coding">linear predictive coding</a> (LPC) used with speech, are source-based coders. These coders use a model of the sound's generator (such as the human vocal tract with LPC) to whiten the audio signal (i.e., flatten its spectrum) before <a href="/wiki/Quantization_(signal_processing)" title="Quantization (signal processing)">quantization</a>. LPC may be thought of as a basic perceptual coding technique: reconstruction of an audio signal using a linear predictor shapes the coder's quantization noise into the spectrum of the target signal, partially masking it.<sup id="cite_ref-Jaiswal_18-1" class="reference"><a href="#cite_note-Jaiswal-18">[18]</a></sup></p>
+<p>Lossy formats are often used for the distribution of streaming audio or interactive applications (such as the coding of speech for digital transmission in cell phone networks). In such applications, the data must be decompressed as the data flows, rather than after the entire data stream has been transmitted. Not all audio codecs can be used for streaming applications, and for such applications a codec designed to stream data effectively will usually be chosen.<sup id="cite_ref-Jaiswal_18-2" class="reference"><a href="#cite_note-Jaiswal-18">[18]</a></sup></p>
+<p>Latency results from the methods used to encode and decode the data. Some codecs will analyze a longer segment of the data to optimize efficiency, and then code it in a manner that requires a larger segment of data at one time to decode. (Often codecs create segments called a "frame" to create discrete data segments for encoding and decoding.) The inherent <a href="/wiki/Latency_(engineering)" title="Latency (engineering)">latency</a> of the coding algorithm can be critical; for example, when there is a two-way transmission of data, such as with a telephone conversation, significant delays may seriously degrade the perceived quality.</p>
+<p>In contrast to the speed of compression, which is proportional to the number of operations required by the algorithm, here latency refers to the number of samples that must be analysed before a block of audio is processed. In the minimum case, latency is zero samples (e.g., if the coder/decoder simply reduces the number of bits used to quantize the signal). Time domain algorithms such as LPC also often have low latencies, hence their popularity in speech coding for telephony. In algorithms such as MP3, however, a large number of samples have to be analyzed to implement a psychoacoustic model in the frequency domain, and latency is on the order of 23 ms (46 ms for two-way communication)).</p>
+<h5><span class="mw-headline" id="Speech_encoding">Speech encoding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=10" title="Edit section: Speech encoding">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p><a href="/wiki/Speech_encoding" class="mw-redirect" title="Speech encoding">Speech encoding</a> is an important category of audio data compression. The perceptual models used to estimate what a human ear can hear are generally somewhat different from those used for music. The range of frequencies needed to convey the sounds of a human voice are normally far narrower than that needed for music, and the sound is normally less complex. As a result, speech can be encoded at high quality using a relatively low bit rate.</p>
+<p>If the data to be compressed is analog (such as a voltage that varies with time), quantization is employed to digitize it into numbers (normally integers). This is referred to as analog-to-digital (A/D) conversion. If the integers generated by quantization are 8 bits each, then the entire range of the analog signal is divided into 256 intervals and all the signal values within an interval are quantized to the same number. If 16-bit integers are generated, then the range of the analog signal is divided into 65,536 intervals.</p>
+<p>This relation illustrates the compromise between high resolution (a large number of analog intervals) and high compression (small integers generated). This application of quantization is used by several speech compression methods. This is accomplished, in general, by some combination of two approaches:</p>
+<ul>
+<li>Only encoding sounds that could be made by a single human voice.</li>
+<li>Throwing away more of the data in the signal—keeping just enough to reconstruct an "intelligible" voice rather than the full frequency range of human <a href="/wiki/Hearing_(sense)" class="mw-redirect" title="Hearing (sense)">hearing</a>.</li>
+</ul>
+<p>Perhaps the earliest algorithms used in speech encoding (and audio data compression in general) were the <a href="/wiki/A-law_algorithm" title="A-law algorithm">A-law algorithm</a> and the <a href="/wiki/%CE%9C-law_algorithm" title="Μ-law algorithm">µ-law algorithm</a>.</p>
+<h4><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=11" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright">
+<div class="thumbinner" style="width:222px;"><a href="/wiki/File:Placa-audioPC-925.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/1/19/Placa-audioPC-925.jpg/220px-Placa-audioPC-925.jpg" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/en/thumb/1/19/Placa-audioPC-925.jpg/330px-Placa-audioPC-925.jpg 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/1/19/Placa-audioPC-925.jpg/440px-Placa-audioPC-925.jpg 2x" data-file-width="591" data-file-height="444" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:Placa-audioPC-925.jpg" class="internal" title="Enlarge"></a></div>
+Solidyne 922: The world's first commercial audio bit compression card for PC, 1990</div>
+</div>
+</div>
+<p>A literature compendium for a large variety of audio coding systems was published in the IEEE Journal on Selected Areas in Communications (JSAC), February 1988. While there were some papers from before that time, this collection documented an entire variety of finished, working audio coders, nearly all of them using perceptual (i.e. masking) techniques and some kind of frequency analysis and back-end noiseless coding.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">[20]</a></sup> Several of these papers remarked on the difficulty of obtaining good, clean digital audio for research purposes. Most, if not all, of the authors in the JSAC edition were also active in the MPEG-1 Audio committee.</p>
+<p>The world's first commercial <a href="/wiki/Broadcast_automation" title="Broadcast automation">broadcast automation</a> audio compression system was developed by Oscar Bonello, an engineering professor at the <a href="/wiki/University_of_Buenos_Aires" title="University of Buenos Aires">University of Buenos Aires</a>.<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">[21]</a></sup> In 1983, using the psychoacoustic principle of the masking of critical bands first published in 1967,<sup id="cite_ref-22" class="reference"><a href="#cite_note-22">[22]</a></sup> he started developing a practical application based on the recently developed <a href="/wiki/IBM_PC" class="mw-redirect" title="IBM PC">IBM PC</a> computer, and the broadcast automation system was launched in 1987 under the name <a href="/wiki/Audicom" title="Audicom">Audicom</a>. Twenty years later, almost all the radio stations in the world were using similar technology manufactured by a number of companies.</p>
+<h3><span class="mw-headline" id="Video">Video</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=12" title="Edit section: Video">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote">See also: <a href="/wiki/Video_coding_format" title="Video coding format">Video coding format</a> and <a href="/wiki/Video_codec" title="Video codec">Video codec</a></div>
+<p>Video compression uses modern coding techniques to reduce redundancy in video data. Most <a href="/wiki/List_of_codecs#Video_codecs" title="List of codecs">video compression algorithms</a> and <a href="/wiki/Video_codec" title="Video codec">codecs</a> combine spatial <a href="/wiki/Image_compression" title="Image compression">image compression</a> and temporal <a href="/wiki/Motion_compensation" title="Motion compensation">motion compensation</a>. Video compression is a practical implementation of source coding in information theory. In practice, most video codecs also use audio compression techniques in parallel to compress the separate, but combined data streams as one package.<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">[23]</a></sup></p>
+<p>The majority of video compression algorithms use <a href="/wiki/Lossy_compression" title="Lossy compression">lossy compression</a>. <a href="/wiki/Uncompressed_video" title="Uncompressed video">Uncompressed video</a> requires a very high <a href="/wiki/Uncompressed_video#Storage_and_Data_Rates_for_Uncompressed_Video" title="Uncompressed video">data rate</a>. Although <a href="/wiki/List_of_codecs#Lossless_compression" title="List of codecs">lossless video compression</a> codecs perform at a compression factor of 5-12, a typical <a href="/wiki/MPEG-4" title="MPEG-4">MPEG-4</a> lossy compression video has a compression factor between 20 and 200.<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">[24]</a></sup> As in all lossy compression, there is a <a href="/wiki/Trade-off" title="Trade-off">trade-off</a> between <a href="/wiki/Video_quality" title="Video quality">video quality</a>, cost of processing the compression and decompression, and system requirements. Highly compressed video may present visible or distracting <a href="/wiki/Compression_artifact" title="Compression artifact">artifacts</a>.</p>
+<p>Some video compression schemes typically operate on square-shaped groups of neighboring <a href="/wiki/Pixel" title="Pixel">pixels</a>, often called <a href="/wiki/Macroblock" title="Macroblock">macroblocks</a>. These pixel groups or blocks of pixels are compared from one frame to the next, and the <a href="/wiki/Video_codec" title="Video codec">video compression codec</a> sends only the <a href="/wiki/Residual_frame" title="Residual frame">differences</a> within those blocks. In areas of video with more motion, the compression must encode more data to keep up with the larger number of pixels that are changing. Commonly during explosions, flames, flocks of animals, and in some panning shots, the high-frequency detail leads to quality decreases or to increases in the <a href="/wiki/Variable_bitrate" title="Variable bitrate">variable bitrate</a>.</p>
+<h4><span class="mw-headline" id="Encoding_theory">Encoding theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=13" title="Edit section: Encoding theory">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Video data may be represented as a series of still image frames. The sequence of frames contains spatial and temporal <a href="/wiki/Redundancy_(information_theory)" title="Redundancy (information theory)">redundancy</a> that video compression algorithms attempt to eliminate or code in a smaller size. Similarities can be encoded by only storing differences between frames, or by using perceptual features of human vision. For example, small differences in color are more difficult to perceive than are changes in brightness. Compression algorithms can average a color across these similar areas to reduce space, in a manner similar to those used in <a href="/wiki/JPEG" title="JPEG">JPEG</a> image compression.<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">[25]</a></sup> Some of these methods are inherently lossy while others may preserve all relevant information from the original, <a href="/wiki/Uncompressed_video" title="Uncompressed video">uncompressed video</a>.</p>
+<p>One of the most powerful techniques for compressing video is interframe compression. Interframe compression uses one or more earlier or later frames in a sequence to compress the current frame, while intraframe compression uses only the current frame, effectively being <a href="/wiki/Image_compression" title="Image compression">image compression</a>.<sup id="cite_ref-faxin47_26-0" class="reference"><a href="#cite_note-faxin47-26">[26]</a></sup></p>
+<p>The most powerful used method works by comparing each frame in the video with the previous one. If the frame contains areas where nothing has moved, the system simply issues a short command that copies that part of the previous frame, bit-for-bit, into the next one. If sections of the frame move in a simple manner, the compressor emits a (slightly longer) command that tells the decompressor to shift, rotate, lighten, or darken the copy. This longer command still remains much shorter than intraframe compression. Interframe compression works well for programs that will simply be played back by the viewer, but can cause problems if the video sequence needs to be edited.<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">[27]</a></sup></p>
+<p>Because interframe compression copies data from one frame to another, if the original frame is simply cut out (or lost in transmission), the following frames cannot be reconstructed properly. Some <a href="/wiki/Video_file_format" title="Video file format">video formats</a>, such as <a href="/wiki/DV" title="DV">DV</a>, compress each frame independently using intraframe compression. Making 'cuts' in intraframe-compressed video is almost as easy as editing uncompressed video: one finds the beginning and ending of each frame, and simply copies bit-for-bit each frame that one wants to keep, and discards the frames one doesn't want. Another difference between intraframe and interframe compression is that, with intraframe systems, each frame uses a similar amount of data. In most interframe systems, certain frames (such as "<a href="/wiki/Video_compression_picture_types" title="Video compression picture types">I frames</a>" in <a href="/wiki/MPEG-2" title="MPEG-2">MPEG-2</a>) aren't allowed to copy data from other frames, so they require much more data than other frames nearby.<sup id="cite_ref-Jaiswal_18-3" class="reference"><a href="#cite_note-Jaiswal-18">[18]</a></sup></p>
+<p>It is possible to build a computer-based video editor that spots problems caused when I frames are edited out while other frames need them. This has allowed newer formats like <a href="/wiki/HDV" title="HDV">HDV</a> to be used for editing. However, this process demands a lot more computing power than editing intraframe compressed video with the same picture quality.</p>
+<p>Today, nearly all commonly used video compression methods (e.g., those in standards approved by the <a href="/wiki/ITU-T" title="ITU-T">ITU-T</a> or <a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>) apply a <a href="/wiki/Discrete_cosine_transform" title="Discrete cosine transform">discrete cosine transform</a> (DCT) for spatial redundancy reduction. The DCT that is widely used in this regard was introduced by <a href="/wiki/N._Ahmed" title="N. Ahmed">N. Ahmed</a>, T. Natarajan and <a href="/wiki/K._R._Rao" title="K. R. Rao">K. R. Rao</a> in 1974.<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">[28]</a></sup> Other methods, such as <a href="/wiki/Fractal_compression" title="Fractal compression">fractal compression</a>, <a href="/wiki/Matching_pursuit" title="Matching pursuit">matching pursuit</a> and the use of a <a href="/wiki/Discrete_wavelet_transform" title="Discrete wavelet transform">discrete wavelet transform</a> (DWT) have been the subject of some research, but are typically not used in practical products (except for the use of <a href="/wiki/Wavelet_compression" class="mw-redirect" title="Wavelet compression">wavelet coding</a> as still-image coders without motion compensation). Interest in fractal compression seems to be waning, due to recent theoretical analysis showing a comparative lack of effectiveness of such methods.<sup id="cite_ref-faxin47_26-1" class="reference"><a href="#cite_note-faxin47-26">[26]</a></sup></p>
+<h4><span class="mw-headline" id="Timeline">Timeline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=14" title="Edit section: Timeline">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The following table is a partial history of international video compression standards.</p>
+<table class="wikitable">
+<caption>History of video compression standards</caption>
+<tr style="text-align:center;">
+<th>Year</th>
+<th>Standard</th>
+<th>Publisher</th>
+<th>Popular implementations</th>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>1984</b></td>
+<td><a href="/wiki/H.120" title="H.120">H.120</a></td>
+<td><a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></td>
+<td></td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>1988</b></td>
+<td><a href="/wiki/H.261" title="H.261">H.261</a></td>
+<td><a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></td>
+<td>Videoconferencing, videotelephony</td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>1993</b></td>
+<td><a href="/wiki/MPEG-1_Part_2" class="mw-redirect" title="MPEG-1 Part 2">MPEG-1 Part 2</a></td>
+<td><a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>, <a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a></td>
+<td><a href="/wiki/Video-CD" class="mw-redirect" title="Video-CD">Video-CD</a></td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>1995</b></td>
+<td><a href="/wiki/H.262/MPEG-2_Part_2" title="H.262/MPEG-2 Part 2">H.262/MPEG-2 Part 2</a></td>
+<td><a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>, <a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a>, <a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></td>
+<td><a href="/wiki/DVD" title="DVD">DVD Video</a>, <a href="/wiki/Blu-ray_Disc" class="mw-redirect" title="Blu-ray Disc">Blu-ray</a>, <a href="/wiki/Digital_Video_Broadcasting" title="Digital Video Broadcasting">Digital Video Broadcasting</a>, <a href="/wiki/SVCD" class="mw-redirect" title="SVCD">SVCD</a></td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>1996</b></td>
+<td><a href="/wiki/H.263" title="H.263">H.263</a></td>
+<td><a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></td>
+<td>Videoconferencing, videotelephony, video on mobile phones (<a href="/wiki/3GP" class="mw-redirect" title="3GP">3GP</a>)</td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>1999</b></td>
+<td><a href="/wiki/MPEG-4_Part_2" title="MPEG-4 Part 2">MPEG-4 Part 2</a></td>
+<td><a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>, <a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a></td>
+<td>Video on Internet (<a href="/wiki/DivX" title="DivX">DivX</a>, <a href="/wiki/Xvid" title="Xvid">Xvid</a> ...)</td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>2003</b></td>
+<td><a href="/wiki/H.264/MPEG-4_AVC" title="H.264/MPEG-4 AVC">H.264/MPEG-4 AVC</a></td>
+<td><a href="/wiki/Sony" title="Sony">Sony</a>, <a href="/wiki/Panasonic" title="Panasonic">Panasonic</a>, <a href="/wiki/Samsung" title="Samsung">Samsung</a>, <a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>, <a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a>, <a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></td>
+<td><a href="/wiki/Blu-ray_Disc" class="mw-redirect" title="Blu-ray Disc">Blu-ray</a>, <a href="/wiki/HD_DVD" title="HD DVD">HD DVD</a>, <a href="/wiki/Digital_Video_Broadcasting" title="Digital Video Broadcasting">Digital Video Broadcasting</a>, <a href="/wiki/IPod_Video" class="mw-redirect" title="IPod Video">iPod Video</a>, <a href="/wiki/Apple_TV" title="Apple TV">Apple TV</a>, videoconferencing</td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>2009</b></td>
+<td><a href="/wiki/Dirac_(video_compression_format)" title="Dirac (video compression format)">VC-2 (Dirac)</a></td>
+<td><a href="/wiki/SMPTE" class="mw-redirect" title="SMPTE">SMPTE</a></td>
+<td>Video on Internet, HDTV broadcast, UHDTV</td>
+</tr>
+<tr style="text-align:center;">
+<td style="text-align:left;"><b>2013</b></td>
+<td><a href="/wiki/H.265" class="mw-redirect" title="H.265">H.265</a></td>
+<td><a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>, <a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a>, <a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></td>
+<td></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id="Genetics">Genetics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=15" title="Edit section: Genetics">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote">See also: <a href="/wiki/Compression_of_Genomic_Re-Sequencing_Data" title="Compression of Genomic Re-Sequencing Data">Compression of Genomic Re-Sequencing Data</a></div>
+<p><a href="/wiki/Compression_of_Genomic_Re-Sequencing_Data" title="Compression of Genomic Re-Sequencing Data">Genetics compression algorithms</a> are the latest generation of lossless algorithms that compress data (typically sequences of nucleotides) using both conventional compression algorithms and genetic algorithms adapted to the specific datatype. In 2012, a team of scientists from Johns Hopkins University published a genetic compression algorithm that does not use a reference genome for compression. HAPZIPPER was tailored for <a href="/wiki/International_HapMap_Project" title="International HapMap Project">HapMap</a> data and achieves over 20-fold compression (95% reduction in file size), providing 2- to 4-fold better compression and in much faster time than the leading general-purpose compression utilities. For this, Chanda, Elhaik, and Bader introduced MAF based encoding (MAFE), which reduces the heterogeneity of the dataset by sorting SNPs by their minor allele frequency, thus homogenizing the dataset.<sup id="cite_ref-29" class="reference"><a href="#cite_note-29">[29]</a></sup> Other algorithms in 2009 and 2013 (DNAZip and GenomeZip) have compression ratios of up to 1200-fold—allowing 6 billion basepair diploid human genomes to be stored in 2.5 megabytes (relative to a reference genome or averaged over many genomes).<sup id="cite_ref-30" class="reference"><a href="#cite_note-30">[30]</a></sup><sup id="cite_ref-31" class="reference"><a href="#cite_note-31">[31]</a></sup></p>
+<h3><span class="mw-headline" id="Emulation">Emulation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=16" title="Edit section: Emulation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In order to emulate CD-based consoles such as the PlayStation 2, data compression is desirable to reduce huge amounts of disk space used by ISOs. For example, <a href="/wiki/Final_Fantasy_XII" title="Final Fantasy XII">Final Fantasy XII</a> (USA) is normally 2.9 gigabytes. With proper compression, it is reduced to around 90% of that size.<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">[32]</a></sup></p>
+<h2><span class="mw-headline" id="Outlook_and_currently_unused_potential">Outlook and currently unused potential</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=17" title="Edit section: Outlook and currently unused potential">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>It is estimated that the total amount of data that is stored on the world's storage devices could be further compressed with existing compression algorithms by a remaining average factor of 4.5:1. It is estimated that the combined technological capacity of the world to store information provides 1,300 <a href="/wiki/Exabytes" class="mw-redirect" title="Exabytes">exabytes</a> of hardware digits in 2007<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="No source for the estimate of 1,300 exabytes of worldwide data storage capacity. The cited paper for this sentence does not include this estimate. (January 2017)">citation needed</span></a></i>]</sup>, but when the corresponding content is optimally compressed, this only represents 295 exabytes of <a href="/wiki/Shannon_information" class="mw-redirect" title="Shannon information">Shannon information</a>.<sup id="cite_ref-33" class="reference"><a href="#cite_note-33">[33]</a></sup></p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=18" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="div-col columns column-width" style="-moz-column-width: 20em; -webkit-column-width: 20em; column-width: 20em;">
+<ul>
+<li><a href="/wiki/Auditory_masking" title="Auditory masking">Auditory masking</a></li>
+<li><a href="/wiki/HTTP_compression" title="HTTP compression">HTTP compression</a></li>
+<li><a href="/wiki/Kolmogorov_complexity" title="Kolmogorov complexity">Kolmogorov complexity</a></li>
+<li><a href="/wiki/Magic_compression_algorithm" class="mw-redirect" title="Magic compression algorithm">Magic compression algorithm</a></li>
+<li><a href="/wiki/Minimum_description_length" title="Minimum description length">Minimum description length</a></li>
+<li><a href="/wiki/Modulo-N_code" title="Modulo-N code">Modulo-N code</a></li>
+<li><a href="/wiki/Range_encoding" title="Range encoding">Range encoding</a></li>
+<li><a href="/wiki/Sub-band_coding" title="Sub-band coding">Sub-band coding</a></li>
+<li><a href="/wiki/Universal_code_(data_compression)" title="Universal code (data compression)">Universal code (data compression)</a></li>
+<li><a href="/wiki/Vector_quantization" title="Vector quantization">Vector quantization</a></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=19" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><cite class="citation book">Wade, Graham (1994). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=CJswCy7_W8YC"><i>Signal coding and processing</i></a> (2 ed.). Cambridge University Press. p.&#160;34. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-521-42336-6" title="Special:BookSources/978-0-521-42336-6">978-0-521-42336-6</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2011-12-22</span></span>. <q>The broad objective of source coding is to exploit or remove 'inefficient' redundancy in the <a href="/wiki/Pulse-code_modulation" title="Pulse-code modulation">PCM</a> source and thereby achieve a reduction in the overall source rate R.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=Graham&amp;rft.aulast=Wade&amp;rft.btitle=Signal+coding+and+processing&amp;rft.date=1994&amp;rft.edition=2&amp;rft.genre=book&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DCJswCy7_W8YC&amp;rft.isbn=978-0-521-42336-6&amp;rft.pages=34&amp;rft.pub=Cambridge+University+Press&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-mahdi53-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-mahdi53_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-mahdi53_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Mahdi, O.A.; Mohammed, M.A.; Mohamed, A.J. (November 2012). <a rel="nofollow" class="external text" href="http://ijcsi.org/papers/IJCSI-9-6-3-53-59.pdf">"Implementing a Novel Approach an Convert Audio Compression to Text Coding via Hybrid Technique"</a> <span style="font-size:85%;">(PDF)</span>. <i>International Journal of Computer Science Issues</i>. <b>9</b> (6, No. 3): 53–59<span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=Implementing+a+Novel+Approach+an+Convert+Audio+Compression+to+Text+Coding+via+Hybrid+Technique&amp;rft.aufirst=O.A.&amp;rft.aulast=Mahdi&amp;rft.au=Mohamed%2C+A.J.&amp;rft.au=Mohammed%2C+M.A.&amp;rft.date=2012-11&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fijcsi.org%2Fpapers%2FIJCSI-9-6-3-53-59.pdf&amp;rft.issue=6%2C+No.+3&amp;rft.jtitle=International+Journal+of+Computer+Science+Issues&amp;rft.pages=53-59&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=9" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation journal">Pujar, J.H.; Kadlaskar, L.M. (May 2010). <a rel="nofollow" class="external text" href="http://www.jatit.org/volumes/research-papers/Vol15No1/3Vol15No1.pdf">"A New Lossless Method of Image Compression and Decompression Using Huffman Coding Techniques"</a> <span style="font-size:85%;">(PDF)</span>. <i>Journal of Theoretical and Applied Information Technology</i>. <b>15</b> (1): 18–23.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=A+New+Lossless+Method+of+Image+Compression+and+Decompression+Using+Huffman+Coding+Techniques&amp;rft.aufirst=J.H.&amp;rft.au=Kadlaskar%2C+L.M.&amp;rft.aulast=Pujar&amp;rft.date=2010-05&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.jatit.org%2Fvolumes%2Fresearch-papers%2FVol15No1%2F3Vol15No1.pdf&amp;rft.issue=1&amp;rft.jtitle=Journal+of+Theoretical+and+Applied+Information+Technology&amp;rft.pages=18-23&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=15" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation book">Salomon, David (2008). <i>A Concise Introduction to Data Compression</i>. Berlin: Springer. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9781848000728" title="Special:BookSources/9781848000728">9781848000728</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=David&amp;rft.aulast=Salomon&amp;rft.btitle=A+Concise+Introduction+to+Data+Compression&amp;rft.date=2008&amp;rft.genre=book&amp;rft.isbn=9781848000728&amp;rft.place=Berlin&amp;rft.pub=Springer&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">S. Mittal and J. Vetter, "<a rel="nofollow" class="external text" href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7110612">A Survey Of Architectural Approaches for Data Compression in Cache and Main Memory Systems</a>", IEEE Transactions on Parallel and Distributed Systems, 2015.</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite class="citation book">Tank, M.K. (2011). <i>Implementation of Limpel-Ziv algorithm for lossless compression using VHDL. Thinkquest 2010: Proceedings of the First International Conference on Contours of Computing Technology</i>. Berlin: Springer. pp.&#160;275–283.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=M.K.&amp;rft.aulast=Tank&amp;rft.btitle=Implementation+of+Limpel-Ziv+algorithm+for+lossless+compression+using+VHDL.+Thinkquest+2010%3A+Proceedings+of+the+First+International+Conference+on+Contours+of+Computing+Technology&amp;rft.date=2011&amp;rft.genre=book&amp;rft.pages=275-283&amp;rft.place=Berlin&amp;rft.pub=Springer&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><cite class="citation journal">Navqi, Saud; Naqvi, R.; Riaz, R.A.; Siddiqui, F. (April 2011). <a rel="nofollow" class="external text" href="http://pe.org.pl/articles/2011/4/68.pdf">"Optimized RTL design and implementation of LZW algorithm for high bandwidth applications"</a> <span style="font-size:85%;">(PDF)</span>. <i>Electrical Review</i>. <b>2011</b> (4): 279–285.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=Optimized+RTL+design+and+implementation+of+LZW+algorithm+for+high+bandwidth+applications&amp;rft.aufirst=Saud&amp;rft.aulast=Navqi&amp;rft.au=Naqvi%2C+R.&amp;rft.au=Riaz%2C+R.A.&amp;rft.au=Siddiqui%2C+F.&amp;rft.date=2011-04&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fpe.org.pl%2Farticles%2F2011%2F4%2F68.pdf&amp;rft.issue=4&amp;rft.jtitle=Electrical+Review&amp;rft.pages=279-285&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=2011" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-mahmud2-8"><span class="mw-cite-backlink">^ <a href="#cite_ref-mahmud2_8-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-mahmud2_8-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Mahmud, Salauddin (March 2012). <a rel="nofollow" class="external text" href="http://www.ijser.org/researchpaper%5CAn-Improved-Data-Compression-Method-for-General-Data.pdf">"An Improved Data Compression Method for General Data"</a> <span style="font-size:85%;">(PDF)</span>. <i>International Journal of Scientific &amp; Engineering Research</i>. <b>3</b> (3): 2<span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=An+Improved+Data+Compression+Method+for+General+Data&amp;rft.aufirst=Salauddin&amp;rft.aulast=Mahmud&amp;rft.date=2012-03&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.ijser.org%2Fresearchpaper%255CAn-Improved-Data-Compression-Method-for-General-Data.pdf&amp;rft.issue=3&amp;rft.jtitle=International+Journal+of+Scientific+%26+Engineering+Research&amp;rft.pages=2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=3" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><cite class="citation web">Arcangel, Cory. <a rel="nofollow" class="external text" href="http://www.coryarcangel.com/downloads/Cory-Arcangel-OnC.pdf">"On Compression"</a> <span style="font-size:85%;">(PDF)</span><span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=Cory&amp;rft.aulast=Arcangel&amp;rft.btitle=On+Compression&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.coryarcangel.com%2Fdownloads%2FCory-Arcangel-OnC.pdf&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><cite class="citation web">Marak, Laszlo. <a rel="nofollow" class="external text" href="http://www.ujoimro.com/resources/Laszlo_Marak_image_compression.pdf">"On image compression"</a> <span style="font-size:85%;">(PDF)</span>. University of Marne la Vallee<span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=Laszlo&amp;rft.aulast=Marak&amp;rft.btitle=On+image+compression&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.ujoimro.com%2Fresources%2FLaszlo_Marak_image_compression.pdf&amp;rft.pub=University+of+Marne+la+Vallee&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><cite class="citation web">Mahoney, Matt. <a rel="nofollow" class="external text" href="http://cs.fit.edu/~mmahoney/compression/rationale.html">"Rationale for a Large Text Compression Benchmark"</a>. Florida Institute of Technology<span class="reference-accessdate">. Retrieved <span class="nowrap">5 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=Matt&amp;rft.aulast=Mahoney&amp;rft.btitle=Rationale+for+a+Large+Text+Compression+Benchmark&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fcs.fit.edu%2F~mmahoney%2Fcompression%2Frationale.html&amp;rft.pub=Florida+Institute+of+Technology&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><cite class="citation web">Shmilovici A.; Kahiri Y.; Ben-Gal I.; Hauser S. <a rel="nofollow" class="external text" href="http://www.eng.tau.ac.il/~bengal/28.pdf">"Measuring the Efficiency of the Intraday Forex Market with a Universal Data Compression Algorithm"</a> <span style="font-size:85%;">(PDF)</span>. Computational Economics, Vol. 33 (2), 131-154., 2009.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.au=Ben-Gal+I.&amp;rft.au=Hauser+S.&amp;rft.au=Kahiri+Y.&amp;rft.au=Shmilovici+A.&amp;rft.btitle=Measuring+the+Efficiency+of+the+Intraday+Forex+Market+with+a+Universal+Data+Compression+Algorithm&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.eng.tau.ac.il%2F~bengal%2F28.pdf&amp;rft.pub=Computational+Economics%2C+Vol.+33+%282%29%2C++131-154.%2C+2009&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><cite class="citation web">I. Ben-Gal. <a rel="nofollow" class="external text" href="http://www.eng.tau.ac.il/~bengal/Journal%20Paper.pdf">"On the Use of Data Compression Measures to Analyze Robust Designs"</a> <span style="font-size:85%;">(PDF)</span>. IEEE Trans. on Reliability, Vol. 54, no. 3, 381-388, 2008.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.au=I.+Ben-Gal&amp;rft.btitle=On+the+Use+of+Data+Compression+Measures+to+Analyze+Robust+Designs&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.eng.tau.ac.il%2F~bengal%2FJournal%2520Paper.pdf&amp;rft.pub=IEEE+Trans.+on+Reliability%2C+Vol.+54%2C+no.+3%2C+381-388%2C+2008&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><cite class="citation web">Korn, D.; et al. <a rel="nofollow" class="external text" href="http://tools.ietf.org/html/rfc3284">"RFC 3284: The VCDIFF Generic Differencing and Compression Data Format"</a>. Internet Engineering Task Force<span class="reference-accessdate">. Retrieved <span class="nowrap">5 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=D.&amp;rft.aulast=Korn&amp;rft.btitle=RFC+3284%3A+The+VCDIFF+Generic+Differencing+and+Compression+Data+Format&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Ftools.ietf.org%2Fhtml%2Frfc3284&amp;rft.pub=Internet+Engineering+Task+Force&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><cite id="CITEREFKornVo1995" class="citation">Korn, D.G.; Vo, K.P. (1995), B. Krishnamurthy, ed., <i>Vdelta: Differencing and Compression</i>, Practical Reusable Unix Software, New York: John Wiley &amp; Sons, Inc.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=D.G.&amp;rft.aulast=Korn&amp;rft.au=Vo%2C+K.P.&amp;rft.btitle=Vdelta%3A+Differencing+and+Compression&amp;rft.date=1995&amp;rft.genre=book&amp;rft.pub=New+York%3A+John+Wiley+%26+Sons%2C+Inc.&amp;rft.series=Practical+Reusable+Unix+Software&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text">The Olympus WS-120 digital speech recorder, according to its manual, can store about 178 hours of speech-quality audio in .WMA format in 500MB of flash memory.</span></li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><cite class="citation web">Coalson, Josh. <a rel="nofollow" class="external text" href="http://flac.sourceforge.net/comparison.html">"FLAC Comparison"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=Josh&amp;rft.aulast=Coalson&amp;rft.btitle=FLAC+Comparison&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fflac.sourceforge.net%2Fcomparison.html&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-Jaiswal-18"><span class="mw-cite-backlink">^ <a href="#cite_ref-Jaiswal_18-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Jaiswal_18-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Jaiswal_18-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-Jaiswal_18-3"><sup><i><b>d</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Jaiswal, R.C. (2009). <i>Audio-Video Engineering</i>. Pune, Maharashtra: Nirali Prakashan. p.&#160;3.41. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9788190639675" title="Special:BookSources/9788190639675">9788190639675</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=R.C.&amp;rft.aulast=Jaiswal&amp;rft.btitle=Audio-Video+Engineering&amp;rft.date=2009&amp;rft.genre=book&amp;rft.isbn=9788190639675&amp;rft.pages=3.41&amp;rft.place=Pune%2C+Maharashtra&amp;rft.pub=Nirali+Prakashan&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><cite class="citation book">Faxin Yu; Hao Luo; Zheming Lu (2010). <i>Three-Dimensional Model Analysis and Processing</i>. Berlin: Springer. p.&#160;47. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9783642126512" title="Special:BookSources/9783642126512">9783642126512</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.au=Faxin+Yu&amp;rft.au=Hao+Luo&amp;rft.au=Zheming+Lu&amp;rft.btitle=Three-Dimensional+Model+Analysis+and+Processing&amp;rft.date=2010&amp;rft.genre=book&amp;rft.isbn=9783642126512&amp;rft.pages=47&amp;rft.place=Berlin&amp;rft.pub=Springer&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://www.hugestreet.info/2015/02/compress-1GB-files-into-10-mb.html">"File Compression Possibilities"</a>. <i>A Brief guide to compress a file in 6 different ways</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=File+Compression+Possibilities&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.hugestreet.info%2F2015%2F02%2Fcompress-1GB-files-into-10-mb.html&amp;rft.jtitle=A+Brief+guide+to+compress+a+file+in+6+different+ways&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130308063719/http://www.solidynepro.com:80/indexahtmlp_Hist-ENG,t.htm">"Summary of some of Solidyne's contributions to Broadcast Engineering"</a>. <i>Brief History of Solidyne</i>. Buenos Aires: Solidyne. Archived from <a rel="nofollow" class="external text" href="http://www.solidynepro.com/indexahtmlp_Hist-ENG,t.htm">the original</a> on 8 March 2013<span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=Summary+of+some+of+Solidyne%27s+contributions+to+Broadcast+Engineering&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.solidynepro.com%2Findexahtmlp_Hist-ENG%2Ct.htm&amp;rft.jtitle=Brief+History+of+Solidyne&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text"><cite class="citation book">Zwicker, Eberhard; et al. (1967). <a rel="nofollow" class="external text" href="http://asa.aip.org/books/ear.html"><i>The Ear As A Communication Receiver</i></a>. Melville, NY: Acoustical Society of America.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.aufirst=Eberhard&amp;rft.aulast=Zwicker&amp;rft.btitle=The+Ear+As+A+Communication+Receiver&amp;rft.date=1967&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fasa.aip.org%2Fbooks%2Fear.html&amp;rft.place=Melville%2C+NY&amp;rft.pub=Acoustical+Society+of+America&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://csip.ece.gatech.edu/drupal7/?q=technical-area/video-coding">"Video Coding"</a>. <i>Center for Signal and Information Processing Research</i>. Georgia Institute of Technology<span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=Video+Coding&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fcsip.ece.gatech.edu%2Fdrupal7%2F%3Fq%3Dtechnical-area%2Fvideo-coding&amp;rft.jtitle=Center+for+Signal+and+Information+Processing+Research&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text"><cite class="citation book">Graphics &amp; Media Lab Video Group (2007). <a rel="nofollow" class="external text" href="http://compression.ru/video/codec_comparison/pdf/msu_lossless_codecs_comparison_2007_eng.pdf"><i>Lossless Video Codecs Comparison</i></a> <span style="font-size:85%;">(PDF)</span>. Moscow State University.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.au=Graphics+%26+Media+Lab+Video+Group&amp;rft.btitle=Lossless+Video+Codecs+Comparison&amp;rft.date=2007&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fcompression.ru%2Fvideo%2Fcodec_comparison%2Fpdf%2Fmsu_lossless_codecs_comparison_2007_eng.pdf&amp;rft.pub=Moscow+State+University&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text"><cite class="citation web">Lane, Tom. <a rel="nofollow" class="external text" href="http://www.faqs.org/faqs/jpeg-faq/part1/">"JPEG Image Compression FAQ, Part 1"</a>. <i>Internet FAQ Archives</i>. Independent JPEG Group<span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=JPEG+Image+Compression+FAQ%2C+Part+1&amp;rft.aufirst=Tom&amp;rft.aulast=Lane&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.faqs.org%2Ffaqs%2Fjpeg-faq%2Fpart1%2F&amp;rft.jtitle=Internet+FAQ+Archives&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-faxin47-26"><span class="mw-cite-backlink">^ <a href="#cite_ref-faxin47_26-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-faxin47_26-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Faxin Yu; Hao Luo; Zheming Lu (2010). <i>Three-Dimensional Model Analysis and Processing</i>. Berlin: Springer. p.&#160;47. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9783642126512" title="Special:BookSources/9783642126512">9783642126512</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.au=Faxin+Yu&amp;rft.au=Hao+Luo&amp;rft.au=Zheming+Lu&amp;rft.btitle=Three-Dimensional+Model+Analysis+and+Processing&amp;rft.date=2010&amp;rft.genre=book&amp;rft.isbn=9783642126512&amp;rft.pages=47&amp;rft.place=Berlin&amp;rft.pub=Springer&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text"><cite class="citation web">Bhojani, D.R. <a rel="nofollow" class="external text" href="http://shodh.inflibnet.ac.in/bitstream/123456789/821/5/05_hypothesis.pdf">"4.1 Video Compression"</a> <span style="font-size:85%;">(PDF)</span>. <i>Hypothesis</i><span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=4.1+Video+Compression&amp;rft.aufirst=D.R.&amp;rft.aulast=Bhojani&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fshodh.inflibnet.ac.in%2Fbitstream%2F123456789%2F821%2F5%2F05_hypothesis.pdf&amp;rft.jtitle=Hypothesis&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><cite class="citation journal">Ahmed, N.; Natarajan, T.; Rao, K.R. (January 1974). "Discrete Cosine Transform". <i>IEEE Transactions on Computers</i>. <b>C–23</b> (1): 90–93. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1109%2FT-C.1974.223784">10.1109/T-C.1974.223784</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=Discrete+Cosine+Transform&amp;rft.aufirst=N.&amp;rft.aulast=Ahmed&amp;rft.au=Natarajan%2C+T.&amp;rft.au=Rao%2C+K.R.&amp;rft.date=1974-01&amp;rft.genre=article&amp;rft_id=info%3Adoi%2F10.1109%2FT-C.1974.223784&amp;rft.issue=1&amp;rft.jtitle=IEEE+Transactions+on+Computers&amp;rft.pages=90-93&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=C-23" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-29">^</a></b></span> <span class="reference-text"><cite class="citation journal">Chanda P, Bader JS, Elhaik E; Elhaik; Bader (27 Jul 2012). <a rel="nofollow" class="external text" href="http://nar.oxfordjournals.org/content/40/20/e159.full-text-lowres.pdf">"HapZipper: sharing HapMap populations just got easier"</a> <span style="font-size:85%;">(PDF)</span>. <i>Nucleic Acids Research</i>. <b>40</b> (20): e159. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1093%2Fnar%2Fgks709">10.1093/nar/gks709</a>. <a href="/wiki/PubMed_Central" title="PubMed Central">PMC</a>&#160;<span class="plainlinks"><a rel="nofollow" class="external text" href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC3488212">3488212</a><span style="margin-left:0.1em"><img alt="Freely accessible" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png" title="Freely accessible" width="9" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/14px-Lock-green.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/18px-Lock-green.svg.png 2x" data-file-width="512" data-file-height="813" /></span></span>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//www.ncbi.nlm.nih.gov/pubmed/22844100">22844100</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=HapZipper%3A+sharing+HapMap+populations+just+got+easier&amp;rft.au=Bader&amp;rft.au=Chanda+P%2C+Bader+JS%2C+Elhaik+E&amp;rft.au=Elhaik&amp;rft.date=2012-07-27&amp;rft.genre=article&amp;rft_id=%2F%2Fwww.ncbi.nlm.nih.gov%2Fpmc%2Farticles%2FPMC3488212&amp;rft_id=http%3A%2F%2Fnar.oxfordjournals.org%2Fcontent%2F40%2F20%2Fe159.full-text-lowres.pdf&amp;rft_id=info%3Adoi%2F10.1093%2Fnar%2Fgks709&amp;rft_id=info%3Apmid%2F22844100&amp;rft.issue=20&amp;rft.jtitle=Nucleic+Acids+Research&amp;rft.pages=e159&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=40" class="Z3988"><span style="display:none;">&#160;</span></span> <span class="citation-comment" style="display:none; color:#33aa33">CS1 maint: Multiple names: authors list (<a href="/wiki/Category:CS1_maint:_Multiple_names:_authors_list" title="Category:CS1 maint: Multiple names: authors list">link</a>)</span></span></li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-30">^</a></b></span> <span class="reference-text"><cite class="citation journal">Christley S, Lu Y, Li C, Xie X; Lu; Li; Xie (Jan 15, 2009). "Human genomes as email attachments". <i>Bioinformatics</i>. <b>25</b> (2): 274–5. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1093%2Fbioinformatics%2Fbtn582">10.1093/bioinformatics/btn582</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//www.ncbi.nlm.nih.gov/pubmed/18996942">18996942</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=Human+genomes+as+email+attachments&amp;rft.au=Christley+S%2C+Lu+Y%2C+Li+C%2C+Xie+X&amp;rft.au=Li&amp;rft.au=Lu&amp;rft.au=Xie&amp;rft.date=2009-01-15&amp;rft.genre=article&amp;rft_id=info%3Adoi%2F10.1093%2Fbioinformatics%2Fbtn582&amp;rft_id=info%3Apmid%2F18996942&amp;rft.issue=2&amp;rft.jtitle=Bioinformatics&amp;rft.pages=274-5&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=25" class="Z3988"><span style="display:none;">&#160;</span></span> <span class="citation-comment" style="display:none; color:#33aa33">CS1 maint: Multiple names: authors list (<a href="/wiki/Category:CS1_maint:_Multiple_names:_authors_list" title="Category:CS1 maint: Multiple names: authors list">link</a>)</span></span></li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-31">^</a></b></span> <span class="reference-text"><cite class="citation journal">Pavlichin DS, Weissman T, Yona G; Weissman; Yona (September 2013). "The human genome contracts again". <i>Bioinformatics</i>. <b>29</b> (17): 2199–202. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1093%2Fbioinformatics%2Fbtt362">10.1093/bioinformatics/btt362</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//www.ncbi.nlm.nih.gov/pubmed/23793748">23793748</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=The+human+genome+contracts+again&amp;rft.au=Pavlichin+DS%2C+Weissman+T%2C+Yona+G&amp;rft.au=Weissman&amp;rft.au=Yona&amp;rft.date=2013-09&amp;rft.genre=article&amp;rft_id=info%3Adoi%2F10.1093%2Fbioinformatics%2Fbtt362&amp;rft_id=info%3Apmid%2F23793748&amp;rft.issue=17&amp;rft.jtitle=Bioinformatics&amp;rft.pages=2199-202&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=29" class="Z3988"><span style="display:none;">&#160;</span></span> <span class="citation-comment" style="display:none; color:#33aa33">CS1 maint: Multiple names: authors list (<a href="/wiki/Category:CS1_maint:_Multiple_names:_authors_list" title="Category:CS1 maint: Multiple names: authors list">link</a>)</span></span></li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-32">^</a></b></span> <span class="reference-text"><cite class="citation web">PCSX2 team (January 8, 2016). <a rel="nofollow" class="external text" href="http://pcsx2.net/273-1-4-0-release-end-2015-report.html">"1.4.0 released! Year end report"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">April 27,</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.au=PCSX2+team&amp;rft.btitle=1.4.0+released%21+Year+end+report&amp;rft.date=2016-01-08&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fpcsx2.net%2F273-1-4-0-release-end-2015-report.html&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><b><a href="#cite_ref-33">^</a></b></span> <span class="reference-text"><cite class="citation journal">Hilbert, Martin; López, Priscila (1 April 2011). <a rel="nofollow" class="external text" href="http://www.sciencemag.org/content/332/6025/60">"The World's Technological Capacity to Store, Communicate, and Compute Information"</a>. <i>Science</i>. <b>332</b> (6025): 60–65. <a href="/wiki/Bibcode" title="Bibcode">Bibcode</a>:<a rel="nofollow" class="external text" href="http://adsabs.harvard.edu/abs/2011Sci...332...60H">2011Sci...332...60H</a>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1126%2Fscience.1200970">10.1126/science.1200970</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//www.ncbi.nlm.nih.gov/pubmed/21310967">21310967</a><span class="reference-accessdate">. Retrieved <span class="nowrap">6 March</span> 2013</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AData+compression&amp;rft.atitle=The+World%27s+Technological+Capacity+to+Store%2C+Communicate%2C+and+Compute+Information&amp;rft.aufirst=Martin&amp;rft.aulast=Hilbert&amp;rft.au=L%C3%B3pez%2C+Priscila&amp;rft.date=2011-04-01&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.sciencemag.org%2Fcontent%2F332%2F6025%2F60&amp;rft_id=info%3Abibcode%2F2011Sci...332...60H&amp;rft_id=info%3Adoi%2F10.1126%2Fscience.1200970&amp;rft_id=info%3Apmid%2F21310967&amp;rft.issue=6025&amp;rft.jtitle=Science&amp;rft.pages=60-65&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=332" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Data_compression&amp;action=edit&amp;section=20" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://dvd-hq.info/data_compression_3.php">Data Compression Basics (Video)</a></li>
+<li><a rel="nofollow" class="external text" href="http://extranet.ateme.com/download.php?file=1114">Video compression 4:2:2 10-bit and its benefits</a></li>
+<li><a rel="nofollow" class="external text" href="http://extranet.ateme.com/download.php?file=1194">Why does 10-bit save bandwidth (even when content is 8-bit)?</a></li>
+<li><a rel="nofollow" class="external text" href="http://extranet.ateme.com/download.php?file=1196">Which compression technology should be used</a></li>
+<li><a rel="nofollow" class="external text" href="http://media.wiley.com/product_data/excerpt/99/04705184/0470518499.pdf">Wiley - Introduction to Compression Theory</a></li>
+<li><a rel="nofollow" class="external text" href="http://tech.ebu.ch/docs/tech/tech3296.pdf">EBU subjective listening tests on low-bitrate audio codecs</a></li>
+<li><a rel="nofollow" class="external text" href="http://techgage.com/article/audio_archiving_guide_part_1_-_music_formats/">Audio Archiving Guide: Music Formats</a> (Guide for helping a user pick out the right codec)</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20070928023157/http://mia.ece.uic.edu/~papers/WWW/MultimediaStandards/chapter7.pdf">MPEG 1&amp;2 video compression intro (pdf format)</a> at the <a href="/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a> (archived September 28, 2007)</li>
+<li><a rel="nofollow" class="external text" href="http://wiki.hydrogenaud.io/index.php?title=Lossless_comparison">hydrogenaudio wiki comparison</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cs.cmu.edu/afs/cs/project/pscico-guyb/realworld/www/compression.pdf">Introduction to Data Compression</a> by Guy E Blelloch from <a href="/wiki/Carnegie_Mellon_University" title="Carnegie Mellon University">CMU</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.hdgreetings.com/ecard/video-1080p.aspx">HD Greetings - 1080p Uncompressed source material for compression testing and research</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.monkeysaudio.com/theory.html">Explanation of lossless signal compression method used by most codecs</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.soundexpert.info/">Interactive blind listening tests of audio codecs over the internet</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.testvid.com/index.html">TestVid - 2,000+ HD and other uncompressed source video clips for compression testing</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.videsignline.com/howto/showArticle.jhtml?articleID=185301351">Videsignline - Intro to Video Compression</a></li>
+<li><a rel="nofollow" class="external text" href="http://public.dhe.ibm.com/common/ssi/ecm/en/tsu12345usen/TSU12345USEN.PDF">Data Footprint Reduction Technology</a></li>
+<li><a rel="nofollow" class="external text" href="http://siliconmentor.blogspot.in/2014/12/what-is-run-length-coding-in-video.html">What is Run length Coding in video compression.</a></li>
+</ul>
+<div role="navigation" class="navbox" aria-labelledby="Data_compression_methods" style="padding:3px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Compression_methods" title="Template:Compression methods"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Compression_methods" title="Template talk:Compression methods"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Compression_methods&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Data_compression_methods" style="font-size:114%"><strong class="selflink">Data compression</strong> methods</div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Lossless_compression" title="Lossless compression">Lossless</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;"><a href="/wiki/Entropy_encoding" title="Entropy encoding">Entropy type</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Unary_coding" title="Unary coding">Unary</a></li>
+<li><a href="/wiki/Arithmetic_coding" title="Arithmetic coding">Arithmetic</a></li>
+<li><a href="/wiki/Asymmetric_Numeral_Systems" title="Asymmetric Numeral Systems">Asymmetric Numeral Systems</a></li>
+<li><a href="/wiki/Golomb_coding" title="Golomb coding">Golomb</a></li>
+<li><a href="/wiki/Huffman_coding" title="Huffman coding">Huffman</a>
+<ul>
+<li><a href="/wiki/Adaptive_Huffman_coding" title="Adaptive Huffman coding">Adaptive</a></li>
+<li><a href="/wiki/Canonical_Huffman_code" title="Canonical Huffman code">Canonical</a></li>
+<li><a href="/wiki/Modified_Huffman_coding" title="Modified Huffman coding">Modified</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Range_encoding" title="Range encoding">Range</a></li>
+<li><a href="/wiki/Shannon_coding" title="Shannon coding">Shannon</a></li>
+<li><a href="/wiki/Shannon%E2%80%93Fano_coding" title="Shannon–Fano coding">Shannon–Fano</a></li>
+<li><a href="/wiki/Shannon%E2%80%93Fano%E2%80%93Elias_coding" title="Shannon–Fano–Elias coding">Shannon–Fano–Elias</a></li>
+<li><a href="/wiki/Tunstall_coding" title="Tunstall coding">Tunstall</a></li>
+<li><a href="/wiki/Universal_code_(data_compression)" title="Universal code (data compression)">Universal</a>
+<ul>
+<li><a href="/wiki/Exponential-Golomb_coding" title="Exponential-Golomb coding">Exp-Golomb</a></li>
+<li><a href="/wiki/Fibonacci_coding" title="Fibonacci coding">Fibonacci</a></li>
+<li><a href="/wiki/Elias_gamma_coding" title="Elias gamma coding">Gamma</a></li>
+<li><a href="/wiki/Levenshtein_coding" title="Levenshtein coding">Levenshtein</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;"><a href="/wiki/Dictionary_coder" title="Dictionary coder">Dictionary type</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Byte_pair_encoding" title="Byte pair encoding">Byte pair encoding</a></li>
+<li><a href="/wiki/DEFLATE" title="DEFLATE">DEFLATE</a></li>
+<li><a href="/wiki/Snappy_(compression)" title="Snappy (compression)">Snappy</a></li>
+<li><a href="/wiki/LZ77_and_LZ78" title="LZ77 and LZ78">Lempel–Ziv</a>
+<ul>
+<li><a href="/wiki/LZ77_and_LZ78" title="LZ77 and LZ78">LZ77&#160;/ LZ78 (LZ1&#160;/ LZ2)</a></li>
+<li><a href="/wiki/LZJB" title="LZJB">LZJB</a></li>
+<li><a href="/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm" title="Lempel–Ziv–Markov chain algorithm">LZMA</a></li>
+<li><a href="/wiki/Lempel%E2%80%93Ziv%E2%80%93Oberhumer" title="Lempel–Ziv–Oberhumer">LZO</a></li>
+<li><a href="/wiki/LZRW" title="LZRW">LZRW</a></li>
+<li><a href="/wiki/Lempel%E2%80%93Ziv%E2%80%93Stac" title="Lempel–Ziv–Stac">LZS</a></li>
+<li><a href="/wiki/Lempel%E2%80%93Ziv%E2%80%93Storer%E2%80%93Szymanski" title="Lempel–Ziv–Storer–Szymanski">LZSS</a></li>
+<li><a href="/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch" title="Lempel–Ziv–Welch">LZW</a></li>
+<li><a href="/wiki/LZWL" title="LZWL">LZWL</a></li>
+<li><a href="/wiki/LZX_(algorithm)" title="LZX (algorithm)">LZX</a></li>
+<li><a href="/wiki/LZ4_(compression_algorithm)" title="LZ4 (compression algorithm)">LZ4</a></li>
+<li><a href="/wiki/Brotli" title="Brotli">Brotli</a></li>
+<li><a href="/wiki/Statistical_Lempel%E2%80%93Ziv" title="Statistical Lempel–Ziv">Statistical</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;">Other types</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Burrows%E2%80%93Wheeler_transform" title="Burrows–Wheeler transform">BWT</a></li>
+<li><a href="/wiki/Context_tree_weighting" title="Context tree weighting">CTW</a></li>
+<li><a href="/wiki/Delta_encoding" title="Delta encoding">Delta</a></li>
+<li><a href="/wiki/Dynamic_Markov_compression" title="Dynamic Markov compression">DMC</a></li>
+<li><a href="/wiki/Move-to-front_transform" title="Move-to-front transform">MTF</a></li>
+<li><a href="/wiki/PAQ" title="PAQ">PAQ</a></li>
+<li><a href="/wiki/Prediction_by_partial_matching" title="Prediction by partial matching">PPM</a></li>
+<li><a href="/wiki/Run-length_encoding" title="Run-length encoding">RLE</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Audio_compression_(data)" class="mw-redirect" title="Audio compression (data)">Audio</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;">Concepts</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit_rate" title="Bit rate">Bit rate</a>
+<ul>
+<li><a href="/wiki/Average_bitrate" title="Average bitrate">average (ABR)</a></li>
+<li><a href="/wiki/Constant_bitrate" title="Constant bitrate">constant (CBR)</a></li>
+<li><a href="/wiki/Variable_bitrate" title="Variable bitrate">variable (VBR)</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Companding" title="Companding">Companding</a></li>
+<li><a href="/wiki/Convolution" title="Convolution">Convolution</a></li>
+<li><a href="/wiki/Dynamic_range" title="Dynamic range">Dynamic range</a></li>
+<li><a href="/wiki/Latency_(audio)" title="Latency (audio)">Latency</a></li>
+<li><a href="/wiki/Nyquist%E2%80%93Shannon_sampling_theorem" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon theorem</a></li>
+<li><a href="/wiki/Sampling_(signal_processing)" title="Sampling (signal processing)">Sampling</a></li>
+<li><a href="/wiki/Sound_quality" title="Sound quality">Sound quality</a></li>
+<li><a href="/wiki/Speech_coding" title="Speech coding">Speech coding</a></li>
+<li><a href="/wiki/Sub-band_coding" title="Sub-band coding">Sub-band coding</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;"><a href="/wiki/Audio_codec" title="Audio codec">Codec</a> parts</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/A-law_algorithm" title="A-law algorithm">A-law</a></li>
+<li><a href="/wiki/%CE%9C-law_algorithm" title="Μ-law algorithm">μ-law</a></li>
+<li><a href="/wiki/Algebraic_code-excited_linear_prediction" title="Algebraic code-excited linear prediction">ACELP</a></li>
+<li><a href="/wiki/Adaptive_differential_pulse-code_modulation" title="Adaptive differential pulse-code modulation">ADPCM</a></li>
+<li><a href="/wiki/Code-excited_linear_prediction" title="Code-excited linear prediction">CELP</a></li>
+<li><a href="/wiki/Differential_pulse-code_modulation" title="Differential pulse-code modulation">DPCM</a></li>
+<li><a href="/wiki/Fourier_transform" title="Fourier transform">Fourier transform</a></li>
+<li><a href="/wiki/Linear_predictive_coding" title="Linear predictive coding">LPC</a>
+<ul>
+<li><a href="/wiki/Log_area_ratio" title="Log area ratio">LAR</a></li>
+<li><a href="/wiki/Line_spectral_pairs" title="Line spectral pairs">LSP</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Modified_discrete_cosine_transform" title="Modified discrete cosine transform">MDCT</a></li>
+<li><a href="/wiki/Psychoacoustics" title="Psychoacoustics">Psychoacoustic model</a></li>
+<li><a href="/wiki/Warped_linear_predictive_coding" title="Warped linear predictive coding">WLPC</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Image_compression" title="Image compression">Image</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;">Concepts</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Chroma_subsampling" title="Chroma subsampling">Chroma subsampling</a></li>
+<li><a href="/wiki/Coding_tree_unit" title="Coding tree unit">Coding tree unit</a></li>
+<li><a href="/wiki/Color_space" title="Color space">Color space</a></li>
+<li><a href="/wiki/Compression_artifact" title="Compression artifact">Compression artifact</a></li>
+<li><a href="/wiki/Image_resolution" title="Image resolution">Image resolution</a></li>
+<li><a href="/wiki/Macroblock" title="Macroblock">Macroblock</a></li>
+<li><a href="/wiki/Pixel" title="Pixel">Pixel</a></li>
+<li><a href="/wiki/Peak_signal-to-noise_ratio" title="Peak signal-to-noise ratio">PSNR</a></li>
+<li><a href="/wiki/Quantization_(image_processing)" title="Quantization (image processing)">Quantization</a></li>
+<li><a href="/wiki/Standard_test_image" title="Standard test image">Standard test image</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;">Methods</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Chain_code" title="Chain code">Chain code</a></li>
+<li><a href="/wiki/Discrete_cosine_transform" title="Discrete cosine transform">DCT</a></li>
+<li><a href="/wiki/Embedded_Zerotrees_of_Wavelet_transforms" title="Embedded Zerotrees of Wavelet transforms">EZW</a></li>
+<li><a href="/wiki/Fractal_compression" title="Fractal compression">Fractal</a></li>
+<li><a href="/wiki/Karhunen%E2%80%93Lo%C3%A8ve_theorem" title="Karhunen–Loève theorem">KLT</a></li>
+<li><a href="/wiki/Pyramid_(image_processing)" title="Pyramid (image processing)">LP</a></li>
+<li><a href="/wiki/Run-length_encoding" title="Run-length encoding">RLE</a></li>
+<li><a href="/wiki/Set_partitioning_in_hierarchical_trees" title="Set partitioning in hierarchical trees">SPIHT</a></li>
+<li><a href="/wiki/Wavelet_compression" class="mw-redirect" title="Wavelet compression">Wavelet</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Video_compression" class="mw-redirect" title="Video compression">Video</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;">Concepts</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit_rate" title="Bit rate">Bit rate</a>
+<ul>
+<li><a href="/wiki/Average_bitrate" title="Average bitrate">average (ABR)</a></li>
+<li><a href="/wiki/Constant_bitrate" title="Constant bitrate">constant (CBR)</a></li>
+<li><a href="/wiki/Variable_bitrate" title="Variable bitrate">variable (VBR)</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Display_resolution" title="Display resolution">Display resolution</a></li>
+<li><a href="/wiki/Film_frame" title="Film frame">Frame</a></li>
+<li><a href="/wiki/Frame_rate" title="Frame rate">Frame rate</a></li>
+<li><a href="/wiki/Video_compression_picture_types" title="Video compression picture types">Frame types</a></li>
+<li><a href="/wiki/Interlaced_video" title="Interlaced video">Interlace</a></li>
+<li><a href="/wiki/Video#Characteristics_of_video_streams" title="Video">Video characteristics</a></li>
+<li><a href="/wiki/Video_quality" title="Video quality">Video quality</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7.0em;font-weight:normal;"><a href="/wiki/Video_codec" title="Video codec">Codec</a> parts</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Lapped_transform" title="Lapped transform">Lapped transform</a></li>
+<li><a href="/wiki/Discrete_cosine_transform" title="Discrete cosine transform">DCT</a></li>
+<li><a href="/wiki/Deblocking_filter" title="Deblocking filter">Deblocking filter</a></li>
+<li><a href="/wiki/Motion_compensation" title="Motion compensation">Motion compensation</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Information_theory" title="Information theory">Theory</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Entropy_(information_theory)" title="Entropy (information theory)">Entropy</a></li>
+<li><a href="/wiki/Kolmogorov_complexity" title="Kolmogorov complexity">Kolmogorov complexity</a></li>
+<li><a href="/wiki/Lossy_compression" title="Lossy compression">Lossy</a></li>
+<li><a href="/wiki/Quantization_(signal_processing)" title="Quantization (signal processing)">Quantization</a></li>
+<li><a href="/wiki/Rate%E2%80%93distortion_theory" title="Rate–distortion theory">Rate–distortion</a></li>
+<li><a href="/wiki/Redundancy_(information_theory)" title="Redundancy (information theory)">Redundancy</a></li>
+<li><a href="/wiki/Timeline_of_information_theory" title="Timeline of information theory">Timeline of information theory</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><img alt="Template" src="//upload.wikimedia.org/wikipedia/en/thumb/5/5c/Symbol_template_class.svg/16px-Symbol_template_class.svg.png" title="Template" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/en/thumb/5/5c/Symbol_template_class.svg/23px-Symbol_template_class.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/5/5c/Symbol_template_class.svg/31px-Symbol_template_class.svg.png 2x" data-file-width="180" data-file-height="185" /> <a href="/wiki/Template:Compression_formats" title="Template:Compression formats">Compression formats</a></li>
+<li><img alt="Template" src="//upload.wikimedia.org/wikipedia/en/thumb/5/5c/Symbol_template_class.svg/16px-Symbol_template_class.svg.png" title="Template" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/en/thumb/5/5c/Symbol_template_class.svg/23px-Symbol_template_class.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/5/5c/Symbol_template_class.svg/31px-Symbol_template_class.svg.png 2x" data-file-width="180" data-file-height="185" /> <a href="/wiki/Template:Compression_software" title="Template:Compression software">Compression software (codecs)</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div role="navigation" class="navbox" aria-labelledby="Multimedia_compression_and_container_formats" style="padding:3px">
+<table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Compression_formats" title="Template:Compression formats"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Compression_formats" title="Template talk:Compression formats"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Compression_formats&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Multimedia_compression_and_container_formats" style="font-size:114%"><a href="/wiki/Multimedia" title="Multimedia">Multimedia</a> <strong class="selflink">compression</strong> and <a href="/wiki/Digital_container_format" title="Digital container format">container</a> formats</div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Data_compression#Video" title="Data compression">Video<br />
+compression</a></th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>/<a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Motion_JPEG" title="Motion JPEG">MJPEG</a></li>
+<li><a href="/wiki/Motion_JPEG_2000" title="Motion JPEG 2000">Motion JPEG 2000</a></li>
+<li><a href="/wiki/MPEG-1" title="MPEG-1">MPEG-1</a></li>
+<li><a href="/wiki/MPEG-2" title="MPEG-2">MPEG-2</a>
+<ul>
+<li><a href="/wiki/H.262/MPEG-2_Part_2" title="H.262/MPEG-2 Part 2">Part 2</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MPEG-4" title="MPEG-4">MPEG-4</a>
+<ul>
+<li><a href="/wiki/MPEG-4_Part_2" title="MPEG-4 Part 2">Part 2/ASP</a></li>
+<li><a href="/wiki/H.264/MPEG-4_AVC" title="H.264/MPEG-4 AVC">Part 10/AVC</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MPEG-H" title="MPEG-H">MPEG-H</a>
+<ul>
+<li><a href="/wiki/High_Efficiency_Video_Coding" title="High Efficiency Video Coding">Part 2/HEVC</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/H.120" title="H.120">H.120</a></li>
+<li><a href="/wiki/H.261" title="H.261">H.261</a></li>
+<li><a href="/wiki/H.262/MPEG-2_Part_2" title="H.262/MPEG-2 Part 2">H.262</a></li>
+<li><a href="/wiki/H.263" title="H.263">H.263</a></li>
+<li><a href="/wiki/H.264/MPEG-4_AVC" title="H.264/MPEG-4 AVC">H.264</a></li>
+<li><a href="/wiki/High_Efficiency_Video_Coding" title="High Efficiency Video Coding">H.265</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/Society_of_Motion_Picture_and_Television_Engineers" title="Society of Motion Picture and Television Engineers">SMPTE</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/VC-1" title="VC-1">VC-1</a></li>
+<li><a href="/wiki/Dirac_(video_compression_format)" title="Dirac (video compression format)">VC-2</a></li>
+<li><a href="/wiki/DNxHD_codec" class="mw-redirect" title="DNxHD codec">VC-3</a></li>
+<li><a href="/wiki/CineForm" title="CineForm">VC-5</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">Others</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Apple_Video" title="Apple Video">Apple Video</a></li>
+<li><a href="/wiki/AOMedia_Video_1" title="AOMedia Video 1">AV1</a></li>
+<li><a href="/wiki/Audio_Video_Standard" title="Audio Video Standard">AVS</a></li>
+<li><a href="/wiki/Bink_Video" title="Bink Video">Bink</a></li>
+<li><a href="/wiki/Cinepak" title="Cinepak">Cinepak</a></li>
+<li><a href="/wiki/Daala" title="Daala">Daala</a></li>
+<li><a href="/wiki/Dirac_(video_compression_format)" title="Dirac (video compression format)">Dirac</a></li>
+<li><a href="/wiki/DV" title="DV">DV</a></li>
+<li><a href="/wiki/Digital_Video_Interactive" title="Digital Video Interactive">DVI</a></li>
+<li><a href="/wiki/FFV1" title="FFV1">FFV1</a></li>
+<li><a href="/wiki/Huffyuv" title="Huffyuv">Huffyuv</a></li>
+<li><a href="/wiki/Indeo" title="Indeo">Indeo</a></li>
+<li><a href="/wiki/Lagarith" title="Lagarith">Lagarith</a></li>
+<li><a href="/wiki/Microsoft_Video_1" title="Microsoft Video 1">Microsoft Video 1</a></li>
+<li><a href="/wiki/MSU_Lossless_Video_Codec" title="MSU Lossless Video Codec">MSU Lossless</a></li>
+<li><a href="/wiki/OMS_Video" title="OMS Video">OMS Video</a></li>
+<li><a href="/wiki/Pixlet" title="Pixlet">Pixlet</a></li>
+<li><a href="/wiki/ProRes_422" class="mw-redirect" title="ProRes 422">ProRes 422</a></li>
+<li><a href="/wiki/ProRes_4444" class="mw-redirect" title="ProRes 4444">ProRes 4444</a></li>
+<li>QuickTime
+<ul>
+<li><a href="/wiki/QuickTime_Animation" title="QuickTime Animation">Animation</a></li>
+<li><a href="/wiki/QuickTime_Graphics" title="QuickTime Graphics">Graphics</a></li>
+</ul>
+</li>
+<li><a href="/wiki/RealVideo" title="RealVideo">RealVideo</a></li>
+<li><a href="/wiki/RTVideo" title="RTVideo">RTVideo</a></li>
+<li><a href="/wiki/SheerVideo" title="SheerVideo">SheerVideo</a></li>
+<li><a href="/wiki/Smacker_video" title="Smacker video">Smacker</a></li>
+<li><a href="/wiki/Sorenson_codec" class="mw-redirect" title="Sorenson codec">Sorenson Video, Spark</a></li>
+<li><a href="/wiki/Theora" title="Theora">Theora</a></li>
+<li><a href="/wiki/Thor_(video_codec)" title="Thor (video codec)">Thor</a></li>
+<li><a href="/wiki/VP3" title="VP3">VP3</a></li>
+<li><a href="/wiki/VP6" title="VP6">VP6</a></li>
+<li><a href="/wiki/VP7" class="mw-redirect" title="VP7">VP7</a></li>
+<li><a href="/wiki/VP8" title="VP8">VP8</a></li>
+<li><a href="/wiki/VP9" title="VP9">VP9</a></li>
+<li><a href="/wiki/Windows_Media_Video_(video_compression_format)" class="mw-redirect" title="Windows Media Video (video compression format)">WMV</a></li>
+<li><a href="/wiki/RatDVD" title="RatDVD">XEB</a></li>
+<li><a href="/wiki/YULS" title="YULS">YULS</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Data_compression#Audio" title="Data compression">Audio<br />
+compression</a></th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/International_Organization_for_Standardization" title="International Organization for Standardization">ISO</a>/<a href="/wiki/International_Electrotechnical_Commission" title="International Electrotechnical Commission">IEC</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/MP3" title="MP3">MPEG-1 Layer III (MP3)</a></li>
+<li><a href="/wiki/MPEG-1_Audio_Layer_II" title="MPEG-1 Audio Layer II">MPEG-1 Layer II</a>
+<ul>
+<li><a href="/wiki/MPEG_Multichannel" title="MPEG Multichannel">Multichannel</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MPEG-1_Audio_Layer_I" title="MPEG-1 Audio Layer I">MPEG-1 Layer I</a></li>
+<li><a href="/wiki/Advanced_Audio_Coding" title="Advanced Audio Coding">AAC</a>
+<ul>
+<li><a href="/wiki/High-Efficiency_Advanced_Audio_Coding" title="High-Efficiency Advanced Audio Coding">HE-AAC</a></li>
+<li><a href="/wiki/AAC-LD" title="AAC-LD">AAC-LD</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MPEG_Surround" title="MPEG Surround">MPEG Surround</a></li>
+<li><a href="/wiki/Audio_Lossless_Coding" title="Audio Lossless Coding">MPEG-4 ALS</a></li>
+<li><a href="/wiki/MPEG-4_SLS" title="MPEG-4 SLS">MPEG-4 SLS</a></li>
+<li><a href="/wiki/Super_Audio_CD#DST" title="Super Audio CD">MPEG-4 DST</a></li>
+<li><a href="/wiki/Harmonic_Vector_Excitation_Coding" title="Harmonic Vector Excitation Coding">MPEG-4 HVXC</a></li>
+<li><a href="/wiki/Code-excited_linear_prediction" title="Code-excited linear prediction">MPEG-4 CELP</a></li>
+<li><a href="/wiki/Unified_Speech_and_Audio_Coding" title="Unified Speech and Audio Coding">MPEG-D USAC</a></li>
+<li><a href="/wiki/MPEG-H_3D_Audio" title="MPEG-H 3D Audio">MPEG-H 3D Audio</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/ITU-T" title="ITU-T">ITU-T</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/G.711" title="G.711">G.711</a> (<a href="/wiki/A-law_algorithm" title="A-law algorithm">A-law</a>, <a href="/wiki/%CE%9C-law_algorithm" title="Μ-law algorithm">µ-law</a>)</li>
+<li><a href="/wiki/G.718" title="G.718">G.718</a></li>
+<li><a href="/wiki/G.719" title="G.719">G.719</a></li>
+<li><a href="/wiki/G.722" title="G.722">G.722</a></li>
+<li><a href="/wiki/G.722.1" title="G.722.1">G.722.1</a></li>
+<li><a href="/wiki/Adaptive_Multi-Rate_Wideband" title="Adaptive Multi-Rate Wideband">G.722.2</a></li>
+<li><a href="/wiki/G.723" title="G.723">G.723</a></li>
+<li><a href="/wiki/G.723.1" title="G.723.1">G.723.1</a></li>
+<li><a href="/wiki/G.726" title="G.726">G.726</a></li>
+<li><a href="/wiki/G.728" title="G.728">G.728</a></li>
+<li><a href="/wiki/G.729" title="G.729">G.729</a></li>
+<li><a href="/wiki/G.729.1" title="G.729.1">G.729.1</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/IETF" class="mw-redirect" title="IETF">IETF</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Opus_(audio_format)" title="Opus (audio format)">Opus</a></li>
+<li><a href="/wiki/Internet_Low_Bitrate_Codec" title="Internet Low Bitrate Codec">iLBC</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em"><a href="/wiki/3GPP" title="3GPP">3GPP</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Adaptive_Multi-Rate_audio_codec" title="Adaptive Multi-Rate audio codec">AMR</a></li>
+<li><a href="/wiki/Adaptive_Multi-Rate_Wideband" title="Adaptive Multi-Rate Wideband">AMR-WB</a></li>
+<li><a href="/wiki/Extended_Adaptive_Multi-Rate_%E2%80%93_Wideband" title="Extended Adaptive Multi-Rate – Wideband">AMR-WB+</a></li>
+<li><a href="/wiki/Enhanced_Variable_Rate_Codec" title="Enhanced Variable Rate Codec">EVRC</a></li>
+<li><a href="/wiki/Enhanced_Variable_Rate_Codec_B" title="Enhanced Variable Rate Codec B">EVRC-B</a></li>
+<li><a href="/wiki/Enhanced_Voice_Services" title="Enhanced Voice Services">EVS</a></li>
+<li><a href="/wiki/Half_Rate" title="Half Rate">GSM-HR</a></li>
+<li><a href="/wiki/Full_Rate" title="Full Rate">GSM-FR</a></li>
+<li><a href="/wiki/Enhanced_full_rate" title="Enhanced full rate">GSM-EFR</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">Others</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Algebraic_code-excited_linear_prediction" title="Algebraic code-excited linear prediction">ACELP</a></li>
+<li><a href="/wiki/Dolby_Digital" title="Dolby Digital">AC-3</a></li>
+<li><a href="/wiki/Apple_Lossless" title="Apple Lossless">ALAC</a></li>
+<li><a href="/wiki/Asao_(codec)" title="Asao (codec)">Asao</a></li>
+<li><a href="/wiki/Adaptive_Transform_Acoustic_Coding" title="Adaptive Transform Acoustic Coding">ATRAC</a></li>
+<li><a href="/wiki/CELT" title="CELT">CELT</a></li>
+<li><a href="/wiki/Codec2" title="Codec2">Codec2</a></li>
+<li><a href="/wiki/Dynamic_Resolution_Adaptation" title="Dynamic Resolution Adaptation">DRA</a></li>
+<li><a href="/wiki/DTS_(sound_system)" title="DTS (sound system)">DTS</a></li>
+<li><a href="/wiki/FLAC" title="FLAC">FLAC</a></li>
+<li><a href="/wiki/Internet_Speech_Audio_Codec" title="Internet Speech Audio Codec">iSAC</a></li>
+<li><a href="/wiki/Monkey%27s_Audio" title="Monkey's Audio">Monkey's Audio</a></li>
+<li><a href="/wiki/TTA_(codec)" title="TTA (codec)">TTA</a>
+<ul>
+<li>True Audio</li>
+</ul>
+</li>
+<li><a href="/wiki/MT9" title="MT9">MT9</a></li>
+<li><a href="/wiki/Musepack" title="Musepack">Musepack</a></li>
+<li><a href="/wiki/OptimFROG" title="OptimFROG">OptimFROG</a></li>
+<li><a href="/wiki/Original_Sound_Quality" title="Original Sound Quality">OSQ</a></li>
+<li><a href="/wiki/Qualcomm_code-excited_linear_prediction" title="Qualcomm code-excited linear prediction">QCELP</a></li>
+<li><a href="/wiki/Relaxed_code-excited_linear_prediction" title="Relaxed code-excited linear prediction">RCELP</a></li>
+<li><a href="/wiki/RealAudio" title="RealAudio">RealAudio</a></li>
+<li><a href="/wiki/RTAudio" title="RTAudio">RTAudio</a></li>
+<li><a href="/wiki/Avid_Audio#Sound_Designer_file_formats" title="Avid Audio">SD2</a></li>
+<li><a href="/wiki/Shorten_(file_format)" title="Shorten (file format)">SHN</a></li>
+<li><a href="/wiki/SILK" title="SILK">SILK</a></li>
+<li><a href="/wiki/Siren_(codec)" title="Siren (codec)">Siren</a></li>
+<li><a href="/wiki/Selectable_Mode_Vocoder" title="Selectable Mode Vocoder">SMV</a></li>
+<li><a href="/wiki/Speex" title="Speex">Speex</a></li>
+<li><a href="/wiki/SVOPC" title="SVOPC">SVOPC</a></li>
+<li><a href="/wiki/TwinVQ" title="TwinVQ">TwinVQ</a></li>
+<li><a href="/wiki/Variable-Rate_Multimode_Wideband" title="Variable-Rate Multimode Wideband">VMR-WB</a></li>
+<li><a href="/wiki/Vorbis" title="Vorbis">Vorbis</a></li>
+<li><a href="/wiki/Vector_sum_excited_linear_prediction" title="Vector sum excited linear prediction">VSELP</a></li>
+<li><a href="/wiki/WavPack" title="WavPack">WavPack</a></li>
+<li><a href="/wiki/Windows_Media_Audio" title="Windows Media Audio">WMA</a></li>
+<li><a href="/wiki/Master_Quality_Authenticated" title="Master Quality Authenticated">MQA</a></li>
+<li><a href="/wiki/AptX" title="AptX">aptX</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Image_compression" title="Image compression">Image<br />
+compression</a></th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">IEC, ISO,<br />
+ITU-T, W3C, IETF</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Group_4_compression" title="Group 4 compression">CCITT Group 4</a></li>
+<li><a href="/wiki/GIF" title="GIF">GIF</a></li>
+<li><a href="/wiki/High_Efficiency_Video_Coding#Main_Still_Picture" title="High Efficiency Video Coding">HEVC</a></li>
+<li><a href="/wiki/JBIG" title="JBIG">JBIG</a></li>
+<li><a href="/wiki/JBIG2" title="JBIG2">JBIG2</a></li>
+<li><a href="/wiki/JPEG" title="JPEG">JPEG</a></li>
+<li><a href="/wiki/JPEG_2000" title="JPEG 2000">JPEG 2000</a></li>
+<li><a href="/wiki/JPEG_XR" title="JPEG XR">JPEG XR</a></li>
+<li><a href="/wiki/Lossless_JPEG" title="Lossless JPEG">Lossless JPEG</a></li>
+<li><a href="/wiki/Portable_Network_Graphics" title="Portable Network Graphics">PNG</a></li>
+<li><a href="/wiki/Tagged_Image_File_Format" class="mw-redirect" title="Tagged Image File Format">TIFF</a></li>
+<li><a href="/wiki/TIFF/EP" title="TIFF/EP">TIFF/EP</a></li>
+<li><a href="/wiki/Tagged_Image_File_Format#TIFF.2FIT" class="mw-redirect" title="Tagged Image File Format">TIFF/IT</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">Others</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/APNG" title="APNG">APNG</a></li>
+<li><a href="/wiki/Better_Portable_Graphics" title="Better Portable Graphics">BPG</a></li>
+<li><a href="/wiki/DjVu" title="DjVu">DjVu</a></li>
+<li><a href="/wiki/OpenEXR" title="OpenEXR">EXR</a></li>
+<li><a href="/wiki/Free_Lossless_Image_Format" title="Free Lossless Image Format">FLIF</a></li>
+<li><a href="/wiki/ICER" title="ICER">ICER</a></li>
+<li><a href="/wiki/Multiple-image_Network_Graphics" title="Multiple-image Network Graphics">MNG</a></li>
+<li><a href="/wiki/Progressive_Graphics_File" title="Progressive Graphics File">PGF</a></li>
+<li><a href="/wiki/QuickTime_VR" title="QuickTime VR">QTVR</a></li>
+<li><a href="/wiki/Wireless_Application_Protocol_Bitmap_Format" title="Wireless Application Protocol Bitmap Format">WBMP</a></li>
+<li><a href="/wiki/WebP" title="WebP">WebP</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Digital_container_format" title="Digital container format">Containers</a></th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">ISO/IEC</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Elementary_stream" title="Elementary stream">MPEG-ES</a>
+<ul>
+<li><a href="/wiki/Packetized_elementary_stream" title="Packetized elementary stream">MPEG-PES</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MPEG_program_stream" title="MPEG program stream">MPEG-PS</a></li>
+<li><a href="/wiki/MPEG_transport_stream" title="MPEG transport stream">MPEG-TS</a></li>
+<li><a href="/wiki/ISO_base_media_file_format" title="ISO base media file format">ISO base media file format</a></li>
+<li><a href="/wiki/MPEG-4_Part_14" title="MPEG-4 Part 14">MPEG-4 Part 14</a> (MP4)</li>
+<li><a href="/wiki/Motion_JPEG_2000" title="Motion JPEG 2000">Motion JPEG 2000</a></li>
+<li><a href="/wiki/Digital_Item#File_Format" title="Digital Item">MPEG-21 Part 9</a></li>
+<li><a href="/wiki/MPEG_media_transport" title="MPEG media transport">MPEG media transport</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">ITU-T</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/MPEG-2#Systems" title="MPEG-2">H.222.0</a></li>
+<li><a href="/wiki/Motion_JPEG_2000" title="Motion JPEG 2000">T.802</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">IETF</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">RTP</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:5em">Others</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/3GP_and_3G2" title="3GP and 3G2">3GP and 3G2</a></li>
+<li><a href="/wiki/AMV_video_format" title="AMV video format">AMV</a></li>
+<li><a href="/wiki/Advanced_Systems_Format" title="Advanced Systems Format">ASF</a></li>
+<li><a href="/wiki/Audio_Interchange_File_Format" title="Audio Interchange File Format">AIFF</a></li>
+<li><a href="/wiki/Audio_Video_Interleave" title="Audio Video Interleave">AVI</a></li>
+<li><a href="/wiki/Au_file_format" title="Au file format">AU</a></li>
+<li><a href="/wiki/Better_Portable_Graphics" title="Better Portable Graphics">BPG</a></li>
+<li><a href="/wiki/Bink_Video" title="Bink Video">Bink</a>
+<ul>
+<li><a href="/wiki/Smacker_video" title="Smacker video">Smacker</a></li>
+</ul>
+</li>
+<li><a href="/wiki/BMP_file_format" title="BMP file format">BMP</a></li>
+<li><a href="/wiki/DivX#DivX_Media_Format_.28DMF.29" title="DivX">DivX Media Format</a></li>
+<li><a href="/wiki/Enhanced_VOB" title="Enhanced VOB">EVO</a></li>
+<li><a href="/wiki/Flash_Video" title="Flash Video">Flash Video</a></li>
+<li><a href="/wiki/General_Exchange_Format" title="General Exchange Format">GXF</a></li>
+<li><a href="/wiki/Interchange_File_Format" title="Interchange File Format">IFF</a></li>
+<li><a href="/wiki/.m2ts" title=".m2ts">M2TS</a></li>
+<li><a href="/wiki/Matroska" title="Matroska">Matroska</a>
+<ul>
+<li><a href="/wiki/WebM" title="WebM">WebM</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Material_Exchange_Format" title="Material Exchange Format">MXF</a></li>
+<li><a href="/wiki/Ogg" title="Ogg">Ogg</a></li>
+<li><a href="/wiki/QuickTime_File_Format" title="QuickTime File Format">QuickTime File Format</a></li>
+<li><a href="/wiki/RatDVD" title="RatDVD">RatDVD</a></li>
+<li><a href="/wiki/RealMedia" title="RealMedia">RealMedia</a></li>
+<li><a href="/wiki/Resource_Interchange_File_Format" title="Resource Interchange File Format">RIFF</a>
+<ul>
+<li><a href="/wiki/WAV" title="WAV">WAV</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MOD_and_TOD" title="MOD and TOD">MOD and TOD</a></li>
+<li><a href="/wiki/VOB" title="VOB">VOB, IFO and BUP</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Collaborations</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/NETVC" title="NETVC">NETVC</a></li>
+<li><a href="/wiki/Alliance_for_Open_Media" title="Alliance for Open Media">Alliance for Open Media</a></li>
+<li><a href="/wiki/MPEG-LA" class="mw-redirect" title="MPEG-LA">MPEG-LA</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>See <a href="/wiki/Template:Compression_methods" title="Template:Compression methods">Compression methods</a> for methods and <a href="/wiki/Template:Compression_software" title="Template:Compression software">Compression software</a> for codecs</div>
+</td>
+</tr>
+</table>
+</div>
+<div role="navigation" class="navbox" aria-labelledby="Data_compression_software" style="padding:3px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Compression_software" title="Template:Compression software"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Compression_software" title="Template talk:Compression software"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Compression_software&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Data_compression_software" style="font-size:114%"><strong class="selflink">Data compression</strong> software</div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Comparison_of_file_archivers" title="Comparison of file archivers">Archivers</a> with<br />
+compression<br />
+<small>(<a href="/wiki/Comparison_of_file_archivers" title="Comparison of file archivers">comparison</a>)</small></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7em"><a href="/wiki/Free_software" title="Free software">Free software</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/7-Zip" title="7-Zip">7-Zip</a></li>
+<li><a href="/wiki/Archive_Manager" title="Archive Manager">Archive Manager</a></li>
+<li><a href="/wiki/Ark_(software)" title="Ark (software)">Ark</a></li>
+<li><a href="/wiki/Haiku_Applications#Expander" title="Haiku Applications">Expander</a></li>
+<li><a href="/wiki/FreeArc" title="FreeArc">FreeArc</a></li>
+<li><a href="/wiki/Info-ZIP" title="Info-ZIP">Info-ZIP</a></li>
+<li><a href="/wiki/KGB_Archiver" title="KGB Archiver">KGB Archiver</a></li>
+<li><a href="/wiki/PAQ" title="PAQ">PAQ</a></li>
+<li><a href="/wiki/PeaZip" title="PeaZip">PeaZip</a></li>
+<li><a href="/wiki/The_Unarchiver" title="The Unarchiver">The Unarchiver</a> (decompression only)</li>
+<li><a href="/wiki/Tar_(computing)" title="Tar (computing)">tar</a></li>
+<li><a href="/wiki/Xarchiver" title="Xarchiver">Xarchiver</a></li>
+<li><a href="/wiki/Zipeg" title="Zipeg">Zipeg</a></li>
+<li><a href="/wiki/ZPAQ" title="ZPAQ">ZPAQ</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7em"><a href="/wiki/Freeware" title="Freeware">Freeware</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Filzip" title="Filzip">Filzip</a></li>
+<li><a href="/wiki/LHA_(file_format)" title="LHA (file format)">LHA</a></li>
+<li><a href="/wiki/StuffIt_Expander" title="StuffIt Expander">StuffIt Expander</a> (decompression only)</li>
+<li><a href="/wiki/TUGZip" title="TUGZip">TUGZip</a></li>
+<li><a href="/wiki/ZipGenius" title="ZipGenius">ZipGenius</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7em"><a href="/wiki/Commercial_software" title="Commercial software">Commercial</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/ARC_(file_format)" title="ARC (file format)">ARC</a></li>
+<li><a href="/wiki/ALZip" title="ALZip">ALZip</a></li>
+<li><a href="/wiki/Archive_Utility" class="mw-redirect" title="Archive Utility">Archive Utility</a></li>
+<li><a href="/wiki/ARJ" title="ARJ">ARJ</a></li>
+<li><a href="/wiki/BetterZip" title="BetterZip">BetterZip</a></li>
+<li><a href="/wiki/BulkZip" title="BulkZip">BulkZip</a></li>
+<li><a href="/wiki/JAR_(software)" title="JAR (software)">JAR</a></li>
+<li><a href="/wiki/MacBinary" title="MacBinary">MacBinary</a></li>
+<li><a href="/wiki/PKZIP" title="PKZIP">PKZIP/SecureZIP</a></li>
+<li><a href="/wiki/PowerArchiver" title="PowerArchiver">PowerArchiver</a></li>
+<li><a href="/wiki/StuffIt" title="StuffIt">StuffIt</a></li>
+<li><a href="/wiki/WinAce" title="WinAce">WinAce</a></li>
+<li><a href="/wiki/WinRAR" title="WinRAR">WinRAR</a></li>
+<li><a href="/wiki/WinZip" title="WinZip">WinZip</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Non-archiving<br />
+compressors</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7em">Generic</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bzip2" title="Bzip2">bzip2</a></li>
+<li><a href="/wiki/Compress" title="Compress">compress</a></li>
+<li><a href="/wiki/Gzip" title="Gzip">gzip</a></li>
+<li><a href="/wiki/Lzip" title="Lzip">lzip</a></li>
+<li><a href="/wiki/Lzop" title="Lzop">lzop</a></li>
+<li><a href="/wiki/Pack_(compression)" title="Pack (compression)">pack</a></li>
+<li><a href="/wiki/Rzip" title="Rzip">rzip</a></li>
+<li><a href="/wiki/Snappy_(compression)" title="Snappy (compression)">Snappy</a></li>
+<li><a href="/wiki/XZ_Utils" title="XZ Utils">XZ Utils</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7em"><a href="/wiki/Executable_compression" title="Executable compression">For code</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em"><a href="/wiki/UPX" title="UPX">UPX</a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Audio_compression_(data)" class="mw-redirect" title="Audio compression (data)">Audio<br />
+compression</a><br />
+<small>(<a href="/wiki/Comparison_of_audio_coding_formats" title="Comparison of audio coding formats">comparison</a>)</small></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7em;padding-top:5px; padding-bottom:5px"><a href="/wiki/Lossy_compression" title="Lossy compression">Lossy</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Fraunhofer_FDK_AAC" title="Fraunhofer FDK AAC">Fraunhofer FDK AAC</a></li>
+<li><a href="/wiki/Nero_AAC_Codec" title="Nero AAC Codec">Nero AAC Codec</a></li>
+<li><a href="/wiki/FAAC" title="FAAC">Freeware Advanced Audio Coder (FAAC)</a></li>
+<li><a href="/wiki/Helix_(multimedia_project)" title="Helix (multimedia project)">Helix DNA Producer</a></li>
+<li><a href="/wiki/L3enc" title="L3enc">l3enc</a></li>
+<li><a href="/wiki/LAME" title="LAME">LAME</a></li>
+<li><a href="/wiki/TooLAME" title="TooLAME">TooLAME</a></li>
+<li><a href="/wiki/Libavcodec" title="Libavcodec">libavcodec</a></li>
+<li><a href="/wiki/CELT" title="CELT">libcelt</a></li>
+<li><a href="/wiki/Opus_(audio_format)" title="Opus (audio format)">libopus</a></li>
+<li><a href="/wiki/Speex" title="Speex">libspeex</a></li>
+<li><a href="/wiki/Musepack" title="Musepack">Musepack</a></li>
+<li><a href="/wiki/Vorbis" title="Vorbis">libvorbis</a></li>
+<li><a href="/wiki/Windows_Media_Encoder" title="Windows Media Encoder">Windows Media Encoder</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7em;padding-top:5px; padding-bottom:5px"><a href="/wiki/Lossless_compression" title="Lossless compression">Lossless</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Apple_Lossless" title="Apple Lossless">ALAC</a></li>
+<li><a href="/wiki/FLAC" title="FLAC">FLAC</a></li>
+<li><a href="/wiki/Libavcodec" title="Libavcodec">libavcodec</a></li>
+<li><a href="/wiki/Monkey%27s_Audio" title="Monkey's Audio">Monkey's Audio</a></li>
+<li><a href="/wiki/Audio_Lossless_Coding" title="Audio Lossless Coding">mp4als</a></li>
+<li><a href="/wiki/OptimFROG" title="OptimFROG">OptimFROG</a></li>
+<li><a href="/wiki/Shorten_(file_format)" title="Shorten (file format)">Shorten</a></li>
+<li><a href="/wiki/TTA_(codec)" title="TTA (codec)">TTA</a> (True Audio)</li>
+<li><a href="/wiki/WavPack" title="WavPack">WavPack</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Video_compression" class="mw-redirect" title="Video compression">Video<br />
+compression</a><br />
+<small>(<a href="/wiki/Comparison_of_video_codecs" title="Comparison of video codecs">comparison</a>)</small></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:7em"><a href="/wiki/Lossy_compression" title="Lossy compression">Lossy</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/MPEG-4_Part_2" title="MPEG-4 Part 2">MPEG-4 ASP</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/3ivx" title="3ivx">3ivx</a></li>
+<li><a href="/wiki/DivX" title="DivX">DivX</a></li>
+<li><a href="/wiki/Nero_Digital" title="Nero Digital">Nero Digital</a></li>
+<li><a href="/wiki/FFmpeg" title="FFmpeg">FFmpeg</a></li>
+<li><a href="/wiki/HDX4" title="HDX4">HDX4</a></li>
+<li><a href="/wiki/Xvid" title="Xvid">Xvid</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/H.264/MPEG-4_AVC" title="H.264/MPEG-4 AVC">H.264 /<br />
+MPEG-4 AVC</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/CoreAVC" title="CoreAVC">CoreAVC</a></li>
+<li><a href="/wiki/Blu-code" title="Blu-code">Blu-code</a></li>
+<li><a href="/wiki/DivX" title="DivX">DivX</a></li>
+<li><a href="/wiki/FFmpeg" title="FFmpeg">FFmpeg</a></li>
+<li><a href="/wiki/Nero_Digital" title="Nero Digital">Nero Digital</a></li>
+<li><a href="/wiki/OpenH264" title="OpenH264">OpenH264</a></li>
+<li><a href="/wiki/QuickTime" title="QuickTime">QuickTime</a></li>
+<li><a href="/wiki/X264" title="X264">x264</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/High_Efficiency_Video_Coding" title="High Efficiency Video Coding">HEVC</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/DivX" title="DivX">DivX</a></li>
+<li><a href="/wiki/X265" title="X265">x265</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Others</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/CineForm" title="CineForm">CineForm</a></li>
+<li><a href="/wiki/Cinepak" title="Cinepak">Cinepak</a></li>
+<li><a href="/wiki/Daala" title="Daala">Daala</a></li>
+<li><a href="/wiki/DNxHD_codec" class="mw-redirect" title="DNxHD codec">DNxHD</a></li>
+<li><a href="/wiki/Helix_(multimedia_project)" title="Helix (multimedia project)">Helix DNA Producer</a></li>
+<li><a href="/wiki/Indeo" title="Indeo">Indeo</a></li>
+<li><a href="/wiki/Libavcodec" title="Libavcodec">libavcodec</a></li>
+<li><a href="/wiki/Dirac_(video_compression_format)" title="Dirac (video compression format)">Schrödinger (Dirac)</a></li>
+<li><a href="/wiki/Smart_Bitrate_Control" title="Smart Bitrate Control">SBC</a></li>
+<li><a href="/wiki/Sorenson_codec" class="mw-redirect" title="Sorenson codec">Sorenson</a></li>
+<li><a href="/wiki/VP7" class="mw-redirect" title="VP7">VP7</a></li>
+<li><a href="/wiki/Theora" title="Theora">libtheora</a></li>
+<li><a href="/wiki/Libvpx" title="Libvpx">libvpx</a></li>
+<li><a href="/wiki/Windows_Media_Encoder" title="Windows Media Encoder">Windows Media Encoder</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:7em"><a href="/wiki/Lossless_compression" title="Lossless compression">Lossless</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/FFV1" title="FFV1">FFV1</a></li>
+<li><a href="/wiki/Huffyuv" title="Huffyuv">Huffyuv</a></li>
+<li><a href="/wiki/Lagarith" title="Lagarith">Lagarith</a></li>
+<li><a href="/wiki/MSU_Lossless_Video_Codec" title="MSU Lossless Video Codec">MSU Lossless</a></li>
+<li><a href="/wiki/YULS" title="YULS">YULS</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li>See also: <a href="/wiki/Template:Compression_methods" title="Template:Compression methods">compression methods</a> and <a href="/wiki/Template:Compression_formats" title="Template:Compression formats">compression formats</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div role="navigation" class="navbox" aria-labelledby="Data" style="padding:3px">
+<table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data" title="Template:Data"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Template_talk:Data&amp;action=edit&amp;redlink=1" class="new" title="Template talk:Data (page does not exist)"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Data&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Data" style="font-size:114%"><a href="/wiki/Data_(computing)" title="Data (computing)">Data</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd hlist" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Computer_data_storage" title="Computer data storage">Storage</a></li>
+<li><a href="/wiki/Data_analysis" title="Data analysis">Analysis</a></li>
+<li><a href="/wiki/Data_cleansing" title="Data cleansing">Cleansing</a></li>
+<li><strong class="selflink">Compression</strong></li>
+<li><a href="/wiki/Data_corruption" title="Data corruption">Corruption</a></li>
+<li><a href="/wiki/Data_curation" title="Data curation">Curation</a></li>
+<li><a href="/wiki/Data_editing" title="Data editing">Editing</a></li>
+<li><a href="/wiki/Data_fusion" title="Data fusion">Fusion</a></li>
+<li><a href="/wiki/Data_integration" title="Data integration">Integration</a></li>
+<li><a href="/wiki/Data_integrity" title="Data integrity">Integrity</a></li>
+<li><a href="/wiki/Data_loss" title="Data loss">Loss</a></li>
+<li><a href="/wiki/Data_mining" title="Data mining">Mining</a></li>
+<li><a href="/wiki/Data_pre-processing" title="Data pre-processing">Pre-processing</a></li>
+<li><a href="/wiki/Data_quality" title="Data quality">Quality</a></li>
+<li><a href="/wiki/Data_reduction" title="Data reduction">Reduction</a></li>
+<li><a href="/wiki/Data_scraping" title="Data scraping">Scraping</a></li>
+<li><a href="/wiki/Data_scrubbing" title="Data scrubbing">Scrubbing</a></li>
+<li><a href="/wiki/Data_security" title="Data security">Security</a></li>
+<li><a href="/wiki/Data_validation" title="Data validation">Validation</a></li>
+<li><a href="/wiki/Data_warehouse" title="Data warehouse">Warehouse</a></li>
+<li><a href="/wiki/Data_wrangling" title="Data wrangling">Wrangling/Munging</a></li>
+<li><a href="/wiki/Information_privacy" title="Information privacy">Protection (privacy)</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div role="navigation" class="navbox" aria-label="Navbox" style="padding:3px">
+<table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Help:Authority_control" title="Help:Authority control">Authority control</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><span style="white-space:nowrap;"><a href="/wiki/National_Diet_Library" title="National Diet Library">NDL</a>: <span class="uid"><a rel="nofollow" class="external text" href="http://id.ndl.go.jp/auth/ndlna/00942229">00942229</a></span></span></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<!--
+NewPP limit report
+Parsed by mw1263
+Cached time: 20170128061647
+Cache expiry: 2592000
+Dynamic content: false
+CPU time usage: 0.408 seconds
+Real time usage: 0.492 seconds
+Preprocessor visited node count: 2655/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 208285/2097152 bytes
+Template argument size: 2377/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 3/500
+Lua time usage: 0.191/10.000 seconds
+Lua memory usage: 4.67 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  365.978      1 -total
+ 44.37%  162.379      1 Template:Reflist
+ 22.55%   82.542     17 Template:Navbox
+ 15.32%   56.082      2 Template:Citation_needed
+ 14.12%   51.660      2 Template:Fix
+ 13.02%   47.653      8 Template:Cite_book
+ 11.13%   40.740     13 Template:Cite_web
+  9.12%   33.384      9 Template:Cite_journal
+  7.06%   25.854      4 Template:Category_handler
+  6.76%   24.755      1 Template:Compression_Methods
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:8013-0!*!0!!en!4!* and timestamp 20170128061647 and revision id 762234761
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Data_compression&amp;oldid=762234761">https://en.wikipedia.org/w/index.php?title=Data_compression&amp;oldid=762234761</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Computing" title="Category:Computing">Computing</a></li><li><a href="/wiki/Category:Data_compression" title="Category:Data compression">Data compression</a></li><li><a href="/wiki/Category:Digital_audio" title="Category:Digital audio">Digital audio</a></li><li><a href="/wiki/Category:Digital_television" title="Category:Digital television">Digital television</a></li><li><a href="/wiki/Category:Film_and_video_technology" title="Category:Film and video technology">Film and video technology</a></li><li><a href="/wiki/Category:Video_compression" title="Category:Video compression">Video compression</a></li><li><a href="/wiki/Category:Videotelephony" title="Category:Videotelephony">Videotelephony</a></li><li><a href="/wiki/Category:Utility_software_types" title="Category:Utility software types">Utility software types</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:CS1_maint:_Multiple_names:_authors_list" title="Category:CS1 maint: Multiple names: authors list">CS1 maint: Multiple names: authors list</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_October_2015" title="Category:Articles with unsourced statements from October 2015">Articles with unsourced statements from October 2015</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_January_2017" title="Category:Articles with unsourced statements from January 2017">Articles with unsourced statements from January 2017</a></li><li><a href="/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Data+compression" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Data+compression" title="You're encouraged to log in; however, it's not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Data_compression"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Data_compression"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Data_compression" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Data_compression&amp;action=edit"  title="Edit this page [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Data_compression&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Data_compression" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Data_compression" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Data_compression&amp;oldid=762234761" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Data_compression&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Q2493" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Data_compression&amp;id=762234761" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+						<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Data+compression">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Data+compression&amp;returnto=Data+compression&amp;oldid=762234761&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Data_compression&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-wikibase-otherprojects' aria-labelledby='p-wikibase-otherprojects-label'>
+			<h3 id='p-wikibase-otherprojects-label'>In other projects</h3>
+
+			<div class="body">
+									<ul>
+						<li class="wb-otherproject-link wb-otherproject-commons"><a href="https://commons.wikimedia.org/wiki/Category:Data_compression" hreflang="en">Wikimedia Commons</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+						<li class="interlanguage-link interwiki-als"><a href="https://als.wikipedia.org/wiki/Datenkompression" title="Datenkompression – Alemannisch" lang="als" hreflang="als" class="interlanguage-link-target">Alemannisch</a></li><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%B6%D8%BA%D8%B7_%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA" title="ضغط بيانات – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-be-x-old"><a href="https://be-x-old.wikipedia.org/wiki/%D0%A1%D1%8C%D1%86%D1%96%D1%81%D0%BA%D0%B0%D0%BD%D1%8C%D0%BD%D0%B5_%D0%B7%D1%8C%D0%B2%D0%B5%D1%81%D1%82%D0%B0%D0%BA" title="Сьцісканьне зьвестак – беларуская (тарашкевіца)‎" lang="be-x-old" hreflang="be-x-old" class="interlanguage-link-target">Беларуская (тарашкевіца)‎</a></li><li class="interlanguage-link interwiki-bg"><a href="https://bg.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D0%B8%D1%80%D0%B0%D0%BD%D0%B5_%D0%BD%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8" title="Компресиране на данни – Bulgarian" lang="bg" hreflang="bg" class="interlanguage-link-target">Български</a></li><li class="interlanguage-link interwiki-bs"><a href="https://bs.wikipedia.org/wiki/Sa%C5%BEimanje_podataka" title="Sažimanje podataka – Bosnian" lang="bs" hreflang="bs" class="interlanguage-link-target">Bosanski</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Compressi%C3%B3_de_dades" title="Compressió de dades – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Komprese_dat" title="Komprese dat – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-da"><a href="https://da.wikipedia.org/wiki/Datakompression" title="Datakompression – Danish" lang="da" hreflang="da" class="interlanguage-link-target">Dansk</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Datenkompression" title="Datenkompression – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-et"><a href="https://et.wikipedia.org/wiki/Andmete_pakkimine" title="Andmete pakkimine – Estonian" lang="et" hreflang="et" class="interlanguage-link-target">Eesti</a></li><li class="interlanguage-link interwiki-el"><a href="https://el.wikipedia.org/wiki/%CE%A3%CF%85%CE%BC%CF%80%CE%AF%CE%B5%CF%83%CE%B7_%CE%B4%CE%B5%CE%B4%CE%BF%CE%BC%CE%AD%CE%BD%CF%89%CE%BD" title="Συμπίεση δεδομένων – Greek" lang="el" hreflang="el" class="interlanguage-link-target">Ελληνικά</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Compresi%C3%B3n_de_datos" title="Compresión de datos – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-eu"><a href="https://eu.wikipedia.org/wiki/Datu-konpresio" title="Datu-konpresio – Basque" lang="eu" hreflang="eu" class="interlanguage-link-target">Euskara</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D9%81%D8%B4%D8%B1%D8%AF%D9%87%E2%80%8C%D8%B3%D8%A7%D8%B2%DB%8C_%D8%AF%D8%A7%D8%AF%D9%87%E2%80%8C%D9%87%D8%A7" title="فشرده‌سازی داده‌ها – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Compression_de_donn%C3%A9es" title="Compression de données – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ga"><a href="https://ga.wikipedia.org/wiki/Comhbhr%C3%BA_sonra%C3%AD" title="Comhbhrú sonraí – Irish" lang="ga" hreflang="ga" class="interlanguage-link-target">Gaeilge</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%95%95%EC%B6%95" title="데이터 압축 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-hi"><a href="https://hi.wikipedia.org/wiki/%E0%A4%86%E0%A4%82%E0%A4%95%E0%A4%A1%E0%A4%BC%E0%A4%BE_%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%A8" title="आंकड़ा संपीडन – Hindi" lang="hi" hreflang="hi" class="interlanguage-link-target">हिन्दी</a></li><li class="interlanguage-link interwiki-hr"><a href="https://hr.wikipedia.org/wiki/Sa%C5%BEimanje_podataka" title="Sažimanje podataka – Croatian" lang="hr" hreflang="hr" class="interlanguage-link-target">Hrvatski</a></li><li class="interlanguage-link interwiki-id"><a href="https://id.wikipedia.org/wiki/Kompresi_data" title="Kompresi data – Indonesian" lang="id" hreflang="id" class="interlanguage-link-target">Bahasa Indonesia</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Compressione_dei_dati" title="Compressione dei dati – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%93%D7%97%D7%99%D7%A1%D7%AA_%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D" title="דחיסת נתונים – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-kk"><a href="https://kk.wikipedia.org/wiki/%D0%9C%D3%99%D0%BB%D1%96%D0%BC%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%B4%D1%96_%D2%9B%D1%8B%D1%81%D1%83" title="Мәліметтерді қысу – Kazakh" lang="kk" hreflang="kk" class="interlanguage-link-target">Қазақша</a></li><li class="interlanguage-link interwiki-ky"><a href="https://ky.wikipedia.org/wiki/%D0%91%D0%B5%D1%80%D0%B8%D0%BB%D0%B8%D1%88%D1%82%D0%B5%D1%80%D0%B4%D0%B8_%D0%BA%D1%8B%D1%81%D1%83%D1%83" title="Берилиштерди кысуу – Kyrgyz" lang="ky" hreflang="ky" class="interlanguage-link-target">Кыргызча</a></li><li class="interlanguage-link interwiki-la"><a href="https://la.wikipedia.org/wiki/Compressio_datorum" title="Compressio datorum – Latin" lang="la" hreflang="la" class="interlanguage-link-target">Latina</a></li><li class="interlanguage-link interwiki-lv"><a href="https://lv.wikipedia.org/wiki/Datu_saspie%C5%A1ana" title="Datu saspiešana – Latvian" lang="lv" hreflang="lv" class="interlanguage-link-target">Latviešu</a></li><li class="interlanguage-link interwiki-lt"><a href="https://lt.wikipedia.org/wiki/Glaudinimas" title="Glaudinimas – Lithuanian" lang="lt" hreflang="lt" class="interlanguage-link-target">Lietuvių</a></li><li class="interlanguage-link interwiki-hu"><a href="https://hu.wikipedia.org/wiki/Adatt%C3%B6m%C3%B6r%C3%ADt%C3%A9s" title="Adattömörítés – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target">Magyar</a></li><li class="interlanguage-link interwiki-ms"><a href="https://ms.wikipedia.org/wiki/Mampatan_data" title="Mampatan data – Malay" lang="ms" hreflang="ms" class="interlanguage-link-target">Bahasa Melayu</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/Datacompressie" title="Datacompressie – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target">Nederlands</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%9C%A7%E7%B8%AE" title="データ圧縮 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-no"><a href="https://no.wikipedia.org/wiki/Datakompresjon" title="Datakompresjon – Norwegian" lang="no" hreflang="no" class="interlanguage-link-target">Norsk bokmål</a></li><li class="interlanguage-link interwiki-nn"><a href="https://nn.wikipedia.org/wiki/Datakomprimering" title="Datakomprimering – Norwegian Nynorsk" lang="nn" hreflang="nn" class="interlanguage-link-target">Norsk nynorsk</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Kompresja_(informatyka)" title="Kompresja (informatyka) – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Compress%C3%A3o_de_dados" title="Compressão de dados – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ro"><a href="https://ro.wikipedia.org/wiki/Compresie_de_date" title="Compresie de date – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target">Română</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B6%D0%B0%D1%82%D0%B8%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" title="Сжатие данных – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-simple"><a href="https://simple.wikipedia.org/wiki/Data_compression" title="Data compression – Simple English" lang="simple" hreflang="simple" class="interlanguage-link-target">Simple English</a></li><li class="interlanguage-link interwiki-sk"><a href="https://sk.wikipedia.org/wiki/Kompresia_d%C3%A1t" title="Kompresia dát – Slovak" lang="sk" hreflang="sk" class="interlanguage-link-target">Slovenčina</a></li><li class="interlanguage-link interwiki-ckb"><a href="https://ckb.wikipedia.org/wiki/%D9%BE%DB%95%D8%B3%D8%AA%D8%A7%D9%86%D8%AF%D9%86%DB%8C_%D8%AF%D8%A7%D8%AA%D8%A7" title="پەستاندنی داتا – Central Kurdish" lang="ckb" hreflang="ckb" class="interlanguage-link-target">کوردیی ناوەندی</a></li><li class="interlanguage-link interwiki-sh"><a href="https://sh.wikipedia.org/wiki/Kompresija_podataka" title="Kompresija podataka – Serbo-Croatian" lang="sh" hreflang="sh" class="interlanguage-link-target">Srpskohrvatski / српскохрватски</a></li><li class="interlanguage-link interwiki-fi"><a href="https://fi.wikipedia.org/wiki/Tiedonpakkaus" title="Tiedonpakkaus – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target">Suomi</a></li><li class="interlanguage-link interwiki-sv"><a href="https://sv.wikipedia.org/wiki/Datakompression" title="Datakompression – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target">Svenska</a></li><li class="interlanguage-link interwiki-th"><a href="https://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9A%E0%B8%B5%E0%B8%9A%E0%B8%AD%E0%B8%B1%E0%B8%94%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5" title="การบีบอัดข้อมูล – Thai" lang="th" hreflang="th" class="interlanguage-link-target">ไทย</a></li><li class="interlanguage-link interwiki-tr"><a href="https://tr.wikipedia.org/wiki/Veri_s%C4%B1k%C4%B1%C5%9Ft%C4%B1rma" title="Veri sıkıştırma – Turkish" lang="tr" hreflang="tr" class="interlanguage-link-target">Türkçe</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D0%B8%D1%81%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" title="Стиснення даних – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-ur"><a href="https://ur.wikipedia.org/wiki/%D9%85%D8%B9%D8%B7%DB%8C%D8%A7%D8%AA%DB%8C_%D8%AF%D8%A7%D8%A8%DB%8C%D8%AA" title="معطیاتی دابیت – Urdu" lang="ur" hreflang="ur" class="interlanguage-link-target">اردو</a></li><li class="interlanguage-link interwiki-vi"><a href="https://vi.wikipedia.org/wiki/N%C3%A9n_d%E1%BB%AF_li%E1%BB%87u" title="Nén dữ liệu – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target">Tiếng Việt</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9" title="数据压缩 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li>					</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Q2493#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 27 January 2017, at 14:42.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement">Cookie statement</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Data_compression&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+							<a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>						</li>
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.408","walltime":"0.492","ppvisitednodes":{"value":2655,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":208285,"limit":2097152},"templateargumentsize":{"value":2377,"limit":2097152},"expansiondepth":{"value":11,"limit":40},"expensivefunctioncount":{"value":3,"limit":500},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  365.978      1 -total"," 44.37%  162.379      1 Template:Reflist"," 22.55%   82.542     17 Template:Navbox"," 15.32%   56.082      2 Template:Citation_needed"," 14.12%   51.660      2 Template:Fix"," 13.02%   47.653      8 Template:Cite_book"," 11.13%   40.740     13 Template:Cite_web","  9.12%   33.384      9 Template:Cite_journal","  7.06%   25.854      4 Template:Category_handler","  6.76%   24.755      1 Template:Compression_Methods"]},"scribunto":{"limitreport-timeusage":{"value":"0.191","limit":"10.000"},"limitreport-memusage":{"value":4896764,"limit":52428800}},"cachereport":{"origin":"mw1263","timestamp":"20170128061647","ttl":2592000,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":78,"wgHostname":"mw1184"});});</script>
+	</body>
+</html>

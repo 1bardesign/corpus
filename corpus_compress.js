@@ -1,198 +1,135 @@
-var encoding_first_index = 1; //avoid nulls
-var encoding_entries = 253;
+var encoding_literal_byte = 1;
+var encoding_literal_string = 2;
+var encoding_dictionary_entry = 3;
 
 //todo: just solve the linear equations instead of iterating
-function capacity_with_start(start)
-{
-	return start + 255 * (encoding_entries - start)
-}
-
-function calc_start_multibyte_from_len(len)
-{
-	var start = encoding_entries + 1;
-	if (len > encoding_entries)
-	{
-		do {
-			start = start - 1;
-		} while(capacity_with_start(start) < len)
-	}
-	return start;
-}
-
-function calc_start_multibyte(dict)
-{
-	return calc_start_multibyte_from_len(dict.length)
-}
-
-function index_to_multibyte(start, index)
-{
-	if (index < start)
-	{
-		return [index]
-	}
-	else
-	{
-		index = index - start;
-		while (index >= 255)
-		{
-			index = index - 255;
-			start = start + 1;
-		}
-		return [start, index + encoding_first_index];
-	}
-}
-
-function multibyte_to_index(start, a, b)
-{
-	if (b == null)
-	{
-		return a;
-	}
-	else
-	{
-		return start + (a - start) * 255 + (b - encoding_first_index);
-	}
-}
 
 //searching for sub patterns
-function find_sub_at(s, index, lookup, levels)
+function find_index_at(s, index, lookup, levels)
 {
-	for (var i = levels; i > 0; i--)
+	var search = s.substring(index, index + levels);
+	for (var i = levels; i > 1; i--)
 	{
-		var sub = s.substr(index, i);
-		if (sub in lookup)
+		var sub = search.substring(0, i);
+		var luv = lookup[sub];
+		if (luv)
 		{
-			return sub
+			return luv;
 		}
 	}
-	return null
+	return null;
 }
 
 function compress(s, dict)
 {
 	//prep tables into lookup
-	var lookup = {}
+	var lookup = {};
 	var levels = 1;
 	for (var i = 0; i < dict.length; i++)
 	{
 		var v = dict[i];
 		lookup[v] = i;
-		levels = Math.max(levels, v.length);
+		levels = Math.max(levels, v.length)
 	}
 
-	var start_multibyte = calc_start_multibyte(dict);
 	var index = 0;
 	var len = s.length;
 	var output = [];
-	while (index < len)
+	while (index < len && output.length < len + 2) //or if straight string is smaller
 	{
 		//search for a match, longest first
-		var found = find_sub_at(s, index, lookup, levels)
-		var flen = 0;
-		if(found)
+		var found = find_index_at(s, index, lookup, levels);
+		if (found != null)
 		{
 			//nice, there's something in the dictionary
-			flen = found.length;
-			var encoded = index_to_multibyte(start_multibyte, lookup[found] + 1);
-			while(encoded.length > 0)
-			{
-				output.push(encoded.shift())
-			}
-			index += flen;
+			output.push(found + encoding_dictionary_entry);
+			index += dict[found].length;
 		}
 		else
 		{
 			//dang, it's not, figure out how few bytes we can get away with encoding..
 			var bad_bytes = 1;
-			while (!found && bad_bytes < 255 && index + bad_bytes < len)
+			while (!found && bad_bytes < 0xD800 && index + bad_bytes < len)
 			{
-				found = find_sub_at(s, index + bad_bytes, lookup, levels);
-				if(found != null)
+				found = find_index_at(s, index + bad_bytes + 1, lookup, levels);
+				//skip any short dict entries because restarting verbatim encoding has overhead
+				if (found != null && dict[found].length <= 2 && bad_bytes > 1)
 				{
-					flen = found.length;
-				}
-
-				//skip any short dict entries in this window because restarting verbatim encoding has overhead
-				if(flen <= 2 && bad_bytes > 1 && bad_bytes < 8)
-				{
+					//todo: detect when there's a viable run of small breaks ahead
 					found = null;
 				}
-				bad_bytes = bad_bytes + 1;
+				bad_bytes += 1;
 			}
-			if(bad_bytes == 1)
+			if (bad_bytes == 1)
 			{
 				// byte verbatim
-				output.push(255);
+				output.push(encoding_literal_byte);
 				output.push(s.charCodeAt(index));
 			}
 			else
 			{
 				// string verbatim
-				output.push(254);
+				output.push(encoding_literal_string);
 				output.push(bad_bytes);
-				for(var i = 0; i < bad_bytes; i++)
+				for (var i = 0; i < bad_bytes; i++)
 				{
-					output.push(s.charCodeAt(index+i));
+					output.push(s.charCodeAt(index + i));
 				}
 			}
 			index += bad_bytes;
 		}
 	}
 
-	for (var i = 0; i < output.length; i++)
+	if(output.length < len + 2)
 	{
-		output[i] = String.fromCharCode(output[i]);
-	}
+		for (var i = 0; i < output.length; i++)
+		{
+			output[i] = String.fromCharCode(output[i])
+		}
 
-	return output.join("");
+		return output.join("")
+	}
+	else //string verbatim
+	{
+		return [String.fromCharCode(encoding_literal_string), String.fromCharCode(len), s].join("")
+	}
 }
 
 function decompress(s, dict)
 {
-	var start_multibyte = calc_start_multibyte(dict);
 	var index = 0;
 	var len = s.length;
 	var output = [];
-	var err = null;
 	while (index < len)
 	{
 		var b = s.charCodeAt(index);
-		if (b > 0 && b <= dict.length && b < 254)
+		if (b == encoding_literal_byte)
 		{
-			//tab entry
-			var tabindex = b;
-			if (b < start_multibyte)
-			{
-				index++;
-			}
-			else
-			{
-				tabindex = multibyte_to_index(start_multibyte, b, s.charCodeAt(index + 1));
-				index += 2;
-			}
-			output.push(dict[tabindex-1]);
+			//byte
+			output.push(s.charAt(index + 1));
+			index += 2;
 		}
-		else if (b == 254)
+		else if (b == encoding_literal_string)
 		{
 			//string
 			var s_len = s.charCodeAt(index + 1);
-			for (var i = 1; i <= s_len; i++)
-			{
-				output.push(s.substr(index + 1 + i, 1))
-			}
+			output.push(s.substring(index + 2, index + 2 + s_len));
 			index += 2 + s_len;
 		}
-		else if (b == 255)
+		else if (b >= encoding_dictionary_entry)
 		{
-			//byte
-			output.push(s.substr(index + 1, 1))
-			index += 2;
+			//tab entry
+			var tabindex = b - encoding_dictionary_entry;
+			output.push(dict[tabindex]);
+			index += 1;
 		}
 		else
 		{
 			//null
-			throw "malformed input"
+			output.push("\0");
+			index += 1;
 		}
 	}
-	return output.join("")
+
+	return output.join("");
 }

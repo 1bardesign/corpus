@@ -8,32 +8,35 @@
 	<script type="text/javascript">
 		function comp_to_rep(s)
 		{
-			var out = []
+			var out = [];
 			for (var i = 0; i < s.length; i++)
 			{
-				var b = s.charCodeAt(i)
+				var b = s.charCodeAt(i);
 				if (b == 0)
 				{
-					out.push("0")
+					out.push("0");
 				}
-				else if(b == 255)
+				else if(b == 1)
 				{
-					out.push("b")
-					out.push(s.substr(++i))
+					var b = ["b", JSON.stringify(s.charAt(++i))];
+					out.push(b.join(" "));
 				}
-				else if(b == 254)
+				else if(b == 2)
 				{
-					out.push("st")
-					var count = s.charCodeAt(++i)
-					while(count-- > 0)
-						out.push(s.substr(++i))
+					var b = [];
+					b.push("st");
+					var count = s.charCodeAt(++i);
+					b.push(count);
+					b.push(JSON.stringify(s.substr(i+1, count)))
+					i += count;
+					out.push(b.join(" "));
 				}
 				else
 				{
-					out.push("d")
+					out.push("d");
 				}
 			}
-			return out.join(" ");
+			return "["+out.join("] [")+"]";
 		}
 
 		function init()
@@ -50,10 +53,12 @@
 				var compressed = compress(input, compression_dict);
 				var decompressed = decompress(compressed, compression_dict);
 				con.innerHTML = [
-					["length:", input.length, input].join(" "),
-					["length:", compressed.length, comp_to_rep(compressed)].join(" "),
-					["length:", decompressed.length, decompressed].join(" "),
-					input == decompressed].join("\n\n")
+					["<p>", "length:", input.length, input, "</p>"].join(" "),
+					["<p>", "length:", compressed.length, comp_to_rep(compressed), "</p>"].join(" "),
+					["<p>", JSON.stringify(compressed), "</p>"].join(" "),
+					["<p>", "length:", decompressed.length, decompressed, "</p>"].join(" "),
+					["<p>", (input == decompressed ? "(success!)" : "(failure!)"), "compressed size: "+ Math.round((compressed.length / decompressed.length) * 100)+"%", "</p>"].join(" ")
+					].join("\n\n")
 
 				form.value = "";
 			});
@@ -81,7 +86,7 @@
 <body>
 <div id="container">
 <form id="input"><input type="textfield" name="send"/></form>
-<pre id="output"></pre>
+<p id="output"></p>
 </div>
 </body>
 </html>
