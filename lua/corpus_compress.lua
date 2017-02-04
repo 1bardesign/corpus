@@ -44,13 +44,15 @@ local function compress(s, dict)
 			--dang, it's not, figure out how few bytes we can get away with encoding..
 			local bad_bytes = 1
 			while not found and bad_bytes < 0xD800 and index + bad_bytes < len do
-				found, flen = find_index_at(s, index + bad_bytes + 1, lookup, levels)
+				found, flen = find_index_at(s, index + bad_bytes, lookup, levels)
 				--skip any short dict entries because restarting verbatim encoding has overhead
 				if flen <= 2 and bad_bytes > 1 then
 					--todo: detect when there's a viable run of small breaks ahead
 					found = nil
 				end
-				bad_bytes = bad_bytes + 1
+				if not found then
+					bad_bytes = bad_bytes + 1
+				end
 			end
 			if bad_bytes == 1 then
 				-- byte verbatim

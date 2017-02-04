@@ -8,19 +8,19 @@ It is currently firmly in the "toy" stage of development, but I'm seeing reasona
 
 # Motivation
 
-I came across [smaz](https://github.com/antirez/smaz/), and wanted to generalise the set-codebook encoding style in a reusable way for the web, particularly for use in games using websockets.
+I came across [smaz](https://github.com/antirez/smaz/), and wanted to generalise the set-codebook encoding style in a reusable way for the web, particularly for use in games and APIs with predictable protocols.
 
-I also wanted to make the compressor "text safe" (UTF-8 in, UTF-8 out), which makes working with the results easier and more safe. As a result, many more dictionary entries than smaz can be used.
+I also wanted to make the compressor "text safe" (UTF-8 in, UTF-8 out), which makes working with the results easier for humans, and more safe in terms of feeding it to foreign code (no nulls, no bad chars). As a result, larger dictionaries can be used with corpus than smaz.
 
 This is _not_ a rival for [LZString](https://github.com/pieroxy/lz-string), and especially not a rival for `gzip` and friends.
 
 # Demo
 
-You can see a demo (currently using the smaz codebook for simplicity) [here](https://1bardesign.github.io/corpus/)
+You can see a demo [here](https://1bardesign.github.io/corpus/) - it currently uses the smaz codebook for simplicity.
 
 # Process
 
-__Part One:__ Derivation.
+__Part One:__ Dictionary Derivation
 
 A corpus of data is fed through the derivation script. Substrings of the corpus are sorted by occurance, and then optionally filtered for similarity and then output as UTF-8 json. This process only needs to be done once for a corpus, the dictionary can then be embedded in the application and used for compression and decompression. Multiple dictionaries can also be present in a single application (for compressing XML and JSON separately, for example).
 
@@ -42,7 +42,7 @@ js-side, codepoints outside the BMP may cause issues at the moment; this defect 
 
 # Getting Started
 
-The files under js/ and lua/ should be all you need to get started under each respective language. The packaging could use some work - I'll look at making it npm-sensible
+The files under js/ and lua/ should be all you need to get started under each respective language. The packaging could use some work - I'll look at making it npm-sensible if there's any interest!
 
 For JS in HTML:
 ```
@@ -50,13 +50,20 @@ For JS in HTML:
 <!-- optionally pull in a dictionary -->
 <script src="lib/corpus/default_dicts.js"></script>
 <script>
-	console.log(compress("check out this neat little compressor", default_dicts.smaz))
+	console.log(corpus_compress("check out this neat little compressor", corpus_dicts.smaz))
 </script>
 ```
 
 For Lua:
 ```
 local corpus_compress = require "corpus_compress"
+
+--using a default dict for compression
 local dicts = require "corpus_default_dicts"
 print(corpus_compress.compress("check out this neat little compressor", dicts.smaz))
+
+--or deriving your own and dumping it to stdout as json
+local corpus_derive = require "corpus_derive"
+dict = corpus_derive.dictionary_from_file("your_corpus_file")
+print(corpus_derive.dict_to_json(dict))
 ```

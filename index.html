@@ -2,10 +2,15 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>corpus: tiny compression for browsers and scripts</title>
+	<title>corpus: tiny compression for strings</title>
 	<script type="text/javascript" src="js/corpus_compress.js"></script>
 	<script type="text/javascript" src="js/corpus_default_dicts.js"></script>
 	<script type="text/javascript">
+		function escape_tags(s)
+		{
+			return s.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+		}
+
 		function comp_to_rep(s)
 		{
 			var out = [];
@@ -47,24 +52,31 @@
 				event.preventDefault();
 
 				var form = document.getElementsByName("send")[0];
+				var selected = document.getElementsByName("dictionary")[0].value;
 				var con = document.getElementById("output");
 
-				var compression_dict = default_dicts.smaz;
+				var compression_dict = corpus_dicts[selected];
 
 				var input = form.value;
-				var compressed = compress(input, compression_dict);
-				var decompressed = decompress(compressed, compression_dict);
+				var compressed = corpus_compress(input, compression_dict);
+				var decompressed = corpus_decompress(compressed, compression_dict);
 				con.innerHTML = [
-					["<p>", "length:", input.length, JSON.stringify(input), "</p>"].join(" "),
-					["<p>", "length:", compressed.length, comp_to_rep(compressed), "</p>"].join(" "),
-					["<p>", JSON.stringify(compressed), "</p>"].join(" "),
-					["<p>", (input == decompressed ?
-						"compressed size: "+ Math.round((compressed.length / decompressed.length) * 100)+"%" :
-						"(failed round-trip: "+JSON.stringify(decompressed)+")"),
-					"</p>"].join(" ")
-					].join("\n\n")
-
-				form.value = "";
+					["<span class=\"form_name\">output:</span>",
+						"<p class=\"result\">",
+							escape_tags(JSON.stringify(compressed)),
+						"</p>"].join(" "),
+					["<span class=\"form_name\">breakdown:</span>",
+						"<p class=\"result\">",
+							escape_tags(comp_to_rep(compressed)),
+						"</p>"].join(" "),
+					["<span class=\"form_name\">statistics:</span>",
+						"<p class=\"result\">",
+							(input == decompressed ? "" : "failed to decompress!<br/>"),
+							"before:", input.length, "<br/>",
+							"after:", compressed.length, "<br/>",
+							"ratio: "+ Math.round((compressed.length / decompressed.length) * 1000) / 1000,
+						"</p>"].join(" ")
+					].join("\n");
 			});
 		}
 
@@ -74,23 +86,97 @@
 		body {
 			font-family: monospace;
 			background: grey;
+			line-height: 150%;
 		}
-		input {
-			width: 800px;
+		input[type=text] {
+			box-sizing: border-box;
+			font-family: monospace;
+			width: 670px;
+			padding: 5px;
+			background: white;
+			border: 2px solid grey;
+			border-radius: 4px;
+			margin: 5px;
+		}
+		select {
+			box-sizing: border-box;
+			font-family: monospace;
+			width: 670px;
+			padding: 5px;
+			background: white;
+			border: 2px solid grey;
+			border-radius: 4px;
+			margin: 5px;
+		}
+		.result {
+			box-sizing: border-box;
+			font-family: monospace;
+			width: 670px;
+			display: inline-block;
+			background: white;
+			padding: 5px;
+			border: 2px solid grey;
+			border-radius: 4px;
+			margin: 5px;
+		}
+		.block {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.form_name {
+			width: 100px;
+			display: inline-block;
+			text-align: right;
+			vertical-align: top;
+			margin-top: 0.75em;
 		}
 		#container {
 			background: white;
 			width: 860px;
+			min-height: 300px;
 			padding: 30px;
 			margin: auto;
 			margin-top: 10px;
+			border-radius: 4px;
+		}
+		#demo {
+			width: 800px;
+			padding: 20px;
+			margin: auto;
+			margin-top: 10px;
+			background: #eee;
+			border-radius: 4px;
 		}
 	</style>
 </head>
 <body>
 <div id="container">
-<form id="input"><input type="textfield" name="send"/></form>
-<p id="output"></p>
+	<h1>corpus: tiny compression for strings</h1>
+	<div class="block">
+		<p>Corpus is a small string compression library with accompanying codebook generation script.</p>
+		<p>It is available under the MIT license <a href="https://github.com/1bardesign/corpus">on github</a>.</p>
+		<p>Corpus stores patterns in a known set of data in a dictionary outside of the compressed data - this means that while it does a fairly bad job compared to other algorithms "in the general case", it can achieve good compression for repetitive protocol-style data and natural language, given the right dictionary for the job.</p>
+	</div>
+	<h2>Demo</h2>
+	<div class="block">
+		<p>Select a dictionary and enter text below to see corpus in action:</p>
+	</div>
+	<div id="demo">
+		<form id="input">
+			<span class="form_name">dictionary:</span>
+			<select name="dictionary">
+				<option value="english">english - for simple english</option>
+				<option value="smaz">smaz - "general purpose" from antirez's smaz library</option>
+				<option value="hex">hex - for hexadecimal numbers of either case</option>
+				<option value="js">js - for compressing javascript source code</option>
+				<option value="json">json - for compressing json encoded data</option>
+			</select>
+			<br/>
+			<span class="form_name">text:</span>
+			<input type="text" name="send" placeholder="type something, hit enter, see how it compresses">
+		</form>
+		<p id="output"></p>
+	</div>
 </div>
 </body>
 </html>

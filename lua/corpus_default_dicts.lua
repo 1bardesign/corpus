@@ -7,6 +7,73 @@ local default_dicts = {}
 	use with certain types of strings.
 ]]--
 
+--javascript source (from pixi and jquery, then hand-crafted)
+default_dicts.js = {
+	-- common letters and short subs (as derived)
+	"e","t","r","a","i","n","s","o","l","u",
+	"c",".","h","d","p","f","m","re",";","(",
+	")","th","b","g","v",",","y","te","on","x",
+	"_","w","{","}", "j", "k",
+	"E","T","R","A","I","N","S","O","L","U",
+	"C",".","H","D","P","F","M",
+	"B","G","V", "@",
+	"1","2","3","4","5","6","7","8","9","0",
+	-- whitespace and indentation
+	" ", "  ", "    ",
+	"\t","\t\t","\t\t\t\t",
+	"\n","\r\n",
+	-- operators
+	"+", "-", "/", "*", "=", "+=", "-=", "/=", "*=",
+	"<<", ">>", ">>>", "&", "^", "|", "&&","||", "!",
+	"<",">", "==", "!=", "===", "!==",
+	"%", "is", "in", "++", "--", "?", ":",
+	-- strings objects and arrays (basic)
+	"\"", "\"\"", "'", "'", "[", "]", "[]", "{}", ", ",
+	-- comments
+	"//", "/*", "*/",
+	-- operators with spaces
+	" + ", " - ", " / ", " * ", " = ", " += ", " -= ", " /= ", " *= ",
+	" << ", " >> ", " >>> ", " & ", " ^ ", " | ", " && "," || ", " !",
+	" < "," > ", " == ", " != ", " === ", " !== ", " ? ", " : ",
+	" % ", " is ", " in ",
+	-- control flow
+	"if", "if ", "else", "else if", "else {", "for", "for ", "while", "while ",
+	"if(", "if (", " else ", "for(", "for (", "while(", "while (",
+	"do", "do ",
+	"){", ") {", "()", "();", ") ", " (",
+	"break", "continue",
+	-- language
+	"var", "let", "new", "new", "delete",
+	"var ", "let ", "new ", "new ", "delete ",
+	"this", "return", "function",
+	"this.", "return;", "function ",
+	"true", "false", "null", "void", "undefined", "\"undefined\"",
+	"case", "default", "throw", "try", "catch",
+	"typeof", "instanceof", "arguments",
+	-- math
+	"Math", ".floor", ".ceil", ".abs", ".max", ".min",
+	-- strings objects and arrays (advanced)
+	"Array", ".push", ".pop", ".shift", ".unshift", ".length", ".join", "length",
+	"String", "toString", ".charAt", ".charCodeAt", ".charAt", ".substr", ".substring",
+	"Object", "hasOwnProperty", "assign", "copy", "clone", "OwnProperty",
+	"get", "set", ".get", ".set",
+	-- regex
+	"/g", "/gi", "/i",
+	-- canvas
+	"canvas", "context",
+	"Canvas", "Context",
+	-- misc specials
+	"document", "window", "event", "Event", "global",
+	"http://", "https://", ".com", ".org",
+	"Buffer", "error", "Error", ".0f", "|0", "0x",
+	"i++", "; i++", "i--", "param",
+	"Infinity", "NaN", "isNaN",
+	"exports", ".next", ".prev",
+	"count", "Count", "byte", "val",
+	"[i]", "[j]", "[0]", "index", "$.",
+	"for (var ", "for (var i = 0; i < ", ".length; i++"
+}
+
 --[[
 smaz codebook
 

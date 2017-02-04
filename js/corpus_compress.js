@@ -5,22 +5,21 @@ var encoding_dictionary_entry = 3;
 //todo: just solve the linear equations instead of iterating
 
 //searching for sub patterns
-function find_index_at(s, index, lookup, levels)
+function corpus_find_sub_at(s, index, lookup, levels)
 {
 	var search = s.substring(index, index + levels);
-	for (var i = levels; i > 1; i--)
+	for (var i = levels; i > 0; i--)
 	{
 		var sub = search.substring(0, i);
-		var luv = lookup[sub];
-		if (luv)
+		if (typeof lookup[sub] !== "undefined")
 		{
-			return luv;
+			return sub;
 		}
 	}
-	return null;
+	return "";
 }
 
-function compress(s, dict)
+function corpus_compress(s, dict)
 {
 	//prep tables into lookup
 	var lookup = {};
@@ -38,27 +37,30 @@ function compress(s, dict)
 	while (index < len && output.length < len + 2) //or if straight string is smaller
 	{
 		//search for a match, longest first
-		var found = find_index_at(s, index, lookup, levels);
-		if (found != null)
+		var found = corpus_find_sub_at(s, index, lookup, levels);
+		if (found !== "")
 		{
 			//nice, there's something in the dictionary
-			output.push(found + encoding_dictionary_entry);
-			index += dict[found].length;
+			output.push(lookup[found] + encoding_dictionary_entry);
+			index += found.length;
 		}
 		else
 		{
 			//dang, it's not, figure out how few bytes we can get away with encoding..
 			var bad_bytes = 1;
-			while (!found && bad_bytes < 0xD800 && index + bad_bytes < len)
+			while (found == "" && bad_bytes < 0xD800 && index + bad_bytes < len)
 			{
-				found = find_index_at(s, index + bad_bytes + 1, lookup, levels);
+				found = corpus_find_sub_at(s, index + bad_bytes, lookup, levels);
 				//skip any short dict entries because restarting verbatim encoding has overhead
-				if (found != null && dict[found].length <= 2 && bad_bytes > 1)
+				if (found != "" && found.length <= 2 && bad_bytes > 1)
 				{
 					//todo: detect when there's a viable run of small breaks ahead
-					found = null;
+					found = "";
 				}
-				bad_bytes += 1;
+				if (found == "")
+				{
+					bad_bytes += 1;
+				}
 			}
 			if (bad_bytes == 1)
 			{
@@ -95,7 +97,7 @@ function compress(s, dict)
 	}
 }
 
-function decompress(s, dict)
+function corpus_decompress(s, dict)
 {
 	var index = 0;
 	var len = s.length;

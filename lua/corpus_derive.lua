@@ -28,7 +28,7 @@ local json_string = require "json_string"
 --more isn't necessarily better; it'll give better coverage for
 --more general inputs, but for specialised datasets a smaller dict
 --can help with more agressive sorting of common strings
-local entries = 2048
+local entries = 1024
 --how long should the entries be (at maximum)
 --this is the number one performance killer, but longer entries
 --can result in more compression, if for example, runs of twenty spaces

@@ -13,8 +13,9 @@ local test_files = {
 	"french",
 	"hindi",
 	"chinese",
-	--apis
+	--apis/languages
 	"json",
+	"js",
 }
 
 function do_test(filename)
