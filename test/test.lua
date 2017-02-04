@@ -1,40 +1,49 @@
-package.path = "../?.lua;?.lua;;"
+package.path = "../lua/?.lua;?.lua;;"
 local utf8 = require "utf8"
-local corpus = require "corpus_compress"
-local derive = require "corpus_derive"
+local corpus_compress = require "corpus_compress"
+local corpus_derive = require "corpus_derive"
 
 ---------------------
 -- testing
 local test_runs = 1000
 local test_size_range = {30, 400}
 local test_files = {
-	--calgary corpus (text)
-	"cases/zeroes",
-	"cases/bib",
-	"cases/news",
-	"cases/progc",
-	"cases/progl",
-	"cases/progp",
-	--web pages
-	"cases/wikipedia",
-	"cases/wikipedia_txt",
-	"cases/github",
-	"cases/lua_manual",
-	--apis (repetitive)
-	"cases/kagapi",
 	--plain language
-	"cases/australian",
-	"cases/french",
-	"cases/hindi",
-	"cases/chinese",
+	"australian",
+	"french",
+	"hindi",
+	"chinese",
+	--apis
+	"json",
 }
 
 function do_test(filename)
-	io.input(filename)
+
+	local json_filename = "dict/"..filename..".json"
+	local case_filename = "cases/"..filename
+
+	local dict = nil
+	local f, err = io.open(json_filename)
+	if f then
+		--already existing dict, just use that
+		json_dict = f:read("*all")
+		dict = corpus_derive.json_to_dict(json_dict)
+		f:close()
+	end
+
+	io.input(case_filename)
 	local contents = io.read("*all")
 	local conlen = utf8.len(contents);
 
-	local dict = derive.dictionary_from_string(contents)
+	if dict == nil then
+		--have to derive it from the contents
+		dict = corpus_derive.dictionary_from_string(contents)
+		local f, err = io.open(json_filename, "w")
+		if f then
+			f:write(corpus_derive.dict_to_json(dict))
+			f:close()
+		end
+	end
 
 	local starttime = os.clock();
 
@@ -46,8 +55,8 @@ function do_test(filename)
 		--take sample
 		local sample = utf8.sub(contents, sample_from, sample_from + sample_len - 1)
 		--compress, encode and decompress
-		local compressed = corpus.compress(sample, dict);
-		local decompressed = corpus.decompress(compressed, dict);
+		local compressed = corpus_compress.compress(sample, dict);
+		local decompressed = corpus_compress.decompress(compressed, dict);
 
 		sample_len = string.len(sample)
 		table.insert(test_results, {

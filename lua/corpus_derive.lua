@@ -1,4 +1,5 @@
 local utf8 = require "utf8"
+local json_string = require "json_string"
 
 --[[
 	corpus_derive.lua
@@ -24,8 +25,14 @@ local utf8 = require "utf8"
 --but are used as defaults in all other cases
 
 --how many entries to collect (codebook size)
-local entries = 4096
+--more isn't necessarily better; it'll give better coverage for
+--more general inputs, but for specialised datasets a smaller dict
+--can help with more agressive sorting of common strings
+local entries = 2048
 --how long should the entries be (at maximum)
+--this is the number one performance killer, but longer entries
+--can result in more compression, if for example, runs of twenty spaces
+--are particularly common in your dataset.
 local entry_maxlength = 6
 --the gap between each scan level
 --(1 = scan all substrings, 3 = scan subs of length 1, 4, 7...)
@@ -62,13 +69,13 @@ end
 --end config
 ----------------------
 
-local _M = {}
+local corpus_derive = {}
 --if we're running standalone, will read from stdin
 local standalone = (debug.getinfo(2, "n").name == nil)
 --127 minus 3
 local first_page_ends = 124
 
-function _M.count_occurences(str, seen, config)
+function corpus_derive.count_occurences(str, seen, config)
 	config = fill_in_config(config)
 	seen = seen or {}
 	--note - this is not fast :)
@@ -91,7 +98,7 @@ function _M.count_occurences(str, seen, config)
 	return seen
 end
 
-function _M.count_occurences_file(filename, seen, config)
+function corpus_derive.count_occurences_file(filename, seen, config)
 	config = fill_in_config(config)
 	local f, err;
 	if filename and filename ~= "" then
@@ -105,12 +112,12 @@ function _M.count_occurences_file(filename, seen, config)
 
 	local contents = f:read("*all")
 
-	seen = _M.count_occurences(contents, seen, config)
+	seen = corpus_derive.count_occurences(contents, seen, config)
 
 	return seen
 end
 
-function _M.dictionary_from_counts(seen, config)
+function corpus_derive.dictionary_from_counts(seen, config)
 	config = fill_in_config(config)
 
 	--helpers
@@ -225,61 +232,93 @@ function _M.dictionary_from_counts(seen, config)
 	return finished
 end
 
-function _M.dictionary_from_string(s, config)
+function corpus_derive.dictionary_from_string(s, config)
 	config = fill_in_config(config)
-	return _M.dictionary_from_counts(_M.count_occurences(s, config), config)
+	return corpus_derive.dictionary_from_counts(corpus_derive.count_occurences(s, config), config)
 end
 
-function _M.dictionary_from_file(filename, config)
+function corpus_derive.dictionary_from_file(filename, config)
 	config = fill_in_config(config)
-	return _M.dictionary_from_counts(_M.count_occurences_file(filename, config), config)
+	return corpus_derive.dictionary_from_counts(corpus_derive.count_occurences_file(filename, config), config)
+end
+
+--outputs nice, compliant json
+function corpus_derive.dict_to_json(dict)
+	local chunks = {}
+	table.insert(chunks, "[")
+	local break_lines = 10
+	for k,v in ipairs(dict) do
+		table.insert(chunks, json_string.encode(v))
+		if k < #dict then
+			table.insert(chunks, ",")
+			if k % break_lines == break_lines - 1 then
+				table.insert(chunks, "\n")
+			end
+		end
+	end
+	table.insert(chunks, "]")
+	return table.concat(chunks, "")
+end
+
+--accepts compliant json and a variety of non-json as well
+--basically just consumes all strings in quotes without escapes;
+-- then json decodes the string
+function corpus_derive.json_to_dict(json)
+	local dict = {}
+	local current = nil
+	for sub in utf8.gensub(json, 1) do
+		if current == nil then
+			if sub == "\"" then
+				--start parsing
+				current = "\""
+			end
+		else
+			current = current .. sub
+			local done = false
+			if sub == "\"" then
+				--end?
+				local curlen = utf8.len(current)
+				local suffix_i = -2
+				--check for escape
+				if utf8.sub(current, suffix_i, suffix_i) == "\\" then
+					local backslashes = 1
+					--possibly escaped, figure out if there's even or odd backslashes
+					while math.abs(suffix_i) < curlen do
+						suffix_i = suffix_i - 1
+						if utf8.sub(current, suffix_i, suffix_i) ~= "\\" then
+							break
+						end
+						backslashes = backslashes + 1
+					end
+					if backslashes % 2 == 0 then
+						done = true
+					end
+				else
+					done = true
+				end
+			end
+			if done then
+				--it's the end, dump
+				table.insert(dict, json_string.decode(current))
+				current = nil
+			end
+		end
+	end
+	if current ~= nil then
+		error("unfinished string encountered when parsing dict - current is \""..current.."\"")
+	end
+	return dict
 end
 
 if standalone then
 	local dict
 	if #arg > 0 then
-		dict = _M.dictionary_from_file(arg[1])
+		dict = corpus_derive.dictionary_from_file(arg[1])
 	else
-		dict = _M.dictionary_from_file()
+		dict = corpus_derive.dictionary_from_file()
 	end
 
-	function json_escape(str)
-		local chunks = {}
-		for sub in utf8.gensub(str, 1) do
-			local chunk = sub
-			if sub == "\\" then
-				chunk = "\\\\"
-			elseif sub == "\"" then
-				chunk = "\\\""
-			elseif sub == "\n" then
-				chunk = "\\n"
-			elseif sub == "\t" then
-				chunk = "\\t"
-			elseif sub == "\r" then
-				chunk = "\\r"
-			elseif sub == "\b" then
-				chunk = "\\b"
-			elseif sub:byte() < 32 then
-				chunk = "\\u" .. string.format("%04X", sub:byte())
-			end
-			table.insert(chunks, chunk)
-		end
-
-		return "\""..table.concat(chunks, "").."\""
-	end
-
-	io.write("[")
-	local break_lines = 10
-	for k,v in ipairs(dict) do
-		io.write(json_escape(v))
-		if k < #dict then
-			io.write(",")
-			if k % break_lines == break_lines - 1 then
-				io.write("\n")
-			end
-		end
-	end
-	io.write("]\n")
+	io.write(corpus_derive.dict_to_json(dict))
 end
 
-return _M
+return corpus_derive

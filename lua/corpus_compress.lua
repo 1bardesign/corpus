@@ -77,11 +77,19 @@ local function compress(s, dict)
 		return table.concat(output, "")
 	else
 		--no-win, encode verbatim
-		output = {
-			utf8.char(encoding_literal_string),
-			utf8.char(len),
-			s
-		}
+		if len > 1 then
+			--string
+			output = {
+				utf8.char(encoding_literal_string),
+				utf8.char(len)
+			}
+		else
+			--byte
+			output = {
+				utf8.char(encoding_literal_byte)
+			}
+		end
+		table.insert(output, s)
 
 		return table.concat(output, "")
 	end
